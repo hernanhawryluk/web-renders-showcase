@@ -203,22 +203,6 @@ span.addEventListener('click', ()=> {
 });
 
 
-// ------------------------------------------------------------------------- API Valor Dolar Blue
-
-let dolar = 483;
-let dolarAPI = false;
-fetch('https://api.bluelytics.com.ar/v2/latest')
-    .then(response => response.json())
-    .then(data => {
-        dolarAPI = true;
-        let dolar = data.blue.value_sell;
-    })
-    .catch(error => {
-        dolarAPI = false;
-        console.log("error: can't fetch blue dolar api.");
-    });
-
-
 // ------------------------------------------------------------------------- Calculadora de Precios
 
 // ----------------------------------- Variables: Precios
@@ -410,7 +394,7 @@ proyectService[3].oninput = function () {
 proyectQuantity[3].oninput = function () { calculatePrice(); }
 
 let checkbox = document.getElementsByClassName('checkbox');
-for (let i = 1; i <= checkbox.length; i++) {
+for (let i = 0; i < checkbox.length; i++) {
     checkbox[i].addEventListener("click", checkboxSum);
 }
 
@@ -522,5 +506,22 @@ function toCommas(value) {
     return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }
 
-//  ----------------------------------- Calcula el precio inicial al cargar la web.
-calculatePrice();
+// ------------------------------------------------------------------------- API Valor Dolar Blue
+let dolar = 483;
+let dolarAPI = false;
+const checkDolar = async ()=> {
+    try {
+    let request = await fetch('https://api.bluelytics.com.ar/v2/latest');
+    let response = await request.json();
+    dolarAPI = true;
+    dolar = response.blue.value_sell;
+    calculatePrice();
+    }
+    catch(e) {
+        console.error(e);
+        dolarAPI = false;
+        calculatePrice();
+    }
+}
+
+checkDolar();
