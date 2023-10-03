@@ -7,60 +7,90 @@ menuIcon.addEventListener("click", () => {
     navbar.classList.toggle('active');
 });
 
+
 // scroll sections active link
 let sections = document.querySelectorAll('section');
 let navLinks = document.querySelectorAll('header nav a');
 let ColorTheme = "#ffffff";
 
+let scrollBefore = window.scrollY;
+let colorChange = false;
 
-var scrollBefore = 50;
-var colorChange = false;
-window.onscroll = () => {
-    sections.forEach(sec => {
-        let top = window.scrollY;
-        let offset = sec.offsetTop - 150;
-        let height = sec.offsetHeight;
-        let id = sec.getAttribute('id');
+const whiteNavBar = () => {
+    const header = document.querySelector("header");
+    header.style.backgroundColor = "#ffffff";
+    header.style.opacity = "95%";
 
-        if (top > 660 && colorChange == false) {
-            document.querySelector("header").style.backgroundColor = "#ffffff";
-            document.querySelector(".header-logo a").style.color = "#1f1f1f";
-            document.querySelector("header").style.opacity = "95%";
-            const item = document.querySelectorAll('.navbar a');
-            item.forEach(box => { box.style.color = '#1f1f1f'; });
-            colorChange = true;
-        }
-        if (top <= 660 && colorChange == true) {
-            document.querySelector("header").style.backgroundColor = "transparent";
-            document.querySelector(".header-logo a").style.color = "#ffffff";
-            document.querySelector("header").style.opacity = "100%";
-            const item = document.querySelectorAll('.navbar a');
-            item.forEach(box => { box.style.color = '#ffffff'; });
-            colorChange = false;
-        }
+    const headerLogo = document.querySelector(".header-logo a");
+    headerLogo.style.color = "#1f1f1f";
 
-        if (top >= offset && top < offset + height) {
-            navLinks.forEach(links => {
-                links.classList.remove('active');
-                document.querySelector('header nav a[href*=' + id + ']').classList.add('active');  
-            });
-        };
-            
+    const navbarLinks = document.querySelectorAll('.navbar a');
+    navbarLinks.forEach(link => { link.style.color = '#1f1f1f'; });
+
+    colorChange = true;
+}
+
+const transparentNavBar = () => {
+    const header = document.querySelector("header");
+    const logoLink = document.querySelector(".header-logo a");
+  
+    header.style.backgroundColor = "rgba(0, 0, 0, 0.05)";
+    header.style.opacity = "100%";
+    logoLink.style.color = "#ffffff";
+  
+    const navbarLinks = document.querySelectorAll('.navbar a');
+    navbarLinks.forEach(link => {
+        link.style.color = '#ffffff';
     });
+  
+    colorChange = false;
+}
 
-    // ------ Remove toggle icon and navbar when click navbar link (scroll)
-    menuIcon.classList.remove('bx-x');
-    navbar.classList.remove('active'); 
-};
-
-// ------------------------------------------------------------------------ Hide NavBar when scrolling down
-function showNavbar() {
+const showNavbar = () => {
     document.querySelector(".header").style.top = "0";
 }
 
-function hideNavbar () {
+const hideNavbar = () => {
     document.querySelector(".header").style.top = "-100px";
 }
+
+
+window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const navBarLinks = document.querySelectorAll('header nav a');
+    const scrollDirection = scrollTop < scrollBefore ? 'up' : 'down';
+
+    if (scrollTop > 660 && !colorChange) {
+        whiteNavBar();
+    }
+    if (scrollTop <= 660 && colorChange) {
+        transparentNavBar();
+    }
+
+    sections.forEach(section => {
+        const sectionOffset = section.offsetTop - 150;
+        const sectionHeight = section.offsetHeight;
+        const sectionId = section.getAttribute('id');
+
+        if (scrollTop >= sectionOffset && scrollTop < sectionOffset + sectionHeight) {
+            navBarLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+            document.querySelector(`header nav a[href*=${sectionId}]`).classList.add('active');
+        }
+    });
+
+    if (scrollDirection === 'up') {
+        showNavbar();
+    } else {
+        hideNavbar();
+    }
+    scrollBefore = scrollTop;
+
+    menuIcon.classList.remove('bx-x');
+    navbar.classList.remove('active');
+});
+
 
 // ------------------------------------------------------------------------ Slideshow Gallery
 let slideIndex = 0;
@@ -110,7 +140,9 @@ function showSlides(n) {
     }
 }
 
+
 // ------------------------------------------------------------------------- Scroll Reveal
+
 ScrollReveal({ 
     reset: false,
     distance: '80px',
@@ -123,7 +155,9 @@ ScrollReveal().reveal('#about-box-L h4, #service-content-L, .videos-images, .int
 ScrollReveal().reveal('#about-box-R, .photos-images, .i360-images, #box-right, .pricing-example, .container-methods, .contact-form', {origin: 'right'});
 ScrollReveal().reveal('#about-box-M, #service-content-R, #box-bottom, .btn, .container-budget', {origin: 'bottom'});
 
+
 // ------------------------------------------------------------------------- Agrega mas imagenes al Portfolio al hacer click
+
 let allImages = ['assets/images/one.jpg', 'assets/images/two.jpg', 'assets/images/three.jpg', 'assets/images/four.jpg', 'assets/images/five.jpg', 'assets/images/six.jpg', 'assets/images/one.jpg', 'assets/images/two.jpg', 'assets/images/three.jpg', 'assets/images/four.jpg'];
 let currentImageID = 9;
 let rotateAnim = 0;
@@ -290,6 +324,7 @@ function removeService() {
     calculatePrice();
 }
 
+
 // ----------------------------------- Slider para ajustar tamaño del proyecto.
 proyectSlider.oninput = function () {
     if(this.value == 0) {
@@ -310,6 +345,7 @@ proyectSlider.oninput = function () {
     calculatePrice();
 }
 
+
 // ----------------------------------- Slider para ajustar tipo de proyecto.
 proyectType.oninput = function () {
     if(this.value == 0) {
@@ -321,11 +357,12 @@ proyectType.oninput = function () {
         proyectImage.src = 'assets/images/two.jpg';
     }
     if(this.value == 2) {
-        proyectTypeText.textContent = "Interior & Exterior";
+        proyectTypeText.textContent = "Ambos";
         proyectImage.src = 'assets/images/three.jpg';
     }
     calculatePrice();
 }
+
 
 // ----------------------------------- Cambios en los Selectors al cambiar el tipo de servicio.
 function changeServiceText(proyectServiceX, serviceTextX, proyectQuantityX) {
@@ -363,6 +400,7 @@ function changeServiceText(proyectServiceX, serviceTextX, proyectQuantityX) {
             break;
     }
 }
+
 
 // ----------------------------------- Actualiza el precio al tocar cualquier ajuste.
 proyectService[0].oninput = function () {
@@ -407,6 +445,7 @@ function checkboxSum (event) {
     }
     calculatePrice();
 }
+
 
 // ----------------------------------- Calcula el precio. 
 function calculatePrice () {
@@ -467,6 +506,7 @@ function calculatePrice () {
     }
 }
 
+
 // ----------------------------------- Funcion auxiliar para multiplicar "servicio x cantidad" al calcular el precio.
 function serviceQuantityMultiplicator(service, quantity) {
     switch (service) {
@@ -501,10 +541,12 @@ function serviceQuantityMultiplicator(service, quantity) {
     }
 }
 
+
 // ----------------------------------- Agrega los "." entre los 3 digitos de un numero.
 function toCommas(value) {
     return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }
+
 
 // ------------------------------------------------------------------------- API Valor Dolar Blue
 let dolar = 483;

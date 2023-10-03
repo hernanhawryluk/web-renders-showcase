@@ -4,6 +4,6 @@
         $message .= "$key => $value\n";
     }
 
-    mail('hernanhawryluk@gmail.com', 'New Message from NBL Renders Website', $message);
+    mail('nblrenders@gmail.com', 'New Message from NBL Renders Website', $message);
     header('Location: index.html');
 ?>
