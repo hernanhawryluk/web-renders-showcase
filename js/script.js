@@ -9,34 +9,39 @@ menuIcon.addEventListener("click", () => {
 
 
 // scroll sections active link
-let sections = document.querySelectorAll('section');
-let navLinks = document.querySelectorAll('header nav a');
+const sections = document.querySelectorAll('section');
+const navLinks = document.querySelectorAll('header nav a');
+const navbarTheme = document.querySelector('.navbar');
+const menuSelector = document.querySelector('#menu-icon');
+const navbarLinks = document.querySelectorAll('.navbar a');
+const headerLogo = document.querySelector(".header-logo a");
+const header = document.querySelector("header");
+
 let ColorTheme = "#ffffff";
 
 let scrollBefore = window.scrollY;
 let colorChange = false;
 
-const whiteNavBar = () => {
-    const header = document.querySelector("header");
+const whiteHeader = () => {
     header.style.backgroundColor = "#ffffff";
     header.style.opacity = "95%";
-
-    const headerLogo = document.querySelector(".header-logo a");
     headerLogo.style.color = "#1f1f1f";
-
-    const navbarLinks = document.querySelectorAll('.navbar a');
+    navbarTheme.style.backgroundColor = "#fff";
+    menuSelector.style.color = "#1f1f1f";
     navbarLinks.forEach(link => { link.style.color = '#1f1f1f'; });
-
     colorChange = true;
 }
 
-const transparentNavBar = () => {
+const transparentHeader = () => {
     const header = document.querySelector("header");
     const logoLink = document.querySelector(".header-logo a");
   
     header.style.backgroundColor = "rgba(0, 0, 0, 0.05)";
     header.style.opacity = "100%";
     logoLink.style.color = "#ffffff";
+    menuSelector.style.color = "#fff";
+    navbarTheme.style.backgroundColor = "rgba(110, 110, 110, 0.2)";
+
   
     const navbarLinks = document.querySelectorAll('.navbar a');
     navbarLinks.forEach(link => {
@@ -47,11 +52,11 @@ const transparentNavBar = () => {
 }
 
 const showNavbar = () => {
-    document.querySelector(".header").style.top = "0";
+    // document.querySelector(".header").style.top = "0";
 }
 
 const hideNavbar = () => {
-    document.querySelector(".header").style.top = "-100px";
+    // document.querySelector(".header").style.top = "-100px";
 }
 
 
@@ -61,10 +66,10 @@ window.addEventListener('scroll', () => {
     const scrollDirection = scrollTop < scrollBefore ? 'up' : 'down';
 
     if (scrollTop > 660 && !colorChange) {
-        whiteNavBar();
+        whiteHeader();
     }
     if (scrollTop <= 660 && colorChange) {
-        transparentNavBar();
+        transparentHeader();
     }
 
     sections.forEach(section => {
