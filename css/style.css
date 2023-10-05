@@ -33,7 +33,7 @@ body {
 section {
     flex: 1;
     min-height: 100vh;
-    width: 100%;
+    width: 112%;
 }
 
 .header {
@@ -82,6 +82,7 @@ section {
     font-size: 1.7rem;
     color: var(--text-over-image);
     padding-right: 2rem;
+    padding-left: 2rem;
     text-shadow: 1px 1px 2px var(--shadow-color);
 }
 
@@ -101,7 +102,7 @@ section {
 .home .slideshow-container {
     position: absolute;
     height: 100vh;
-    width: 100%;
+    width: 112%;
 }
 
 .slideshow-container img {
@@ -224,7 +225,7 @@ section {
 
 .about {
     background-color: var(bg-color);
-    padding-top: 4rem;
+    padding-top: 3.5rem;
     padding-bottom: 5rem;
 }
 
@@ -240,7 +241,7 @@ section {
     font-size: 3.4rem;
     line-height: 6rem;
     color: var(--main-color);
-    padding-bottom: 3rem;
+    padding-bottom: 3.5rem;
     text-shadow: 1px 1px 3px var(--shadow-color);
 }
 
@@ -249,7 +250,7 @@ section {
     height: 1.6px;
     width: 60%;
     background-color: var(--main-accent);
-    margin-bottom: 3rem;
+    margin-bottom: 3.5rem;
 }
 
 .about-main p {
@@ -281,7 +282,8 @@ section {
 }
 
 #services {
-    padding-top: 3rem;
+    padding-top: 3.5rem;
+    padding-bottom: 2rem;
     background-color: var(--second-bg-color);
 }
 
@@ -349,8 +351,8 @@ section {
 }
 
 .photos-images .frame {
-    height: 22rem;
-    width: 36rem;
+    height: 18rem;
+    width: 31rem;
     position: relative;
     top: 0;
     left: 0;
@@ -358,11 +360,11 @@ section {
 }
 
 .photos-images .images {
-    top: 1rem;
-    left: 1rem;
+    top: 0.5rem;
+    left: 0.5rem;
     position: absolute;
-    height: 21rem;
-    width: 34rem;
+    height: 17rem;
+    width: 30rem;
     z-index: 0;
     border-radius: 8px;
     object-fit: cover;
@@ -382,8 +384,8 @@ section {
 }
 
 .videos-images .frame {
-    height: 22rem;
-    width: 36rem;
+    height: 18rem;
+    width: 31rem;
     position: relative;
     top: 0;
     left: 0;
@@ -391,11 +393,11 @@ section {
 }
 
 .videos-images .images {
-    top: 0.5rem;
-    left: 0.4rem;
+    top: 0.4rem;
+    left: 0.3rem;
     position: absolute;
-    height: 18.9rem;
-    width: 35.2rem;
+    height: 15.7rem;
+    width: 30.4rem;
     z-index: 1;
     border-radius: 1px;
     object-fit: cover;
@@ -409,8 +411,8 @@ section {
 }
 
 .i360-images .frame {
-    height: 22rem;
-    width: 36rem;
+    height: 18rem;
+    width: 31rem;
     position: absolute;
     top: 0;
     left: 0;
@@ -419,10 +421,10 @@ section {
 
 .i360-images .images {
     position: relative;
-    padding-top: 1rem;
-    padding-left: 1rem;
-    height: 21.5rem;
-    width: 35rem;
+    padding-top: 0.6rem;
+    padding-left: 0.6rem;
+    height: 17.4rem;
+    width: 30.4rem;
     z-index: 1;
     border-radius: 1rem;
 }
@@ -440,21 +442,21 @@ section {
 }
 
 .interactive-images .frame {
-    height: 22rem;
-    width: 39rem;
+    height: 18rem;
+    width: 31rem;
     position: relative;
     top: 0;
     z-index: 1;
 }
 
 .interactive-images .images {
-    top: 0.6rem;
-    left: 4.3rem;
+    top: 0.3rem;
+    left: 3.3rem;
     position: absolute;
-    height: 20rem;
-    width: 30.5rem;
+    height: 16.3rem;
+    width: 24.5rem;
     z-index: 1;
-    border-radius: 5px;
+    border-radius: 7px;
     object-fit: cover;
     object-position: 25%, 25%;
     background-color: var(--bg-color);
@@ -472,8 +474,8 @@ section {
 }
 
 .portfolio .portfolio-title {
-    font-size: 4.6rem;
-    padding-bottom: 5rem;
+    font-size: 3rem;
+    padding-bottom: 3rem;
     color: var(--main-color);
     text-shadow: 2px 2px 3px var(--shadow-color);
 }
@@ -503,8 +505,8 @@ section {
     box-shadow: 0 0 1rem var(--text-color);
     overflow: hidden;
     display: flex;
-    height: 22rem;
-    width: 36rem;
+    height: 18rem;
+    width: 31rem;
     transition: .5s ease;
 }
 
@@ -514,8 +516,8 @@ section {
     box-shadow: 0 0 1rem var(--text-color);
     overflow: hidden;
     display: flex;
-    height: 22rem;
-    width: 36rem;
+    height: 18rem;
+    width: 31rem;
     transition: .5s ease;
 }
 
@@ -622,29 +624,29 @@ cursor: pointer;
 
 .pricing-slider {
     margin-top: 1rem;
-    width: 22rem;
+    width: 20rem;
 }
 
 .type-slider {
     margin-top: 1rem;
-    width: 22rem;
+    width: 20rem;
 }
 
 .proyect-size {
-    padding-left: 1.5rem;
-    font-size: 1.8rem;
+    padding-left: 1.4rem;
+    font-size: 1.6rem;
     color: var(--main-color);
 }
 
 .proyect-type {
-    padding-left: 1.5rem;
-    font-size: 1.8rem;
+    padding-left: 1.4rem;
+    font-size: 1.6rem;
     color: var(--main-color);
 }
 
 .pricing-example img {
-    height: 22rem;
-    width: 36rem;
+    height: 16rem;
+    width: 27rem;
     border-radius: 2rem;
     box-shadow: 3px 3px 4px var(--shadow-color);
 }
@@ -656,13 +658,13 @@ cursor: pointer;
 }
 
 .container-type .pricing-select-type {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     margin-top: 2rem;
     padding: 0px 2px 0px;
 }
 
 .pricing-interactive .service-box {
-    padding-top: 2rem;
+    padding-top: 1.6rem;
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -675,11 +677,11 @@ cursor: pointer;
 .service-box p {
     color: var(--main-color);
     padding-top: 2rem;
-    font-size: 1.8rem;
+    font-size: 1.4rem;
 }
 
 .service-box select {
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     margin-top: 2rem;
     border: 1px solid var(--shadow-color);
     border-radius: 1rem;
@@ -736,11 +738,11 @@ cursor: pointer;
 
 #add-service {
     margin-bottom: 3rem;
+    font-size: 1.1rem;
     margin-top: 3rem;
 }
 
 .service-box {
-    /* display: none; */
     animation: 1.5s ease-out 0s 1 slideInFromLeft;
 }
 
@@ -780,15 +782,22 @@ cursor: pointer;
     flex-wrap: wrap;
     align-items: baseline;
     justify-content: space-evenly;
-    padding-top: 5rem;
-    
+    padding-top: 7rem;
+}
+
+.contact-container .contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .contact-info h2 {
-    font-size: 4rem;
+    font-size: 3rem;
     color: var(--main-color);
     text-shadow: 1px 1px 3px var(--shadow-color);
-    margin-bottom: 5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+    align-items: center;
 }
 
 .contact-info p {
@@ -796,14 +805,16 @@ cursor: pointer;
     font-weight: 300;
     line-height: 1.6;
     color: var(--text-color);
-    padding-bottom: 2rem;
+    padding-bottom: 1rem;
+    text-align: center;
 }
 
 .contact-info h3 {
-    padding: 4rem 0 2rem;
-    font-size: 3.6rem;
+    padding: 5rem 0 2rem;
+    font-size: 3rem;
     color: var(--main-color);
     text-shadow: 1px 1px 2px var(--shadow-color);
+    text-align: center;
 }
 
 .contact-info-whatsapp {
@@ -813,9 +824,9 @@ cursor: pointer;
     justify-content: center;
     align-items: center;
     background: transparent;
-    margin: 0 1rem 0;
-    padding: 1rem 1rem 1rem;
-    font-size: 3rem;
+    height: 3.5rem;
+    width: 27rem;
+    font-size: 1.8rem;
     border: .2rem solid var(--main-color);
     border-radius: 2rem;
     border-color: var(--text-color);
@@ -829,16 +840,16 @@ cursor: pointer;
 
 .contact-info-whatsapp i {
     color: green;
-    font-size: 3rem;
+    font-size: 1.8rem;
 }
 
 .contact-info-whatsapp span {
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: green;
 }
 
 .contact-form h2 {
-    font-size: 3.6rem;
+    font-size: 3rem;
     color: var(--main-color);
     text-shadow: 1px 1px 3px var(--shadow-color);
     padding-bottom: 1rem;
@@ -850,7 +861,6 @@ cursor: pointer;
     display: flex;
     justify-content: center;
     align-content: center;
-
 }
 
 .social-media a {
@@ -860,9 +870,9 @@ cursor: pointer;
     align-items: center;
     background: transparent;
     margin: 0 1rem 0;
-    font-size: 3rem;
-    width: 4rem;
-    height: 4rem;
+    font-size: 2.8rem;
+    width: 3.8rem;
+    height: 3.8rem;
     border: .2rem solid var(--main-color);
     border-radius: 25%;
     border-color: var(--text-color);
@@ -908,14 +918,16 @@ cursor: pointer;
 }
 
 .contact-form form .btn {
-    margin: 2rem;
+    margin: 1.5rem;
     cursor: pointer;
-    width: 22rem;
-    height: 5.5rem;
+    font-size: 1.4rem;
+    width: 18rem;
+    height: 4rem;
 }
 
 .footer{
     display: flex;
+    width: 112%;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
@@ -924,14 +936,14 @@ cursor: pointer;
 }
 
 .footer-text p {
-    font-size: 1rem;
+    font-size: 0.9rem;
 }
 
 .footer-iconTop a {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    padding: 0.9rem;
+    padding: 0.8rem;
     background: var(--main-color);
     border-radius: 0.8rem;
     transition: 0.5s ease;
@@ -942,7 +954,7 @@ cursor: pointer;
 }
 
 .footer-iconTop a i {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     color: var(--second-bg-color);
 }
 
