@@ -38,7 +38,9 @@ section {
 
 .header {
     position: fixed;
-    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
     height: 6rem;
     background: var(--bg-color);
     display: flex;
@@ -79,7 +81,7 @@ section {
 .navbar a {
     font-size: 1.7rem;
     color: var(--text-over-image);
-    margin-left: 4rem;
+    padding-right: 2rem;
     text-shadow: 1px 1px 2px var(--shadow-color);
 }
 
@@ -92,6 +94,7 @@ section {
     color: var(--bg-color);
     text-shadow: 1px 1px 1px var(--shadow-color);
     font-size: 3.8rem;
+    padding-right: 1rem;
     display: none;
 }
 
@@ -191,9 +194,10 @@ section {
 
 .mySlides .home-text{
     position: relative;
+    bottom: 0;
     width: "65%";
     left: 1px;
-    padding: 75vh 2rem;
+    padding: 15vh 2rem;
     display: inline-flex;
     flex-direction: column;
     position: absolute;
@@ -229,7 +233,6 @@ section {
     flex: 1;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     padding: 3rem 3rem 5rem;
 }
 
@@ -261,7 +264,6 @@ section {
     flex: 1;
     flex-direction: column;
     align-items: left;
-    justify-content: center;
     padding: 1rem 3rem 1rem;
 }
 
@@ -525,9 +527,6 @@ section {
     transform: scale(1.1);
 }
 
-/* MODAL */
-
-/* Style the Image Used to Trigger the Modal */
 #myImg {
     border-radius: 5px;
     cursor: pointer;
@@ -536,39 +535,36 @@ section {
 
 #myImg:hover {opacity: 0.7;}
 
-/* The Modal (background) */
 .modal {
-display: none; /* Hidden by default */
-position: fixed; /* Stay in place */
-z-index: 1; /* Sit on top */
-padding-top: 100px; /* Location of the box */
+display: none; 
+position: fixed; 
+z-index: 1; 
+padding-top: 60px; 
 left: 0;
+right: 0;
 top: 0;
-width: 100%; /* Full width */
-height: 100%; /* Full height */
-overflow: auto; /* Enable scroll if needed */
-background-color: rgb(0,0,0); /* Fallback color */
-background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+width: 100%;
+height: 100%; 
+overflow: auto; 
+background-color: rgb(0,0,0);
+background-color: rgba(0,0,0,0.9);
+justify-content: center;
+align-items: center;
 }
 
-/* Modal Content (Image) */
+.modal-img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
 .modal-content {
-margin: auto;
-display: block;
-width: 80%;
+max-width: 100%;
+max-height: 100%;
+object-fit: contain;
 }
 
-/* Caption of Modal Image (Image Text) - Same Width as the Image */
-#caption {
-margin: auto;
-display: block;
-width: 80%;
-text-align: center;
-color: #ccc;
-padding: 10px 0;
-}
-
-/* Add Animation - Zoom in the Modal */
 .modal-content, #caption {
 animation-name: zoom;
 animation-duration: 0.6s;
@@ -579,11 +575,10 @@ from {transform:scale(0)}
 to {transform:scale(1)}
 }
 
-/* The Close Button */
 .close {
 position: absolute;
 top: 1%;
-right: 2%;
+left: 2%;
 color: #f1f1f1;
 font-size: 6rem;
 font-weight: bold;
@@ -851,6 +846,13 @@ cursor: pointer;
     margin-top: 5rem;
 }
 
+.contact-info .social-media {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+}
+
 .social-media a {
     color: var(--main-color);
     display: inline-flex;
@@ -908,6 +910,8 @@ cursor: pointer;
 .contact-form form .btn {
     margin: 2rem;
     cursor: pointer;
+    width: 22rem;
+    height: 5.5rem;
 }
 
 .footer{
@@ -945,7 +949,8 @@ cursor: pointer;
 
 /* --------------------------------------------------------------------- media queries */
 
-@media (min-width: 0px) {
+@media (max-width: 850px) {
+
     #menu-icon {
         display: block;
     }
@@ -956,7 +961,6 @@ cursor: pointer;
         top: 100%;
         left: 0;
         width: 100%;
-        /* padding: 0.5rem 7%; */
         background-color: rgba(100, 100, 100, 0.2);
         border-top: .1rem solid rgba(0, 0, 0, .2);
         box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
@@ -974,8 +978,31 @@ cursor: pointer;
 
 }
 
-@media (min-width: 0px) {
-    html {
-        font-size: 50%;
+@media (min-width: 530px) {
+    .about-double {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .about-main {
+        min-width: 500px;
+    }
+    
+
+}
+
+@media (min-width: 1200px) {
+
+    .about {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+    .about .about-main {
+        max-width: 500px;
+    }
+
+    .about .about-box {
+        min-width: 240px;
     }
 }

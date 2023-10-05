@@ -52,11 +52,11 @@ const transparentHeader = () => {
 }
 
 const showNavbar = () => {
-    // document.querySelector(".header").style.top = "0";
+    document.querySelector(".header").style.top = "0";
 }
 
 const hideNavbar = () => {
-    // document.querySelector(".header").style.top = "-100px";
+    document.querySelector(".header").style.top = "-100px";
 }
 
 
@@ -86,9 +86,9 @@ window.addEventListener('scroll', () => {
     });
 
     if (scrollDirection === 'up') {
-        showNavbar();
+        // showNavbar();
     } else {
-        hideNavbar();
+        // hideNavbar();
     }
     scrollBefore = scrollTop;
 
@@ -148,18 +148,30 @@ function showSlides(n) {
 
 // ------------------------------------------------------------------------- Scroll Reveal
 
-ScrollReveal({ 
-    reset: false,
-    distance: '80px',
-    duration: 2000,
-    delay: 200
-});
+if (window.innerWidth < 1200) {
+    ScrollReveal({ 
+        reset: false,
+        distance: '50px',
+        duration: 1000,
+        delay: 200
+    });
 
-ScrollReveal().reveal('.header, #about-box-L h2, .services-title, .portfolio-title, #box-top, .pricing-title', { origin: 'top' });
-ScrollReveal().reveal('#about-box-L h4, #service-content-L, .videos-images, .interactive-images, #box-left, .container-slider, .container-type, #service1, .contact-info', {origin: 'left'});
-ScrollReveal().reveal('#about-box-R, .photos-images, .i360-images, #box-right, .pricing-example, .container-methods, .contact-form', {origin: 'right'});
-ScrollReveal().reveal('#about-box-M, #service-content-R, #box-bottom, .btn, .container-budget', {origin: 'bottom'});
+    ScrollReveal().reveal('.header', { origin: 'top' });
+    ScrollReveal().reveal('.dot', {origin: 'bottom'});
+} 
+else {
+    ScrollReveal({ 
+        reset: false,
+        distance: '50px',
+        duration: 1000,
+        delay: 200
+    });
 
+    ScrollReveal().reveal('.header, #about-box-L h2, .services-title, .portfolio-title, #box-top, .pricing-title', { origin: 'top' });
+    ScrollReveal().reveal('#about-box-L h4, #service-content-L, .videos-images, .interactive-images, #box-left, .container-slider, .container-type, #service1, .contact-info', {origin: 'left'});
+    ScrollReveal().reveal('#about-box-R, .photos-images, .i360-images, #box-right, .pricing-example, .container-methods, .contact-form', {origin: 'right'});
+    ScrollReveal().reveal('#about-box-M, #service-content-R, #box-bottom, .btn, .container-budget', {origin: 'bottom'});
+}
 
 // ------------------------------------------------------------------------- Agrega mas imagenes al Portfolio al hacer click
 
