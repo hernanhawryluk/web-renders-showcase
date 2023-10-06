@@ -40,7 +40,7 @@ const transparentHeader = () => {
     header.style.opacity = "100%";
     logoLink.style.color = "#ffffff";
     menuSelector.style.color = "#fff";
-    navbarTheme.style.backgroundColor = "rgba(110, 110, 110, 0.2)";
+    navbarTheme.style.backgroundColor = "transparent";
 
   
     const navbarLinks = document.querySelectorAll('.navbar a');
@@ -86,9 +86,9 @@ window.addEventListener('scroll', () => {
     });
 
     if (scrollDirection === 'up') {
-        // showNavbar();
+        showNavbar();
     } else {
-        // hideNavbar();
+        hideNavbar();
     }
     scrollBefore = scrollTop;
 

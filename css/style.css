@@ -196,9 +196,9 @@ section {
 .mySlides .home-text{
     position: relative;
     bottom: 0;
+    left: 0;
     width: "65%";
-    left: 1px;
-    padding: 15vh 2rem;
+    padding: 10vh 2rem;
     display: inline-flex;
     flex-direction: column;
     position: absolute;
@@ -208,7 +208,7 @@ section {
 .home-text h1 {
     margin-bottom: 1rem;
     color: var(--text-over-image);
-    font-size: 2.8rem;
+    font-size: 2.2rem;
     text-shadow: 2px 2px 3px var(--shadow-color);
     animation: 1.5s ease-out 0s 1 slideInFromLeft;
 }
@@ -216,8 +216,8 @@ section {
 .home-text p {
     margin-left: 2rem;
     text-align: right;
-    font-size: 1.8rem;
-    min-width: 30rem;
+    font-size: 1.6rem;
+    min-width: 25rem;
     color: var(--text-over-image);
     text-shadow: 1px 1px 3px var(--shadow-color);
     animation: 1.5s ease-out 0s 1 slideInFromBottom;
@@ -225,7 +225,6 @@ section {
 
 .about {
     background-color: var(bg-color);
-    padding-bottom: 5rem;
 }
 
 .about .about-main {
@@ -233,7 +232,7 @@ section {
     flex: 1;
     flex-direction: column;
     align-items: center;
-    padding: 7rem 3rem 5rem;
+    padding: 5rem 3rem 5rem;
 }
 
 .about-main h2 {
@@ -281,14 +280,13 @@ section {
 }
 
 #services {
-    padding-top: 3.5rem;
-    padding-bottom: 2rem;
+    padding-top: 5rem;
+    padding-bottom: 3rem;
     background-color: var(--second-bg-color);
 }
 
 .services h2 {
     text-align: center;
-    margin-top: 5rem;
     margin-bottom: 3rem;
     font-size: 3rem;
     color: var(--main-color);
@@ -306,7 +304,7 @@ section {
 .services-content h3 {
     color: var(--main-color);
     font-size: 2.6rem;
-    padding-bottom: 4rem;
+    padding-bottom: 2rem;
     text-shadow: 1px 1px 3px var(--shadow-color);
 }
 
@@ -472,15 +470,15 @@ section {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding-top: 8rem;
+    padding-top: 5rem;
     padding-bottom: 5rem;
     background-color: var(bg-color);
 }
 
 .portfolio .portfolio-title {
     text-align: center;
-    font-size: 3rem;
-    padding-bottom: 3rem;
+    font-size: 2.6rem;
+    padding: 0 2rem 3rem;
     color: var(--main-color);
     text-shadow: 2px 2px 3px var(--shadow-color);
 }
@@ -599,7 +597,7 @@ to {transform:scale(1)}
 /* ------------------------- Pricing ------------------------- */
 
 #pricing {
-    padding: 8rem 2rem 5rem;
+    padding: 5rem 2rem 5rem;
     background-color: var(--second-bg-color);
 }
 
@@ -620,12 +618,12 @@ to {transform:scale(1)}
 
 .pricing-interactive p {
     font-size: 1.8rem;
-    color: var(--text-color);
+    color: var(--main-color);
 }
 
 .pricing-slider {
-    margin-top: 1rem;
-    width: 16rem;
+   margin-top: 1rem;
+    width: 20rem;
 }
 
 .type-slider {
@@ -636,13 +634,13 @@ to {transform:scale(1)}
 .proyect-size {
     padding-left: 1.4rem;
     font-size: 1.6rem;
-    color: var(--main-color);
+    color: var(--text-color);
 }
 
 .proyect-type {
-    padding-left: 1.4rem;
+    padding-left: 1rem;
     font-size: 1.6rem;
-    color: var(--main-color);
+    color: var(--text-color);
 }
 
 .pricing-example img {
@@ -696,20 +694,18 @@ to {transform:scale(1)}
 
 .service-box i {
     font-size: 2rem;
-    margin-top: 1.5rem;
+    margin-top: 2.4rem;
 }
 
 .service-box i:hover {
-    color: red;
+    color: "#f00";
     text-shadow: 1px 1px 3px;
 }
 
 .pricing .container-money {
-    margin-top: 2rem;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 0 3rem;
+    justify-content: space-evenly;
     align-items: baseline;
 }
 
@@ -775,6 +771,7 @@ to {transform:scale(1)}
 
 .contact {
     background-color: var(bg-color);
+    padding-top: 5rem;
 }
 
 .contact .contact-container {
@@ -783,7 +780,6 @@ to {transform:scale(1)}
     flex-wrap: nowrap;
     align-items: center;
     justify-content: center;
-    padding-top: 7rem;
 }
 
 .contact-container .contact-info {
@@ -801,7 +797,7 @@ to {transform:scale(1)}
     align-items: center;
 }
 
-.contact-info p {
+.contact-info address {
     font-size: 2rem;
     font-weight: 300;
     line-height: 1.6;
@@ -997,9 +993,9 @@ to {transform:scale(1)}
     }
 }
 
-@media (min-width: 374px) {
+@media (min-width: 375px) {
     .pricing-slider {
-        width: 20rem;
+        width: 24rem;
     }
     .type-slider {
         width: 24rem;
@@ -1032,6 +1028,9 @@ to {transform:scale(1)}
         height: 22rem;
         width: 35rem;
     }
+    .portfolio .portfolio-title {
+        font-size: 3rem;
+    }
 }
 
 @media (min-width: 540px) {
@@ -1045,14 +1044,27 @@ to {transform:scale(1)}
     }
 }
 
+@media (min-width: 660px) {
+    .mySlides .home-text{
+        padding: 13vh 5rem;
+    }
+    .home-text h1 {
+        font-size: 2.8rem;
+    }
+    .home-text p {
+        font-size: 1.8rem;
+        min-width: 30rem;
+    }
+}
+
 @media (min-width: 768px) {
+
     .about {
         padding: 0 4rem 0;
     }
     .about-main h2 {
         font-size: 3.4rem;
         line-height: 6rem;
-        /* text-shadow: 1px 1px 3px var(--shadow-color); */
         text-align: center;
     }
     .about-main p {
@@ -1067,11 +1079,15 @@ to {transform:scale(1)}
         flex-direction: row;
         justify-content: space-around;
     }
+    .services h2 {
+        margin-bottom: 5rem;
+    }
     .services-container .services-btn {
         display: flex;
     }
     .services-container .services-content {
-        min-width: 40%;
+        min-width: 49%;
+        max-width: 50%;
         padding: 0 3rem 0;
     }
     .photos-images .frame {
@@ -1112,18 +1128,12 @@ to {transform:scale(1)}
         height: 63%;
         width: 78%;
     }
-
-
+    .portfolio .portfolio-title {
+        font-size: 3.2rem;
+    }
     .portfolio-container .portfolio-box {
         width: 48%;
     }
-    .portfolio-box img {
-        width: 100%;
-    }
-    .portfolio-box-addL img, .portfolio-box-addB img, .portfolio-box-addR img {
-        width: 100%;
-    }
-
     .pricing .pricing-container {
         margin-top: 5rem;
         display: flex;
@@ -1131,25 +1141,16 @@ to {transform:scale(1)}
         align-items: center;
         justify-content: space-evenly;
     }
-
     .contact .contact-container {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-evenly;
     }
-
     .contact-info p {
         text-align: start;
     }
-
-    .contact-form form {
-        max-width: 340px;
-    }
-}
-
-@media (min-width: 788px) {
-    .pricing .container-money {
-        justify-content: space-evenly;
+    .contact-container .contact-form {
+        width: 45%;
     }
 }
 
@@ -1159,13 +1160,12 @@ to {transform:scale(1)}
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
-        margin-bottom: 5rem;
     }
     .about .about-main {
         min-width: 35%;
     }
     .about .about-double {
-        padding-top: 7rem;
+        padding-top: 5rem;
     }
     .about-main h2 {
         font-size: 2.8rem;
@@ -1190,7 +1190,62 @@ to {transform:scale(1)}
         font-size: 1.2rem;
         padding-bottom: 2rem;
     }
+    .services h2 {
+        font-size: 3.2rem;
+    }
+    .services-content h3 {
+        font-size: 2.8rem;
+    }
+    .services-content p {
+        font-size: 1.8rem;
+        line-height: 1.7;
+    }
+    .portfolio .portfolio-title {
+        font-size: 3.6rem;
+    }
+    .portfolio-container .portfolio-box {
+        width: 32%;
+    }
+    .pricing-slider {
+        width: 30rem;
+    }
+    .type-slider {
+        width: 30rem;
+    }
+    .pricing-interactive .service-box {
+        gap: 2rem
+    }
+}
 
+@media (min-width: 1200px) {
+    html {
+        font-size: 75%;
+    }
+}
+
+@media (min-width: 1440px) {
+    html {
+        font-size: 85%;
+    }
+}
+
+@media (min-width: 1600px) {
+    html {
+        font-size: 90%;
+    }
+}
+
+@media (min-width: 2048px) {
+    html {
+        font-size: 95%;
+    }
+}
+
+@media (min-width: 2560px) {
+    html {
+        font-size: 100%
+    }
+}
 
   
-}
+
