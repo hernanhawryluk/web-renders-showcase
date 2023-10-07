@@ -499,6 +499,7 @@ section {
 }
 
 .portfolio-box-addL, .portfolio-box-addB, .portfolio-box-addR {
+    width: 98%;
     overflow: hidden;
     border-radius: 1rem;
 }
@@ -513,7 +514,6 @@ section {
 }
 
 .portfolio-box-addL img, .portfolio-box-addB img, .portfolio-box-addR img {
-
     border-radius: 1rem;
     box-shadow: 0 0 1rem var(--text-color);
     overflow: hidden;
@@ -1058,7 +1058,6 @@ to {transform:scale(1)}
 }
 
 @media (min-width: 768px) {
-
     .about {
         padding: 0 4rem 0;
     }
@@ -1134,6 +1133,9 @@ to {transform:scale(1)}
     .portfolio-container .portfolio-box {
         width: 48%;
     }
+    .portfolio-box-addL, .portfolio-box-addB, .portfolio-box-addR {
+        width: 48%;
+    }
     .pricing .pricing-container {
         margin-top: 5rem;
         display: flex;
@@ -1204,6 +1206,9 @@ to {transform:scale(1)}
         font-size: 3.6rem;
     }
     .portfolio-container .portfolio-box {
+        width: 32%;
+    }
+    .portfolio-box-addL, .portfolio-box-addB, .portfolio-box-addR {
         width: 32%;
     }
     .pricing-slider {

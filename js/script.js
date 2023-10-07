@@ -175,7 +175,7 @@ else {
 
 // ------------------------------------------------------------------------- Agrega mas imagenes al Portfolio al hacer click
 
-let allImages = ['assets/images/one.jpg', 'assets/images/two.jpg', 'assets/images/three.jpg', 'assets/images/four.jpg', 'assets/images/five.jpg', 'assets/images/six.jpg', 'assets/images/one.jpg', 'assets/images/two.jpg', 'assets/images/three.jpg', 'assets/images/four.jpg'];
+let allImages = ['09.png', '10.png', '11.png', '12.png', '13.png', '14.png', '15.png', '16.png', '17.png', '18.png', '19.png', '20.png', '21.png', '22.png', '23.png', '24.png', '25.png', '26.jpeg', '27.png', '28.png', '29.png', '30.png', '31.png', '32.jpeg', '33.png', '34.jpeg', '35.png', '36.jpeg', '37.png', '38.png'];
 let currentImageID = 9;
 let rotateAnim = 0;
 
@@ -185,7 +185,7 @@ function addImages(start, end) {
 
     for (let i = start; i <= end; i++) {
         let image = document.createElement('img');
-        image.src = allImages[i];
+        image.src = "assets/images/portfolio/" + allImages[i];
         image.classList.add('portfolio-picture');
 
         let listItem = document.createElement('li');
