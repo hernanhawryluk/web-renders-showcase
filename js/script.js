@@ -175,34 +175,45 @@ else {
 
 // ------------------------------------------------------------------------- Agrega mas imagenes al Portfolio al hacer click
 
-let allImages = ['09.png', '10.png', '11.png', '12.png', '13.png', '14.png', '15.png', '16.png', '17.png', '18.png', '19.png', '20.png', '21.png', '22.png', '23.png', '24.png', '25.png', '26.jpeg', '27.png', '28.png', '29.png', '30.png', '31.png', '32.jpeg', '33.png', '34.jpeg', '35.png', '36.jpeg', '37.png', '38.png'];
-let currentImageID = 9;
+let allImages = ['09.png', '10.png', '11.jpeg', '12.png', '13.png', '14.png', '15.png', '16.png', '17.png', '18.png', '19.png', '20.png', '21.png', '22.png', '23.png', '24.png', '25.png', '26.png', '27.png', '28.png', '29.png', '30.png', '31.png', '32.jpeg', '33.png', '34.jpeg', '35.png', '36.jpeg', '37.png', '38.png'];
+let currentImageID = 0;
 let rotateAnim = 0;
 
 function addImages(start, end) {
-    let myPortfolio = document.getElementById("PortfolioList");
-    let rotateAnimClasses = ["portfolio-box-addL", "portfolio-box-addB", "portfolio-box-addR"];
+  const myPortfolio = document.getElementById("PortfolioList");
+  const rotateAnimClasses = ["portfolio-box-addL", "portfolio-box-addB", "portfolio-box-addR"];
 
-    for (let i = start; i <= end; i++) {
-        let image = document.createElement('img');
-        image.src = "assets/images/portfolio/" + allImages[i];
-        image.classList.add('portfolio-picture');
+  const fragment = document.createDocumentFragment();
 
-        let listItem = document.createElement('li');
-        listItem.classList.add(rotateAnimClasses[rotateAnim]);
-        listItem.appendChild(image);
-        myPortfolio.appendChild(listItem);
+  for (let i = start; i <= end; i++) {
+    if (currentImageID + i >= allImages.length) {
+      return;
+    } 
+    else {
+      const image = document.createElement('img');
+      image.src = `assets/images/portfolio/${allImages[currentImageID + i]}`;
+      image.classList.add('portfolio-picture');
 
-        ScrollReveal().reveal(`.${rotateAnimClasses[rotateAnim]}`, { origin: getAnimationOrigin(rotateAnim) });
-        rotateAnim = (rotateAnim + 1) % 3;
+      const listItem = document.createElement('li');
+      listItem.classList.add(rotateAnimClasses[rotateAnim]);
+      listItem.appendChild(image);
+      fragment.appendChild(listItem);
 
-        currentImageID++;
+      ScrollReveal().reveal(`.${rotateAnimClasses[rotateAnim]}`, { origin: getAnimationOrigin(rotateAnim) });
+      rotateAnim = (rotateAnim + 1) % 3;
+
+      currentImageID++;
     }
-    picture = [];
-    picture = document.getElementsByClassName('portfolio-picture');
-    for (let i = 0; i < picture.length; i++) { 
-        picture[i].addEventListener('click', function () { modalAction(i); });
-    }
+  }
+
+  myPortfolio.appendChild(fragment);
+
+  const picture = Array.from(document.getElementsByClassName('portfolio-picture'));
+  picture.forEach((pic, i) => {
+    pic.addEventListener('click', () => {
+      modalAction(i);
+    });
+  });
 }
 
 function getAnimationOrigin(rotateAnim) {
@@ -210,15 +221,15 @@ function getAnimationOrigin(rotateAnim) {
     return origins[rotateAnim];
 }
 
+let addPictureBtn = document.querySelector('#add-pictures-btn');
+addPictureBtn.addEventListener('click', function () { addImages(0, 8); });
+
 
 // ------------------------------------------------------------------------- Agrandar fotos al hacer click
 let modal = document.getElementById("myModal");
 let lastID = 0;
 let modalPrevBtn = document.querySelector('#myModal .prev');
 let modalNextBtn = document.querySelector('#myModal .next');
-
-let addPictureBtn = document.querySelector('#add-pictures-btn');
-addPictureBtn.addEventListener('click', function () { addImages(0, 8); });
 
 let picture = document.getElementsByClassName('portfolio-picture');
 for (let i = 0; i < picture.length; i++) { 
