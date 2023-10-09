@@ -349,19 +349,19 @@ function removeService() {
 projectSlider.oninput = function () {
     if(this.value == 0) {
         selectedProjectSize = 1;
-        projectSizeText.textContent = "Chico";
+        projectSizeText.textContent = "• Chico";
         imageDemoSize = "small";
         imageDemo();
     }
     if(this.value == 1) {
         selectedProjectSize = 2;
-        projectSizeText.textContent = "Mediano";
+        projectSizeText.textContent = "• Mediano";
         imageDemoSize = "medium";
         imageDemo();
     }
     if(this.value == 2) {
         selectedProjectSize = 3;
-        projectSizeText.textContent = "Grande";
+        projectSizeText.textContent = "• Grande";
         imageDemoSize = "big";
         imageDemo();
     }
@@ -369,22 +369,20 @@ projectSlider.oninput = function () {
 }
 
 
-
-
 // ----------------------------------- Slider to adjust project type
 projectTypeSlider.oninput = function () {
     if(this.value == 0) {
-        projectTypeText.textContent = "Interior";
+        projectTypeText.textContent = "• Interior";
         imageDemoType = "interior";
         imageDemo();
     }
     if(this.value == 1) {
-        projectTypeText.textContent = "Exterior";
+        projectTypeText.textContent = "• Exterior";
         imageDemoType = "exterior";
         imageDemo();
     }
     if(this.value == 2) {
-        projectTypeText.textContent = "Ambos";
+        projectTypeText.textContent = "• Ambos";
         imageDemoType = "both";
         imageDemo();
     }
@@ -394,7 +392,7 @@ projectTypeSlider.oninput = function () {
 
 // ----------------------------------- Helper for visual representation of the project
 const imageDemo = () => {
-    projectImage.src = `assets/images/pricing/${imageDemoSize}-${imageDemoType}.png`
+    projectImage.src = `assets/images/pricing/${imageDemoSize}-${imageDemoType}.png`;
 }
 
 imageDemo();
@@ -527,20 +525,20 @@ function calculatePrice () {
             break;
     }
 
-    if (totalProjectDays == 1 ) { totalProjectTime.textContent = "1 día hábil."; }
-    else { totalProjectTime.textContent = totalProjectDays + " días hábiles."; }
+    if (totalProjectDays == 1 ) { totalProjectTime.textContent = "1 día hábil"; }
+    else { totalProjectTime.textContent = totalProjectDays + " días hábiles"; }
 
     totalProjectPrice = totalProjectPrice.toFixed();
     totalProjectPrice = Math.round(totalProjectPrice / 10) * 10;
-    totalBudgetUsd.textContent = '$ ' + toCommas(totalProjectPrice) + ' dolares.';
+    totalBudgetUsd.textContent = '$ ' + toCommas(totalProjectPrice) + ' (dolares)';
     totalProjectPrice /= 2; // a cheaper price for Argentina
 
     if (dollarApiAvailable == true) {
         totalProjectPrice = (totalProjectPrice * dollar).toFixed();
         totalProjectPrice = Math.round(totalProjectPrice / 1000) * 1000;
-        totalBudgetArg.textContent = '$ ' + toCommas(totalProjectPrice) + ' Pesos.';
+        totalBudgetArg.textContent = '$ ' + toCommas(totalProjectPrice) + ' (pesos)';
     } else {
-        totalBudgetArg.textContent = '$ ' + toCommas(totalProjectPrice) + ' Dolares.';
+        totalBudgetArg.textContent = '$ ' + toCommas(totalProjectPrice) + ' (dolares)';
     }
 }
 

@@ -231,49 +231,28 @@
         <section class="pricing" id="pricing">
             <h2 class="pricing-title">Cotización en línea</h2>
             <div class="pricing-container">
-                <div class="pricing-interactive">
-                    <div class="container-slider">
-                        <p>Tamaño:</p>
-                        <input type="range" class="pricing-slider" min="0" max="2" value="0">
-                        <span class="proyect-size">Chico</span>
-                    </div>
-                    
-                    <div class="container-type">
-                        <div class="pricing-select-type">
-                            <p>Tipo de Render:</p>
-                            <input type="range" class="type-slider" min="0" max="2" value="0">
-                            <span class="proyect-type">Interior</span>
+                <div class="pricing-calculator">
+                    <div class="pricing-interactive">
+                        <div class="container-slider">
+                            <p>Tamaño:</p>
+                            <input type="range" class="pricing-slider" min="0" max="2" value="0">
+                            <span class="proyect-size">• Chico</span>
                         </div>
-                    </div>
-                    <div class="service-box">
-                        <p>Servicio:</p>
-                        <select class="pricing-select-service">
-                            <option value="1">Imágenes</option>
-                            <option value="2">Video</option>
-                            <option value="3">Panoramico</option>
-                            <option value="4" class="option4">Interactivo</option>
-                        </select>
-                        <p class="service-text">Cantidad:</p>
-                        <select name="" class="pricing-quantity">
-                            <option value="1" class="option1">1</option>
-                            <option value="2" class="option2">2</option>
-                            <option value="3" class="option3">3</option>
-                            <option value="4" class="option4">4</option>
-                            <option value="5" class="option5">5</option>
-                            <option value="6" class="option6">6</option>
-                            <option value="7" class="option7">7</option>
-                            <option value="8" class="option8">8</option>
-                            <option value="9" class="option9">9</option>
-                            <option value="10" class="option10">10</option>
-                        </select>
-                    </div>
-                    <div class="container-add-service">
+                        
+                        <div class="container-type">
+                            <div class="pricing-select-type">
+                                <p>Tipo de Render:</p>
+                                <input type="range" class="type-slider" min="0" max="2" value="0">
+                                <span class="proyect-type">• Interior</span>
+                            </div>
+                        </div>
                         <div class="service-box">
                             <p>Servicio:</p>
                             <select class="pricing-select-service">
                                 <option value="1">Imágenes</option>
                                 <option value="2">Video</option>
                                 <option value="3">Panoramico</option>
+                                <option value="4" class="option4">Interactivo</option>
                             </select>
                             <p class="service-text">Cantidad:</p>
                             <select name="" class="pricing-quantity">
@@ -288,115 +267,135 @@
                                 <option value="9" class="option9">9</option>
                                 <option value="10" class="option10">10</option>
                             </select>
-                            <i class='bx bx-x-circle'></i>
                         </div>
-                        <div class="service-box">
-                            <p>Servicio:</p>
-                            <select class="pricing-select-service">
-                                <option value="1">Imágenes</option>
-                                <option value="2">Video</option>
-                                <option value="3">Panoramico</option>
-                            </select>
-                            <p class="service-text">Cantidad:</p>
-                            <select name="" class="pricing-quantity">
-                                <option value="1" class="option1">1</option>
-                                <option value="2" class="option2">2</option>
-                                <option value="3" class="option3">3</option>
-                                <option value="4" class="option4">4</option>
-                                <option value="5" class="option5">5</option>
-                                <option value="6" class="option6">6</option>
-                                <option value="7" class="option7">7</option>
-                                <option value="8" class="option8">8</option>
-                                <option value="9" class="option9">9</option>
-                                <option value="10" class="option10">10</option>
-                            </select>
-                            <i class='bx bx-x-circle'></i>
-                        </div>
-                        <div class="service-box">
-                            <p>Servicio:</p>
-                            <select class="pricing-select-service">
-                                <option value="1">Imágenes</option>
-                                <option value="2">Video</option>
-                                <option value="3">Panoramico</option>
-                            </select>
-                            <p class="service-text">Cantidad:</p>
-                            <select name="" class="pricing-quantity">
-                                <option value="1" class="option1">1</option>
-                                <option value="2" class="option2">2</option>
-                                <option value="3" class="option3">3</option>
-                                <option value="4" class="option4">4</option>
-                                <option value="5" class="option5">5</option>
-                                <option value="6" class="option6">6</option>
-                                <option value="7" class="option7">7</option>
-                                <option value="8" class="option8">8</option>
-                                <option value="9" class="option9">9</option>
-                                <option value="10" class="option10">10</option>
-                            </select>
-                            <i class='bx bx-x-circle'></i>
-                        </div>
-                        <div class="interactive-options">
-                            <i class='bx bx-walk'></i>
-                            <input type="checkbox" name="1" class="checkbox" disabled checked>
-                            <label for="1">Movimiento libre</label>
-                            <i class='bx bxs-camera' ></i>
-                            <input type="checkbox" name="2" class="checkbox">
-                            <label for="2">Camara fotografica</label>
-                            <i class='bx bxs-door-open' ></i>
-                            <input type="checkbox" name="3" class="checkbox">
-                            <label for="3">Puertas interactivas</label>
-                            <i class='bx bx-window' ></i>
-                            <input type="checkbox" name="4" class="checkbox">
-                            <label for="4">Ventanas interactivas</label>
-                            <i class='bx bx-door-open' ></i>
-                            <input type="checkbox" name="5" class="checkbox">
-                            <label for="7">Armarios interactivos</label>
-                            <i class='bx bx-cabinet' ></i>
-                            <input type="checkbox" name="6" class="checkbox">
-                            <label for="6">Cajones interactivos</label>
-                            <i class='bx bxs-bath' ></i>
-                            <input type="checkbox" name="7" class="checkbox">
-                            <label for="7">Griferias interactivas</label>
-                            <i class='bx bxs-grid' ></i>
-                            <input type="checkbox" name="8" class="checkbox">
-                            <label for="8">Cambios de materiales</label>
-                            <i class='bx bx-chair' ></i>
-                            <input type="checkbox" name="9" class="checkbox">
-                            <label for="9">Cambios de mobiliarios</label>
-                            <i class='bx bx-moon' ></i>
-                            <input type="checkbox" name="10" class="checkbox">
-                            <label for="10">Cambios de iluminación</label>
+                        <div class="container-add-service">
+                            <div class="service-box">
+                                <p>Servicio:</p>
+                                <select class="pricing-select-service">
+                                    <option value="1">Imágenes</option>
+                                    <option value="2">Video</option>
+                                    <option value="3">Panoramico</option>
+                                </select>
+                                <p class="service-text">Cantidad:</p>
+                                <select name="" class="pricing-quantity">
+                                    <option value="1" class="option1">1</option>
+                                    <option value="2" class="option2">2</option>
+                                    <option value="3" class="option3">3</option>
+                                    <option value="4" class="option4">4</option>
+                                    <option value="5" class="option5">5</option>
+                                    <option value="6" class="option6">6</option>
+                                    <option value="7" class="option7">7</option>
+                                    <option value="8" class="option8">8</option>
+                                    <option value="9" class="option9">9</option>
+                                    <option value="10" class="option10">10</option>
+                                </select>
+                                <i class='bx bx-x-circle'></i>
+                            </div>
+                            <div class="service-box">
+                                <p>Servicio:</p>
+                                <select class="pricing-select-service">
+                                    <option value="1">Imágenes</option>
+                                    <option value="2">Video</option>
+                                    <option value="3">Panoramico</option>
+                                </select>
+                                <p class="service-text">Cantidad:</p>
+                                <select name="" class="pricing-quantity">
+                                    <option value="1" class="option1">1</option>
+                                    <option value="2" class="option2">2</option>
+                                    <option value="3" class="option3">3</option>
+                                    <option value="4" class="option4">4</option>
+                                    <option value="5" class="option5">5</option>
+                                    <option value="6" class="option6">6</option>
+                                    <option value="7" class="option7">7</option>
+                                    <option value="8" class="option8">8</option>
+                                    <option value="9" class="option9">9</option>
+                                    <option value="10" class="option10">10</option>
+                                </select>
+                                <i class='bx bx-x-circle'></i>
+                            </div>
+                            <div class="service-box">
+                                <p>Servicio:</p>
+                                <select class="pricing-select-service">
+                                    <option value="1">Imágenes</option>
+                                    <option value="2">Video</option>
+                                    <option value="3">Panoramico</option>
+                                </select>
+                                <p class="service-text">Cantidad:</p>
+                                <select name="" class="pricing-quantity">
+                                    <option value="1" class="option1">1</option>
+                                    <option value="2" class="option2">2</option>
+                                    <option value="3" class="option3">3</option>
+                                    <option value="4" class="option4">4</option>
+                                    <option value="5" class="option5">5</option>
+                                    <option value="6" class="option6">6</option>
+                                    <option value="7" class="option7">7</option>
+                                    <option value="8" class="option8">8</option>
+                                    <option value="9" class="option9">9</option>
+                                    <option value="10" class="option10">10</option>
+                                </select>
+                                <i class='bx bx-x-circle'></i>
+                            </div>
+                            <div class="interactive-options">
+                                <i class='bx bx-walk'></i>
+                                <input type="checkbox" name="1" class="checkbox" disabled checked>
+                                <label for="1">Movimiento libre</label>
+                                <i class='bx bxs-camera' ></i>
+                                <input type="checkbox" name="2" class="checkbox">
+                                <label for="2">Camara fotografica</label>
+                                <i class='bx bxs-door-open' ></i>
+                                <input type="checkbox" name="3" class="checkbox">
+                                <label for="3">Puertas interactivas</label>
+                                <i class='bx bx-window' ></i>
+                                <input type="checkbox" name="4" class="checkbox">
+                                <label for="4">Ventanas interactivas</label>
+                                <i class='bx bx-door-open' ></i>
+                                <input type="checkbox" name="5" class="checkbox">
+                                <label for="7">Armarios interactivos</label>
+                                <i class='bx bx-cabinet' ></i>
+                                <input type="checkbox" name="6" class="checkbox">
+                                <label for="6">Cajones interactivos</label>
+                                <i class='bx bxs-bath' ></i>
+                                <input type="checkbox" name="7" class="checkbox">
+                                <label for="7">Griferias interactivas</label>
+                                <i class='bx bxs-grid' ></i>
+                                <input type="checkbox" name="8" class="checkbox">
+                                <label for="8">Cambios de materiales</label>
+                                <i class='bx bx-chair' ></i>
+                                <input type="checkbox" name="9" class="checkbox">
+                                <label for="9">Cambios de mobiliarios</label>
+                                <i class='bx bx-moon' ></i>
+                                <input type="checkbox" name="10" class="checkbox">
+                                <label for="10">Cambios de iluminación</label>
+                            </div>
+                            <div class="service-button-container">
+                                <input type="button" class="btn" id="add-service" value="Agregar Servicio">
+                            </div>
                         </div>
                     </div>
-                <div class="service-button-container">
-                    <input type="button" class="btn" id="add-service" value="Agregar Servicio">
-                </div>
-                   
-                </div>
-                <div class="pricing-example">
-                    <img src="assets/images/one.jpg" alt="">
+                    <div class="pricing-example">
+                        <img src="assets/images/pricing/small-interior.png" alt="">
+                    </div>
                 </div>
             </div>
             <div class="container-money">
                 <div class="container-budget">
-                    <p>Precio para Argentina:</p>
+                    <p>Precio para Argentina</p>
                     <span class="budget-arg">$60.000 Pesos</span>
-                    <p>Precio para el mundo:</p>
+                    <p>Precio para el mundo</p>
                     <span class="budget-usd">$ 150 Dolares</span>
-                    <p>Tiempo aproximado:</p>
+                    <p>Tiempo aproximado</p>
                     <span class="budget-time">3 días habiles</span>
                 </div>
                 <div class="container-methods">
-                    <h6>Metodos de pago</h6>
-                    <p><i class='bx bxs-bank'></i> Deposito Bancario</p>
-                    <p><i class='bx bxl-bitcoin'></i> Criptomonedas</p>
-                    <p><i class='bx bxl-paypal'></i> Paypal</p>
+                    <p>Metodos de pago</p>
+                    <span><i class='bx bxs-bank'></i> Deposito Bancario</span><br>
+                    <span><i class='bx bxl-bitcoin'></i> Criptomonedas</span><br>
+                    <span><i class='bx bxl-paypal'></i> Paypal</span>
                     
-                    <h6>Requerimientos</h6>
-                    <p><i class='bx bx-folder'></i> Plano con vistas y cortes</p>
-                    <p><i class='bx bx-spreadsheet'></i> Descripción de materiales</p>
-                    <p><i class='bx bx-chair'></i> Elección del estilo de decoración</p>
-                    <p><i class='bx bx-save'></i> Aceptamos Autocad y SketchUp</p>
-                    <p><i class='bx bx-check'></i> Hasta 2 correcciónes.</p>
+                    <p>Requerimientos</p>
+                    <span><i class='bx bx-folder'></i> Plano con vistas y cortes</span><br>
+                    <span><i class='bx bx-spreadsheet'></i> Descripción de materiales</span><br>
+                    <span><i class='bx bx-chair'></i> Descripción de los mobiliarios</span>
                 </div>
             </div>
         </section>

@@ -618,14 +618,6 @@ to {transform:scale(1)}
     background-color: var(--second-bg-color);
 }
 
-.pricing .pricing-container {
-    margin-top: 5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
 .pricing .pricing-title {
     font-size: 3rem;
     color: var(--main-color);
@@ -633,35 +625,54 @@ to {transform:scale(1)}
     text-align: center;
 }
 
+.pricing .pricing-calculator {
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pricing-interactive {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .pricing-interactive p {
-    font-size: 1.8rem;
+    font-size: 1.7rem;
     color: var(--main-color);
 }
 
 .pricing-slider {
-   margin-top: 1rem;
-    width: 20rem;
+    margin-top: 1rem;
+    width: 18rem;
 }
 
 .type-slider {
     margin-top: 1rem;
-    width: 20rem;
+    width: 18rem;
 }
 
 .proyect-size {
-    padding-left: 1.4rem;
-    font-size: 1.6rem;
+    padding-left: 1rem;
+    font-size: 1.4rem;
     color: var(--text-color);
 }
 
 .proyect-type {
     padding-left: 1rem;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     color: var(--text-color);
 }
 
+.pricing-example {
+    width: 90%;
+}
+
 .pricing-example img {
-    width: 27rem;
+    height: 100%;
+    width: 100%;
     border-radius: 2rem;
     box-shadow: 3px 3px 4px var(--shadow-color);
 }
@@ -721,32 +732,38 @@ to {transform:scale(1)}
 
 .pricing .container-money {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: baseline;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container-budget {
+    text-align: center;
 }
 
 .container-budget p {
-    font-size: 2.2rem;
-    padding-top: 3rem;
+    font-size: 1.6rem;
+    padding-top: 2.5rem;
 }
 
 .container-budget span {
     font-size: 2.2rem;
     color: var(--main-color);
     padding-top: 1rem;
-    padding-left: 3rem;
 }
 
-.container-methods h6 {
-    font-size: 2.2rem;
-    padding-top: 3rem;
+.container-methods {
+    text-align: center;
 }
 
 .container-methods p {
-    font-size: 2rem;
+    font-size: 1.6rem;
+    padding-top: 2.5rem;
+}
+
+.container-methods span {
+    color: var(--main-color);
+    font-size: 1.8rem;
     padding-top: 0.5rem;
-    padding-left: 3rem;
 }
 
 #add-service {
@@ -1030,20 +1047,12 @@ to {transform:scale(1)}
     .service-box select {
         font-size: 1.6rem;
     }
-    .pricing-example img {
-        height: 20rem;
-        width: 33rem;
-    }
 }
 
 @media (min-width: 424px) {
     .pricing .pricing-title {
         font-size: 3rem;
         margin-left: 5rem;
-    }
-    .pricing-example img {
-        height: 22rem;
-        width: 35rem;
     }
     .portfolio .portfolio-title {
         font-size: 3rem;
@@ -1153,12 +1162,42 @@ to {transform:scale(1)}
     .portfolio-container .portfolio-box-extension {
         width: 48%;
     }
-    .pricing .pricing-container {
-        margin-top: 5rem;
+    .pricing .pricing-title {
+        font-size: 3.2rem;
+    }
+    .pricing-container .pricing-calculator {
         display: flex;
         flex-direction: row;
-        align-items: center;
+        flex-wrap: nowrap;
         justify-content: space-evenly;
+        align-items: start;
+    }
+    .pricing-container {
+        min-width: 45%;
+    }
+    .pricing-example {
+        width: 48%;
+        height: 25.5rem;
+    } 
+    #add-service {
+        margin-bottom: 1rem;
+    }
+    .pricing .container-money {
+        flex-wrap: nowrap;
+        flex-direction: row;
+        justify-content: space-evenly;
+        flex: 1;
+    }
+    .container-budget {
+        padding-top: 0rem;
+        min-width: 50%;
+        text-align: center;
+    }
+    
+    .container-methods {
+        padding-top: 0rem;
+        min-width: 50%;
+        text-align: center;
     }
     .contact .contact-container {
         flex-direction: row;
@@ -1228,20 +1267,30 @@ to {transform:scale(1)}
     .portfolio-container .portfolio-box-extension {
         width: 32%;
     }
-    .pricing-slider {
-        width: 30rem;
+    .pricing-example {
+        width: 38%;
+        height: 25.5rem;
+    } 
+    .pricing .container-money {
+        margin-left: 3rem;
+        margin-right: 3rem;
     }
-    .type-slider {
-        width: 30rem;
+    .contact-container {
+        padding-left: 3rem;
+        padding-right: 3rem;
     }
-    .pricing-interactive .service-box {
-        gap: 2rem
+    .contact-container .contact-info {
+        min-width: 45%;
     }
 }
 
 @media (min-width: 1200px) {
     html {
         font-size: 75%;
+    }
+    .pricing .container-money {
+        margin-left: 3rem;
+        margin-right: 8rem;
     }
 }
 
@@ -1255,17 +1304,40 @@ to {transform:scale(1)}
     html {
         font-size: 90%;
     }
+    .pricing-example {
+        width: 42rem;
+        height: 25.5rem;
+    } 
+    .pricing .container-money {
+        margin-left: 4rem;
+        margin-right: 8rem;
+    }
 }
 
 @media (min-width: 2048px) {
     html {
-        font-size: 95%;
+        font-size: 115%;
+    }
+    .pricing .container-money {
+        margin-left: 1rem;
+        margin-right: 6rem;
+    }
+    .contact {
+        padding-left: 2rem;
+        padding-right: 2rem;
     }
 }
 
 @media (min-width: 2560px) {
     html {
-        font-size: 100%
+        font-size: 140%
+    }
+    .contact-container {
+        padding-left: 1rem;
+        padding-right: 3rem;
+    }
+    .contact-container .contact-info {
+        min-width: 40%;
     }
 }
 
