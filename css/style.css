@@ -304,11 +304,12 @@ section {
 }
 
 .services .services-container {
-    padding: 0 3rem 3rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    
+    margin-bottom: 3rem;
 }
 
 .services-content h3 {
@@ -1104,54 +1105,56 @@ to {transform:scale(1)}
         flex-direction: row;
         justify-content: space-around;
     }
-    .services h2 {
-        margin-bottom: 5rem;
-    }
-    .services-container .services-btn {
-        display: flex;
-    }
     .services-container .services-content {
         min-width: 49%;
         max-width: 50%;
-        padding: 0 3rem 0;
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+    .services-content h3 {
+        font-size: 2.4rem;
+    }
+    .services-content p {
+        font-size: 1.4rem;
+        padding-bottom: 2rem;
     }
     .photos-images .frame {
-        height: 70%;
+        height: 82%;
         width: 85%;
     }
     .photos-images .images {
-        height: 67%;
+        height: 80%;
         width: 82%;
-        left: 10%;
+        left: 9%;
     }
     .videos-images .frame {
-        height: 70%;
-        width: 85%;
+        height: 95%;
+        width: 84%;
     }
     .videos-images .images {
-        height: 60.7%;
-        width: 83.5%;
-        left: 8.4%
+        height: 84%;
+        width: 82.2%;
+        left: 8.9%
     }
     .i360-images .frame {
-        height: 70%;
+        height: 88%;
         width: 85%;
     }
     .i360-images .images {
-        top: 2.7%;
+        top: 3.4%;
         left: 10%;
-        height: 64.7%;
-        width: 79.7%;
+        height: 81.2%;
+        width: 79.9%;
     }
     .interactive-images .frame {
-        height: 70%;
-        width: 100%;
+        height: 83%;
+        width: 95%;
     }
     .interactive-images .images {
-        top: 1.7%;
-        left: 11%;
-        height: 63%;
-        width: 78%;
+        top: 2.4%;
+        left: 13%;
+        height: 74%;
+        width: 74.5%;
     }
     .portfolio .portfolio-title {
         font-size: 3.2rem;
@@ -1213,7 +1216,6 @@ to {transform:scale(1)}
 }
 
 @media (min-width: 1024px) {
-
     .about {
         display: flex;
         flex-direction: row;
@@ -1248,16 +1250,20 @@ to {transform:scale(1)}
         font-size: 1.2rem;
         padding-bottom: 2rem;
     }
+    .services .services-container {
+        margin-bottom: 1rem;
+    }
     .services h2 {
-        font-size: 3.2rem;
+        font-size: 3.3rem;
     }
     .services-content h3 {
-        font-size: 2.8rem;
+        font-size: 3rem;
     }
     .services-content p {
         font-size: 1.8rem;
         line-height: 1.7;
     }
+    
     .portfolio .portfolio-title {
         font-size: 3.6rem;
     }
