@@ -251,6 +251,17 @@ modalCloseButton.addEventListener('click', ()=> {
 
 // ------------------------------------------------------ Price Calculator
 
+// ----------------------------------- Project demo images preloader
+const preloadImages = () => {
+    const imagesToPreload = ['small-interior', 'small-exterior', 'small-both', 'medium-interior', 'medium-exterior', 'medium-both', 'large-interior', 'large-exterior', 'large-both'];
+
+    for (let i = 0; i < imagesToPreload.length; i++) {
+        const img = new Image();
+        img.src = `assets/images/pricing/${imagesToPreload[i]}.png`;
+    }
+}
+preloadImages();
+
 
 // ----------------------------------- Variables: Prices
 let smallSizePrice = 50;
@@ -362,7 +373,7 @@ projectSlider.oninput = function () {
     if(this.value == 2) {
         selectedProjectSize = 3;
         projectSizeText.textContent = "• Grande";
-        imageDemoSize = "big";
+        imageDemoSize = "large";
         imageDemo();
     }
     calculatePrice();
