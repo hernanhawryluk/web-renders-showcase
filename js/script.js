@@ -208,238 +208,264 @@ function addImages(start, end) {
 }
 
 // ------------------------------------------------------ Agrandar fotos al hacer click
-let modal = document.getElementById("myModal");
-let lastID = 0;
-let modalPrevBtn = document.querySelector('#myModal .prev');
-let modalNextBtn = document.querySelector('#myModal .next');
+let lastClickedImageIndex = 0;
 
-let picture = document.getElementsByClassName('portfolio-picture');
-for (let i = 0; i < picture.length; i++) { 
-    picture[i].addEventListener('click', function () { modalAction(i); });
+const modal = document.getElementById("myModal");
+const modalPrevBtn = document.querySelector('#myModal .prev');
+const modalNextBtn = document.querySelector('#myModal .next');
+
+const portfolioImages = document.getElementsByClassName('portfolio-picture');
+for (let i = 0; i < portfolioImages.length; i++) { 
+    portfolioImages[i].addEventListener('click', function () { modalAction(i); });
 }
 
 modalPrevBtn.addEventListener('click', ()=> {
-    if (lastID >= 0) { modalAction(lastID - 1); }
-    else { modalAction(currentImageID); }
+    if (lastClickedImageIndex >= 0) { modalAction(lastClickedImageIndex - 1); }
+    else { modalAction(currentImageID + 8); }
 });
 
 modalNextBtn.addEventListener('click', ()=> {
-    if (lastID <= currentImageID) { modalAction(lastID + 1); }
+    if (lastClickedImageIndex <= currentImageID + 8) { modalAction(lastClickedImageIndex + 1); }
     else { modalAction(0); }
 });
 
 function modalAction(element) {
     hideNavbar();
-    lastID = element;
-    let img = picture[element];
-    let modalImg = document.getElementById("img01");
+    lastClickedImageIndex = element;
+    let image = portfolioImages[element];
+    let modalImage = document.getElementById("img01");
     let captionText = document.getElementById("caption");
     modal.style.display = "block";
-    modalImg.src = img.src;
-    captionText.innerHTML = img.alt;
+    modalImage.src = image.src;
+    captionText.innerHTML = image.alt;
 }
 
-let span = document.getElementsByClassName("close")[0];
+const modalCloseButton = document.getElementsByClassName("close")[0];
 
-span.addEventListener('click', ()=> {
+modalCloseButton.addEventListener('click', ()=> {
     showNavbar();
     modal.style.display = "none";
 });
 
 
-// ------------------------------------------------------ Calculadora de Precios
 
-// ----------------------------------- Variables: Precios
-let priceSize0 = 50;
-let priceSize1 = 70;
-let priceSize2 = 130;
-let priceTypeInterior = 1;
-let priceTypeExterior = 1.4;
-let priceTypeBoth = 1.7;
-let priceImage = 30; 
-let priceVideo = 50; // for 15 seconds of video
-let pricePanoramic = 70;
-let priceInteractive = 150;
-let priceEachInteraction = 50;
+// ------------------------------------------------------ Price Calculator
 
-// ----------------------------------- Variables: Funcionamiento Interno
-let priceTotal = 0;
-let daysTotal = 0;
-let priceSize = 1;
-let servicesAdded = 0;
-let interactiveON = false;
-let interactiveSum = 1;
+
+// ----------------------------------- Variables: Prices
+let smallSizePrice = 50;
+let mediumSizePrice = 70;
+let largeSizePrice = 130;
+let interiorPriceMultiplier = 1;
+let exteriorPriceMultiplier = 1.4;
+let bothPriceMultiplier = 1.7;
+let imageServicePrice = 30; 
+let videoServicePrice = 50; // for 15 seconds of video
+let panoramicServicePrice = 70;
+let interactiveServicePrice = 150;
+let pricePerInteraction = 50;
+
+
+// ----------------------------------- Internal Variables
+let totalProjectPrice = 0;
+let totalProjectDays = 0;
+let selectedProjectSize = 1;
+let addedServicesCount = 0;
+let interactiveServiceEnabled = false;
+let interactiveServicesSum = 1;
+let imageDemoSize = "small";
+let imageDemoType = "interior";
+
 
 // ----------------------------------- DOM Query Selectors
-let proyectSlider = document.querySelector("input.pricing-slider");
-let proyectText = document.querySelector(".pricing-interactive .proyect-size");
-let proyectImage = document.querySelector(".pricing-example img");
-let proyectType = document.querySelector(".type-slider");
-let proyectTypeText = document.querySelector(".proyect-type");
-let proyectService = document.getElementsByClassName('pricing-select-service');
-let proyectQuantity = document.getElementsByClassName('pricing-quantity');
-let serviceText = document.getElementsByClassName('service-text');
-let serviceAdd = document.getElementsByClassName('service-box');
-let removeBtn = document.getElementsByClassName('bx bx-x-circle');
-let interactiveOptions = document.querySelector(".interactive-options");
-let addServiceBtn = document.querySelector("#add-service");
-let totalArg = document.querySelector(".budget-arg");
-let totalUsd = document.querySelector(".budget-usd");
-let totalDays = document.querySelector(".budget-time");
+const projectSlider = document.querySelector("input.pricing-slider");
+const projectSizeText = document.querySelector(".pricing-interactive .proyect-size");
+const projectImage = document.querySelector(".pricing-example img");
+const projectTypeSlider = document.querySelector(".type-slider");
+const projectTypeText = document.querySelector(".proyect-type");
+const projectServiceOptions = document.getElementsByClassName('pricing-select-service');
+const projectQuantityInputs = document.getElementsByClassName('pricing-quantity');
+const serviceText = document.getElementsByClassName('service-text');
+const serviceAddBoxes = document.getElementsByClassName('service-box');
+const removeButton = document.getElementsByClassName('bx bx-x-circle');
+const interactiveOptionsSection = document.querySelector(".interactive-options");
+const addServiceButton = document.querySelector("#add-service");
+const totalBudgetArg = document.querySelector(".budget-arg");
+const totalBudgetUsd = document.querySelector(".budget-usd");
+const totalProjectTime = document.querySelector(".budget-time");
 
-// ----------------------------------- Esconde los service-box addicionales.
-serviceAdd[1].style.display = 'none';
-serviceAdd[2].style.display = 'none';
-serviceAdd[3].style.display = 'none';
 
-// ----------------------------------- Boton para Agregar un servicio.
-addServiceBtn.addEventListener('click', ()=> { 
-    if (servicesAdded == 0) {
-        serviceAdd[1].style.display = 'flex';
-        proyectService[0].querySelector(".option4").style.display = "none";
+// ----------------------------------- Hide additional services
+serviceAddBoxes[1].style.display = 'none';
+serviceAddBoxes[2].style.display = 'none';
+serviceAddBoxes[3].style.display = 'none';
+
+
+// ----------------------------------- Button to add new services
+addServiceButton.addEventListener('click', ()=> { 
+    if (addedServicesCount == 0) {
+        serviceAddBoxes[1].style.display = 'flex';
+        projectServiceOptions[0].querySelector(".option4").style.display = "none";
     }
-    else if (servicesAdded == 1) {
-        serviceAdd[2].style.display = 'flex';
-        removeBtn[0].style.display = 'none';
+    else if (addedServicesCount == 1) {
+        serviceAddBoxes[2].style.display = 'flex';
+        removeButton[0].style.display = 'none';
     }
-    else if (servicesAdded == 2) {
-        serviceAdd[3].style.display = 'flex';
-        removeBtn[1].style.display = 'none';
-        addServiceBtn.style.display = "none";
+    else if (addedServicesCount == 2) {
+        serviceAddBoxes[3].style.display = 'flex';
+        removeButton[1].style.display = 'none';
+        addServiceButton.style.display = "none";
     }
-    servicesAdded++;
+    addedServicesCount++;
     calculatePrice();
 });
 
-// ----------------------------------- Botones para remover servicios.
-removeBtn[0].addEventListener('click', function () { removeService(); });
-removeBtn[1].addEventListener('click', function () { removeService(); });
-removeBtn[2].addEventListener('click', function () { removeService(); });
+
+// ----------------------------------- Buttons for remove prices
+removeButton[0].addEventListener('click', function () { removeService(); });
+removeButton[1].addEventListener('click', function () { removeService(); });
+removeButton[2].addEventListener('click', function () { removeService(); });
 
 function removeService() {
-    if (servicesAdded == 1) {
-        serviceAdd[1].style.display = 'none';
-        proyectService[0].querySelector(".option4").style.display = "block";
+    if (addedServicesCount == 1) {
+        serviceAddBoxes[1].style.display = 'none';
+        projectServiceOptions[0].querySelector(".option4").style.display = "block";
     }
-    else if (servicesAdded == 2) {
-        serviceAdd[2].style.display = 'none';
-        removeBtn[0].style.display = 'block';
+    else if (addedServicesCount == 2) {
+        serviceAddBoxes[2].style.display = 'none';
+        removeButton[0].style.display = 'block';
     }
-    else if (servicesAdded == 3) {
-        serviceAdd[3].style.display = 'none';
-        removeBtn[1].style.display = 'block';
-        addServiceBtn.style.display = "block";
+    else if (addedServicesCount == 3) {
+        serviceAddBoxes[3].style.display = 'none';
+        removeButton[1].style.display = 'block';
+        addServiceButton.style.display = "block";
     }
-    servicesAdded--;
+    addedServicesCount--;
     calculatePrice();
 }
 
 
-// ----------------------------------- Slider para ajustar tamaño del proyecto.
-proyectSlider.oninput = function () {
+// ----------------------------------- Slider to adjust project size
+projectSlider.oninput = function () {
     if(this.value == 0) {
-        priceSize = 1;
-        proyectText.textContent = "Chico";
-        proyectImage.src = 'assets/images/one.jpg';
+        selectedProjectSize = 1;
+        projectSizeText.textContent = "Chico";
+        imageDemoSize = "small";
+        imageDemo();
     }
     if(this.value == 1) {
-        priceSize = 2;
-        proyectText.textContent = "Mediano";
-        proyectImage.src = 'assets/images/two.jpg';
+        selectedProjectSize = 2;
+        projectSizeText.textContent = "Mediano";
+        imageDemoSize = "medium";
+        imageDemo();
     }
     if(this.value == 2) {
-        priceSize = 3;
-        proyectText.textContent = "Grande";
-        proyectImage.src = 'assets/images/three.jpg';
+        selectedProjectSize = 3;
+        projectSizeText.textContent = "Grande";
+        imageDemoSize = "big";
+        imageDemo();
     }
     calculatePrice();
 }
 
 
-// ----------------------------------- Slider para ajustar tipo de proyecto.
-proyectType.oninput = function () {
+
+
+// ----------------------------------- Slider to adjust project type
+projectTypeSlider.oninput = function () {
     if(this.value == 0) {
-        proyectTypeText.textContent = "Interior";
-        proyectImage.src = 'assets/images/one.jpg';
+        projectTypeText.textContent = "Interior";
+        imageDemoType = "interior";
+        imageDemo();
     }
     if(this.value == 1) {
-        proyectTypeText.textContent = "Exterior";
-        proyectImage.src = 'assets/images/two.jpg';
+        projectTypeText.textContent = "Exterior";
+        imageDemoType = "exterior";
+        imageDemo();
     }
     if(this.value == 2) {
-        proyectTypeText.textContent = "Ambos";
-        proyectImage.src = 'assets/images/three.jpg';
+        projectTypeText.textContent = "Ambos";
+        imageDemoType = "both";
+        imageDemo();
     }
     calculatePrice();
 }
 
 
-// ----------------------------------- Cambios en los Selectors al cambiar el tipo de servicio.
-function changeServiceText(proyectServiceX, serviceTextX, proyectQuantityX) {
-    switch (proyectServiceX) {
+// ----------------------------------- Helper for visual representation of the project
+const imageDemo = () => {
+    projectImage.src = `assets/images/pricing/${imageDemoSize}-${imageDemoType}.png`
+}
+
+imageDemo();
+
+
+// ----------------------------------- Adjusting text based on service type
+function changeServiceText(serviceOption, selectorQuery, quantity) {
+    switch (serviceOption) {
         case "1":
-            serviceTextX.style.display = "block";
-            serviceTextX.textContent = "Cantidad:";
-            interactiveOptions.style.display = "none";
-            proyectQuantityX.style.display = "block";
-            if(interactiveON == true) { addServiceBtn.style.display = "block"; interactiveON = false; }
-            for(let i = 1; i < 11; i++) { proyectQuantityX.querySelector('.option' + i).textContent = i; }
+            selectorQuery.style.display = "block";
+            selectorQuery.textContent = "Cantidad:";
+            interactiveOptionsSection.style.display = "none";
+            quantity.style.display = "block";
+            if(interactiveServiceEnabled == true) { addServiceButton.style.display = "block"; interactiveServiceEnabled = false; }
+            for(let i = 1; i < 11; i++) { quantity.querySelector('.option' + i).textContent = i; }
             break;
         case "2":
-            serviceTextX.style.display = "block";
-            serviceTextX.textContent = "Segundos:";
-            interactiveOptions.style.display = "none";
-            proyectQuantityX.style.display = "block";
-            if(interactiveON == true) { addServiceBtn.style.display = "block"; interactiveON = false; }
-            for(let i = 1; i < 11; i++) { proyectQuantityX.querySelector('.option' + i).textContent = i * 15; }
+            selectorQuery.style.display = "block";
+            selectorQuery.textContent = "Segundos:";
+            interactiveOptionsSection.style.display = "none";
+            quantity.style.display = "block";
+            if(interactiveServiceEnabled == true) { addServiceButton.style.display = "block"; interactiveServiceEnabled = false; }
+            for(let i = 1; i < 11; i++) { quantity.querySelector('.option' + i).textContent = i * 15; }
             break;
         case "3":
-            serviceTextX.style.display = "block";
-            serviceTextX.textContent = "Cantidad:";
-            interactiveOptions.style.display = "none";
-            proyectQuantityX.style.display = "block";
-            if(interactiveON == true) { addServiceBtn.style.display = "block"; interactiveON = false; }
-            for(let i = 1; i < 11; i++) { proyectQuantityX.querySelector('.option' + i).textContent = i; }
+            selectorQuery.style.display = "block";
+            selectorQuery.textContent = "Cantidad:";
+            interactiveOptionsSection.style.display = "none";
+            quantity.style.display = "block";
+            if(interactiveServiceEnabled == true) { addServiceButton.style.display = "block"; interactiveServiceEnabled = false; }
+            for(let i = 1; i < 11; i++) { quantity.querySelector('.option' + i).textContent = i; }
             break;
         case "4":
-            serviceTextX.style.display = "none";
-            interactiveOptions.style.display = "grid";
-            proyectQuantityX.style.display = "none";
-            interactiveON = true;
-            addServiceBtn.style.display = "none";
+            selectorQuery.style.display = "none";
+            interactiveOptionsSection.style.display = "grid";
+            quantity.style.display = "none";
+            interactiveServiceEnabled = true;
+            addServiceButton.style.display = "none";
             break;
     }
 }
 
 
-// ----------------------------------- Actualiza el precio al tocar cualquier ajuste.
-proyectService[0].oninput = function () {
-    changeServiceText(this.value, serviceText[0], proyectQuantity[0]);
+// ----------------------------------- Update the price when any adjustment is made
+projectServiceOptions[0].oninput = function () {
+    changeServiceText(this.value, serviceText[0], projectQuantityInputs[0]);
     calculatePrice(); 
 }
 
-proyectQuantity[0].oninput = function () { calculatePrice(); }
+projectQuantityInputs[0].oninput = function () { calculatePrice(); }
 
-proyectService[1].oninput = function () { 
-    changeServiceText(this.value, serviceText[1], proyectQuantity[1]);
+projectServiceOptions[1].oninput = function () { 
+    changeServiceText(this.value, serviceText[1], projectQuantityInputs[1]);
     calculatePrice(); 
 }
 
-proyectQuantity[1].oninput = function () { calculatePrice(); }
+projectQuantityInputs[1].oninput = function () { calculatePrice(); }
 
-proyectService[2].oninput = function () { 
-    changeServiceText(this.value, serviceText[2], proyectQuantity[2]);
+projectServiceOptions[2].oninput = function () { 
+    changeServiceText(this.value, serviceText[2], projectQuantityInputs[2]);
     calculatePrice(); 
 }
 
-proyectQuantity[2].oninput = function () { calculatePrice(); }
+projectQuantityInputs[2].oninput = function () { calculatePrice(); }
 
-proyectService[3].oninput = function () { 
-    changeServiceText(this.value, serviceText[3], proyectQuantity[3]);
+projectServiceOptions[3].oninput = function () { 
+    changeServiceText(this.value, serviceText[3], projectQuantityInputs[3]);
     calculatePrice(); 
 }
 
-proyectQuantity[3].oninput = function () { calculatePrice(); }
+projectQuantityInputs[3].oninput = function () { calculatePrice(); }
 
 let checkbox = document.getElementsByClassName('checkbox');
 for (let i = 0; i < checkbox.length; i++) {
@@ -448,132 +474,134 @@ for (let i = 0; i < checkbox.length; i++) {
 
 function checkboxSum (event) {
     if (event.target.checked) {
-        interactiveSum += 1;
+        interactiveServicesSum += 1;
     }
     else {
-        interactiveSum -= 1;
+        interactiveServicesSum -= 1;
     }
     calculatePrice();
 }
 
 
-// ----------------------------------- Calcula el precio. 
+// ----------------------------------- Calculate the price
 function calculatePrice () {
-    switch (priceSize) {
+    switch (selectedProjectSize) {
         case 1:
-            priceTotal = priceSize0;
-            daysTotal = 2;
+            totalProjectPrice = smallSizePrice;
+            totalProjectDays = 2;
             break;
         case 2:
-            priceTotal = priceSize1;
-            daysTotal = 3;
+            totalProjectPrice = mediumSizePrice;
+            totalProjectDays = 3;
             break;
         case 3:
-            priceTotal = priceSize2;
-            daysTotal = 4;
+            totalProjectPrice = largeSizePrice;
+            totalProjectDays = 4;
             break;
     }
 
-    priceTotal += serviceQuantityMultiplicator(proyectService[0].value, proyectQuantity[0].value);
+    totalProjectPrice += serviceQuantityMultiplicator(projectServiceOptions[0].value, projectQuantityInputs[0].value);
 
-    if (servicesAdded >= 1) {
-        priceTotal += serviceQuantityMultiplicator(proyectService[1].value, proyectQuantity[1].value); 
+    if (addedServicesCount >= 1) {
+        totalProjectPrice += serviceQuantityMultiplicator(projectServiceOptions[1].value, projectQuantityInputs[1].value); 
     }
 
-    if (servicesAdded >= 2) {
-        priceTotal += serviceQuantityMultiplicator(proyectService[2].value, proyectQuantity[2].value); 
+    if (addedServicesCount >= 2) {
+        totalProjectPrice += serviceQuantityMultiplicator(projectServiceOptions[2].value, projectQuantityInputs[2].value); 
     }
 
-    if (servicesAdded >= 3) {
-        priceTotal += serviceQuantityMultiplicator(proyectService[3].value, proyectQuantity[3].value); 
+    if (addedServicesCount >= 3) {
+        totalProjectPrice += serviceQuantityMultiplicator(projectServiceOptions[3].value, projectQuantityInputs[3].value); 
     }
 
-    switch (proyectType.value) {
+    switch (projectTypeSlider.value) {
         case '0':
-            priceTotal *= priceTypeInterior;
+            totalProjectPrice *= interiorPriceMultiplier;
             break;
         case '1':
-            priceTotal *= priceTypeExterior;
+            totalProjectPrice *= exteriorPriceMultiplier;
             break;
         case '2':
-            priceTotal *= priceTypeBoth;
-            daysTotal += 1;
+            totalProjectPrice *= bothPriceMultiplier;
+            totalProjectDays += 1;
             break;
     }
 
-    if (daysTotal == 1 ) { totalDays.textContent = "1 día hábil."; }
-    else { totalDays.textContent = daysTotal + " días hábiles."; }
-    priceTotal = priceTotal.toFixed();
-    priceTotal = Math.round(priceTotal / 10) * 10;
-    totalUsd.textContent = '$ ' + toCommas(priceTotal) + ' Dolares.';
-    priceTotal /= 2; // Cobramos la mitad para la Argentina.
-    if (dolarAPI == true) {
-        priceTotal = (priceTotal * dolar).toFixed();
-        priceTotal = Math.round(priceTotal / 1000) * 1000;
-        totalArg.textContent = '$ ' + toCommas(priceTotal) + ' Pesos.';
+    if (totalProjectDays == 1 ) { totalProjectTime.textContent = "1 día hábil."; }
+    else { totalProjectTime.textContent = totalProjectDays + " días hábiles."; }
+
+    totalProjectPrice = totalProjectPrice.toFixed();
+    totalProjectPrice = Math.round(totalProjectPrice / 10) * 10;
+    totalBudgetUsd.textContent = '$ ' + toCommas(totalProjectPrice) + ' dolares.';
+    totalProjectPrice /= 2; // a cheaper price for Argentina
+
+    if (dollarApiAvailable == true) {
+        totalProjectPrice = (totalProjectPrice * dollar).toFixed();
+        totalProjectPrice = Math.round(totalProjectPrice / 1000) * 1000;
+        totalBudgetArg.textContent = '$ ' + toCommas(totalProjectPrice) + ' Pesos.';
     } else {
-        totalArg.textContent = '$ ' + toCommas(priceTotal) + ' Dolares.';
+        totalBudgetArg.textContent = '$ ' + toCommas(totalProjectPrice) + ' Dolares.';
     }
 }
 
 
-// ----------------------------------- Funcion auxiliar para multiplicar "servicio x cantidad" al calcular el precio.
+// ----------------------------------- Helper to multiply "service x quantity" when calculating the price
 function serviceQuantityMultiplicator(service, quantity) {
     switch (service) {
         case '1':
             if (quantity > 5) {
-                daysTotal += 1;
+                totalProjectDays += 1;
             } 
-            return priceImage * quantity;
+            return imageServicePrice * quantity;
             break;
         case '2':
             if (quantity > 2) {
-                daysTotal += 1;
+                totalProjectDays += 1;
             }
-            return priceVideo * quantity;
+            return videoServicePrice * quantity;
             break;
         case '3':
-            daysTotal += 1;
+            totalProjectDays += 1;
             if (quantity > 3) {
-                daysTotal += 1;
+                totalProjectDays += 1;
             }
             if (quantity > 6) {
-                daysTotal += 1;
+                totalProjectDays += 1;
             }
-            return pricePanoramic * quantity;
+            return panoramicServicePrice * quantity;
             break;
         case '4':
-            if (interactiveSum > 1) { daysTotal += interactiveSum - 1; }
-            daysTotal = Math.floor(daysTotal) + 3;
+            if (interactiveServicesSum > 1) { totalProjectDays += interactiveServicesSum - 1; }
+            totalProjectDays = Math.floor(totalProjectDays) + 3;
 
-            return  (priceInteractive * priceSize) + ((priceEachInteraction * priceSize) * interactiveSum);
+            return  (interactiveServicePrice * selectedProjectSize) + ((pricePerInteraction * selectedProjectSize) * interactiveServicesSum);
             break;
     }
 }
 
 
-// ----------------------------------- Agrega los "." entre los 3 digitos de un numero.
+// ----------------------------------- Helper to add "." between 3 digits of a number.
 function toCommas(value) {
     return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }
 
 
-// ------------------------------------------------------  API Valor Dolar Blue
-let dolar = 483;
-let dolarAPI = false;
-const checkDolar = async ()=> {
+// ------------------------------------------------------  Blue Dollar Value API
+let dollar = 0;
+let dollarApiAvailable = false;
+const checkDollarValue = async ()=> {
     try {
     let request = await fetch('https://api.bluelytics.com.ar/v2/latest');
     let response = await request.json();
-    dolarAPI = true;
-    dolar = response.blue.value_sell;
+    dollarApiAvailable = true;
+    dollar = response.blue.value_sell;
     calculatePrice();
     }
     catch(e) {
         console.error(e);
-        dolarAPI = false;
+        dollarApiAvailable = false;
         calculatePrice();
     }
 }
 
-checkDolar();
+checkDollarValue();
