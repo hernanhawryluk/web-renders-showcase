@@ -1,4 +1,5 @@
-// Toggle icon navbar
+// ------------------------------------------------------ Toggle icon navbar
+
 let menuIcon = document.querySelector('#menu-icon');
 let navbar = document.querySelector('.navbar');
 
@@ -8,47 +9,48 @@ menuIcon.addEventListener("click", () => {
 });
 
 
-// scroll sections active link
-const sections = document.querySelectorAll('section');
-const navLinks = document.querySelectorAll('header nav a');
-const navbarTheme = document.querySelector('.navbar');
-const menuSelector = document.querySelector('#menu-icon');
-const navbarLinks = document.querySelectorAll('.navbar a');
-const headerLogo = document.querySelector(".header-logo a");
-const header = document.querySelector("header");
 
-let ColorTheme = "#ffffff";
+// ------------------------------------------------------ Scroll sections active link
 
-let scrollBefore = window.scrollY;
-let colorChange = false;
+const sectionsSelector = document.querySelectorAll('section');
+const navbarSelector = document.querySelector('.navbar');
+const navbarLinksSelector = document.querySelectorAll('.navbar a');
+const menuIconSelector = document.querySelector('#menu-icon');
+const headerSelector = document.querySelector("header");
+const logoSelector = document.querySelector(".header-logo a");
+const whiteLogoSelector = document.querySelector(".logo-white");
+const blackLogoSelector = document.querySelector(".logo-black");
 
-const whiteHeader = () => {
-    header.style.backgroundColor = "#ffffff";
-    header.style.opacity = "95%";
-    headerLogo.style.color = "#1f1f1f";
-    navbarTheme.style.backgroundColor = "#fff";
-    menuSelector.style.color = "#1f1f1f";
-    navbarLinks.forEach(link => { link.style.color = '#1f1f1f'; });
-    colorChange = true;
+let lastScrollPosition = window.scrollY;
+let whiteNavbarTheme = false;
+
+const setWhiteNavbarHeader = () => {
+    blackLogoSelector.style.display = "block";
+    whiteLogoSelector.style.display = "none";
+    headerSelector.style.backgroundColor = "#fff";
+    headerSelector.style.opacity = "95%";
+    logoSelector.style.color = "#000";
+    navbarSelector.style.backgroundColor = "#fff";
+    menuIconSelector.style.color = "#1f1f1f";
+    navbarLinksSelector.forEach(link => { link.style.color = '#1f1f1f'; });
+    whiteNavbarTheme = true;
 }
 
-const transparentHeader = () => {
-    const header = document.querySelector("header");
-    const logoLink = document.querySelector(".header-logo a");
+const setTransparentNavbarHeader = () => {
+    whiteLogoSelector.style.display = "block";
+    blackLogoSelector.style.display = "none";
+    headerSelector.style.backgroundColor = "rgba(0, 0, 0, 0.05)";
+    headerSelector.style.opacity = "100%";
+    logoSelector.style.color = "#fff";
+    menuIconSelector.style.color = "#fff";
+    navbarSelector.style.backgroundColor = "transparent";
   
-    header.style.backgroundColor = "rgba(0, 0, 0, 0.05)";
-    header.style.opacity = "100%";
-    logoLink.style.color = "#ffffff";
-    menuSelector.style.color = "#fff";
-    navbarTheme.style.backgroundColor = "transparent";
-
-  
-    const navbarLinks = document.querySelectorAll('.navbar a');
-    navbarLinks.forEach(link => {
-        link.style.color = '#ffffff';
+    const navbarLinksSelector = document.querySelectorAll('.navbar a');
+    navbarLinksSelector.forEach(link => {
+        link.style.color = '#fff';
     });
   
-    colorChange = false;
+    whiteNavbarTheme = false;
 }
 
 const showNavbar = () => {
@@ -59,111 +61,102 @@ const hideNavbar = () => {
     document.querySelector(".header").style.top = "-100px";
 }
 
-
 window.addEventListener('scroll', () => {
     const scrollTop = window.scrollY;
-    const navBarLinks = document.querySelectorAll('header nav a');
-    const scrollDirection = scrollTop < scrollBefore ? 'up' : 'down';
+    const navbarLinksSelector = document.querySelectorAll('header nav a');
+    // const scrollDirection = scrollTop < lastScrollPosition ? 'up' : 'down';
 
-    if (scrollTop > 660 && !colorChange) {
-        whiteHeader();
+    if (scrollTop > 660 && !whiteNavbarTheme) {
+        setWhiteNavbarHeader();
     }
-    if (scrollTop <= 660 && colorChange) {
-        transparentHeader();
+    if (scrollTop <= 660 && whiteNavbarTheme) {
+        setTransparentNavbarHeader();
     }
 
-    sections.forEach(section => {
+    sectionsSelector.forEach(section => {
         const sectionOffset = section.offsetTop - 150;
         const sectionHeight = section.offsetHeight;
         const sectionId = section.getAttribute('id');
 
         if (scrollTop >= sectionOffset && scrollTop < sectionOffset + sectionHeight) {
-            navBarLinks.forEach(link => {
+            navbarLinksSelector.forEach(link => {
                 link.classList.remove('active');
             });
             document.querySelector(`header nav a[href*=${sectionId}]`).classList.add('active');
         }
     });
 
-    if (scrollDirection === 'up') {
-        showNavbar();
-    } else {
-        hideNavbar();
-    }
-    scrollBefore = scrollTop;
+    // if (scrollDirection === 'up') {
+    //     showNavbar();
+    // } else {
+    //     hideNavbar();
+    // }
+    // lastScrollPosition = scrollTop;
 
     menuIcon.classList.remove('bx-x');
     navbar.classList.remove('active');
 });
 
 
-// ------------------------------------------------------------------------ Slideshow Gallery
-let slideIndex = 0;
-let timer = true;
-showSlides(slideIndex);
 
-let slideshowPrevBtn = document.querySelector('.slideshow-container .prev');
-slideshowPrevBtn.addEventListener('click', function () { plusSlides(-1); });
+// ------------------------------------------------------ Slideshow Gallery
 
-let slideshowNextBtn = document.querySelector('.slideshow-container .next');
-slideshowNextBtn.addEventListener('click', function () { plusSlides(1); });
+let isTimerActive = true;
+let currentSlideIndex = 0;
 
-let slideshowDotsBtn = document.getElementsByClassName('dot');
-for (let i = 0; i < 5; i++) { slideshowDotsBtn[i].addEventListener('click', function () { currentSlide(i); }); }
+const slides = document.getElementsByClassName("mySlides");
+const slideshowPrevButton = document.querySelector('.slideshow-container .prev');
+const slideshowNextButton = document.querySelector('.slideshow-container .next');
+const dots = document.getElementsByClassName("dot");
+const slideshowDotsButton = document.getElementsByClassName('dot');
 
-function plusSlides(n) {
-    timer = false;
+slideshowPrevButton.addEventListener('click', function () { changeSlide(-1); });
+slideshowNextButton.addEventListener('click', function () { changeSlide(1); });
+for (let i = 0; i < 5; i++) { slideshowDotsButton[i].addEventListener('click', function () { goToSlide(i); }); }
+
+function changeSlide(n) {
+    isTimerActive = false;
     clearTimeout(sliderTimer);
-    showSlides(slideIndex += n);
+    showSlides(currentSlideIndex += n);
 }
 
-function currentSlide(n) {
-    timer = false;
+function goToSlide(n) {
+    isTimerActive = false;
     clearTimeout(sliderTimer);
-    showSlides(slideIndex = n);
+    showSlides(currentSlideIndex = n);
 }
 
-function timerSlides() {
-    showSlides(slideIndex += 1);
+function startSlideTimer() {
+    showSlides(currentSlideIndex += 1);
 }
 
 function showSlides(n) {
-    let slides = document.getElementsByClassName("mySlides");
-    let dots = document.getElementsByClassName("dot");
-    if (n > slides.length -1) {slideIndex = 0}
-    if (n < 0) {slideIndex = slides.length -1}
+    if (n > slides.length -1) {currentSlideIndex = 0}
+    if (n < 0) {currentSlideIndex = slides.length -1}
     for (i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
     }
     for (i = 0; i < dots.length; i++) {
         dots[i].className = dots[i].className.replace(" active", " ");
     }
-    slides[slideIndex].style.display = "block";
-    dots[slideIndex].className += " active";
-    if (timer == true) {
-        sliderTimer = setTimeout("timerSlides()", 6000);
+    slides[currentSlideIndex].style.display = "block";
+    dots[currentSlideIndex].className += " active";
+    if (isTimerActive == true) {
+        sliderTimer = setTimeout("startSlideTimer()", 6000);
     }
 }
 
+showSlides(currentSlideIndex);
 
-// ------------------------------------------------------------------------- Scroll Reveal
 
-if (window.innerWidth < 1200) {
+
+// ------------------------------------------------------ Scroll Reveal
+
+if (window.innerWidth >= 1024) {
     ScrollReveal({ 
         reset: false,
-        distance: '50px',
-        duration: 1000,
-        delay: 200
-    });
-
-    ScrollReveal().reveal('.header', { origin: 'top' });
-    ScrollReveal().reveal('.dot', {origin: 'bottom'});
-} 
-else {
-    ScrollReveal({ 
-        reset: false,
-        distance: '50px',
-        duration: 1000,
+        distance: '80px',
+        duration: 1200,
         delay: 200
     });
 
@@ -173,59 +166,48 @@ else {
     ScrollReveal().reveal('#about-box-M, #service-content-R, #box-bottom, .btn, .container-budget', {origin: 'bottom'});
 }
 
-// ------------------------------------------------------------------------- Agrega mas imagenes al Portfolio al hacer click
+// ------------------------------------------------------ Agrega mas imagenes al Portfolio al hacer click
 
-let allImages = ['09.png', '10.png', '11.jpeg', '12.png', '13.png', '14.png', '15.png', '16.png', '17.png', '18.png', '19.png', '20.png', '21.png', '22.png', '23.png', '24.png', '25.png', '26.png', '27.png', '28.png', '29.png', '30.png', '31.png', '32.jpeg', '33.png', '34.jpeg', '35.png', '36.jpeg', '37.png', '38.png'];
 let currentImageID = 0;
-let rotateAnim = 0;
+const allImages = ['09.png', '10.png', '11.jpeg', '12.png', '13.png', '14.png', '15.png', '16.png', '17.png', '18.png', '19.png', '20.png', '21.png', '22.png', '23.png', '24.png', '25.png', '26.png', '27.png', '28.png', '29.png', '30.png', '31.png', '32.jpeg', '33.png', '34.jpeg', '35.png', '36.jpeg', '37.png', '38.png'];
+
+const addPicturesButton = document.querySelector('#add-pictures-btn');
+addPicturesButton.addEventListener('click', function () { addImages(0, 8); });
 
 function addImages(start, end) {
-  const myPortfolio = document.getElementById("PortfolioList");
-  const rotateAnimClasses = ["portfolio-box-addL", "portfolio-box-addB", "portfolio-box-addR"];
+    const portfolioSection = document.getElementById("PortfolioList");
 
-  const fragment = document.createDocumentFragment();
+    const fragmentToAdd = document.createDocumentFragment();
 
-  for (let i = start; i <= end; i++) {
-    if (currentImageID + i >= allImages.length) {
-      return;
-    } 
-    else {
-      const image = document.createElement('img');
-      image.src = `assets/images/portfolio/${allImages[currentImageID + i]}`;
-      image.classList.add('portfolio-picture');
+    for (let i = start; i <= end; i++) {
+        if (currentImageID + i >= allImages.length) {
+            addPicturesButton.style.display = "none";
+        } 
+        else {
+            const image = document.createElement('img');
+            image.src = `assets/images/portfolio/${allImages[currentImageID + i]}`;
+            image.classList.add('portfolio-picture');
+            
+            const listItem = document.createElement('li');
+            listItem.classList.add('portfolio-box-extension');
+            listItem.appendChild(image);
 
-      const listItem = document.createElement('li');
-      listItem.classList.add(rotateAnimClasses[rotateAnim]);
-      listItem.appendChild(image);
-      fragment.appendChild(listItem);
-
-      ScrollReveal().reveal(`.${rotateAnimClasses[rotateAnim]}`, { origin: getAnimationOrigin(rotateAnim) });
-      rotateAnim = (rotateAnim + 1) % 3;
-
-      currentImageID++;
+            fragmentToAdd.appendChild(listItem);
+            currentImageID++;
+        }
     }
-  }
 
-  myPortfolio.appendChild(fragment);
+    portfolioSection.appendChild(fragmentToAdd);
+    const portfolioPictureSelection = Array.from(document.getElementsByClassName('portfolio-picture'));
 
-  const picture = Array.from(document.getElementsByClassName('portfolio-picture'));
-  picture.forEach((pic, i) => {
-    pic.addEventListener('click', () => {
-      modalAction(i);
+    portfolioPictureSelection.forEach((picture, index) => {
+        picture.addEventListener('click', () => {
+        modalAction(index);
+        });
     });
-  });
 }
 
-function getAnimationOrigin(rotateAnim) {
-    const origins = ['left', 'bottom', 'right'];
-    return origins[rotateAnim];
-}
-
-let addPictureBtn = document.querySelector('#add-pictures-btn');
-addPictureBtn.addEventListener('click', function () { addImages(0, 8); });
-
-
-// ------------------------------------------------------------------------- Agrandar fotos al hacer click
+// ------------------------------------------------------ Agrandar fotos al hacer click
 let modal = document.getElementById("myModal");
 let lastID = 0;
 let modalPrevBtn = document.querySelector('#myModal .prev');
@@ -265,7 +247,7 @@ span.addEventListener('click', ()=> {
 });
 
 
-// ------------------------------------------------------------------------- Calculadora de Precios
+// ------------------------------------------------------ Calculadora de Precios
 
 // ----------------------------------- Variables: Precios
 let priceSize0 = 50;
@@ -528,7 +510,7 @@ function calculatePrice () {
     if (dolarAPI == true) {
         priceTotal = (priceTotal * dolar).toFixed();
         priceTotal = Math.round(priceTotal / 1000) * 1000;
-        totalArg.textContent = '$ ' + toCommas(priceTotal) + ' Pesos Argentinos.';
+        totalArg.textContent = '$ ' + toCommas(priceTotal) + ' Pesos.';
     } else {
         totalArg.textContent = '$ ' + toCommas(priceTotal) + ' Dolares.';
     }
@@ -576,7 +558,7 @@ function toCommas(value) {
 }
 
 
-// ------------------------------------------------------------------------- API Valor Dolar Blue
+// ------------------------------------------------------  API Valor Dolar Blue
 let dolar = 483;
 let dolarAPI = false;
 const checkDolar = async ()=> {

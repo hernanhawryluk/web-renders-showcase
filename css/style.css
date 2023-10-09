@@ -32,7 +32,6 @@ body {
 
 section {
     flex: 1;
-    min-height: 100vh;
     width: 100%;
 }
 
@@ -41,7 +40,7 @@ section {
     top: 0;
     left: 0;
     right: 0;
-    height: 6rem;
+    height: 4.5rem;
     background: var(--bg-color);
     display: flex;
     justify-content: space-between;
@@ -63,27 +62,32 @@ section {
     margin-left: 1rem;
 }
 
+.logo-black {
+    display: none;
+}
+
 .header-logo img {
-    height: 4.5rem;
-    width: 5rem;
+    height: 4.3rem;
+    width: 4.8rem;
     object-fit: cover;
-    margin-right: 0.5rem;
+    margin-right: 1rem;
 }
 
 .header-logo a {
-    font-size: 2.3rem;
+    font-size: 2.1rem;
     color: var(--text-over-image);
     font-weight: 600;
-    cursor: default;
     text-shadow: 2px 2px 2px var(--shadow-color);
 }
 
 .navbar a {
-    font-size: 1.7rem;
+    font-size: 1.4rem;
     color: var(--text-over-image);
-    padding-right: 2rem;
-    padding-left: 2rem;
+    padding-right: 1.8rem;
+    padding-left: 1.8rem;
     text-shadow: 1px 1px 2px var(--shadow-color);
+    font-weight: 400;
+    transition: 0.5s ease;
 }
 
 .navbar a:hover,
@@ -95,8 +99,12 @@ section {
     color: var(--bg-color);
     text-shadow: 1px 1px 1px var(--shadow-color);
     font-size: 3.8rem;
-    padding-right: 1.5rem;
+    padding-right: 1rem;
     display: none;
+}
+
+.home {
+    min-height: 100vh;
 }
 
 .home .slideshow-container {
@@ -182,6 +190,8 @@ section {
 .home-dots {
     animation: 1.5s ease-out 0s 1 slideInFromBottom;
 }
+
+
 
 @keyframes slideInFromBottom {
     0% { transform: translateY(80px); opacity: 0; }
@@ -498,10 +508,25 @@ section {
     border-radius: 1rem;
 }
 
-.portfolio-box-addL, .portfolio-box-addB, .portfolio-box-addR {
+.portfolio-container .portfolio-box-extension {
     width: 98%;
     overflow: hidden;
     border-radius: 1rem;
+    transition: .5s ease;
+    animation: 1s ease slideInImageFromBottom;
+}
+
+@keyframes slideInImageFromBottom {
+    0% { transform: translateY(120px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+.portfolio-box-extension img {
+    border-radius: 1rem;
+    box-shadow: 0 0 1rem var(--text-color);
+    overflow: hidden;
+    width: 100%;
+    transition: .5s ease;
 }
 
 .portfolio-box img {
@@ -513,19 +538,11 @@ section {
     transition: .5s ease;
 }
 
-.portfolio-box-addL img, .portfolio-box-addB img, .portfolio-box-addR img {
-    border-radius: 1rem;
-    box-shadow: 0 0 1rem var(--text-color);
-    overflow: hidden;
-    width: 100%;
-    transition: .5s ease;
-}
-
 .portfolio-box img:hover {
     transform: scale(1.1);
 }
 
-.portfolio-box-addL img:hover, .portfolio-box-addB img:hover, .portfolio-box-addR img:hover {
+.portfolio-box-extension img:hover {
     transform: scale(1.1);
 }
 
@@ -1133,7 +1150,7 @@ to {transform:scale(1)}
     .portfolio-container .portfolio-box {
         width: 48%;
     }
-    .portfolio-box-addL, .portfolio-box-addB, .portfolio-box-addR {
+    .portfolio-container .portfolio-box-extension {
         width: 48%;
     }
     .pricing .pricing-container {
@@ -1208,7 +1225,7 @@ to {transform:scale(1)}
     .portfolio-container .portfolio-box {
         width: 32%;
     }
-    .portfolio-box-addL, .portfolio-box-addB, .portfolio-box-addR {
+    .portfolio-container .portfolio-box-extension {
         width: 32%;
     }
     .pricing-slider {
