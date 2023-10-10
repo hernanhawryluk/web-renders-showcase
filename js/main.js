@@ -615,3 +615,96 @@ const checkDollarValue = async ()=> {
 }
 
 checkDollarValue();
+
+
+
+// ------------------------------------------------------  Contact Form
+
+const validateEmail = (emailToValidate) => {
+    const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    return regex.test(emailToValidate);
+}
+
+const formModal = document.getElementById("form-modal");
+const messageInModal = document.getElementById("form-status");
+const messageInput = document.getElementById("message");
+const modalNotification = (error) => {
+    messageInModal.style.color = "#b00";
+    messageInModal.textContent = error;
+    formModal.style.display = "block";
+    messageInput.style.height = "15.2rem";
+}
+
+
+const contactForm = document.getElementById("contact-form");
+
+
+contactForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const nameInput = document.getElementById("name");
+    if (nameInput.value.length < 1 || nameInput.value.length > 30) {
+        nameInput.style.border = "3px solid #b00";
+        modalNotification("El nombre debe tener entre 1 y 30 caracteres.");
+        return;
+    } else {
+        nameInput.style.border = "none";
+    }
+
+    const emailInput = document.getElementById("email");
+    if (!validateEmail(emailInput.value)) {
+        emailInput.style.border = "3px solid #b00";
+        modalNotification("El correo electrónico no es válido.");
+        return;
+    } else {
+        emailInput.style.border = "none";
+    }
+
+    const mobileInput = document.getElementById("mobile");
+    if (mobileInput.value.length < 3 || mobileInput.value.length > 16 || isNaN(mobileInput.value)) {
+        mobileInput.style.border = "3px solid #b00";
+        modalNotification("El número de teléfono debe tener entre 4 y 16 números.");
+        return;
+    } else {
+        mobileInput.style.border = "none";
+    }
+    
+    const subjectInput = document.getElementById("subject");
+    if (subjectInput.value.length < 1 || subjectInput.value.length > 30) {
+        subjectInput.style.border = "3px solid #b00";
+        modalNotification("El asunto debe tener entre 1 y 30 caracteres.");
+    } else {
+        subjectInput.style.border = "none";
+    }
+
+    if (messageInput.value.length < 1 || messageInput.value.length > 300) {
+        messageInput.style.border = "3px solid #b00";
+        modalNotification("El mensaje debe tener entre 1 y 300 caracteres.");
+        return;
+    } else {
+        messageInput.style.border = "none";
+    }
+
+    formModal.style.display = "block";
+    messageInModal.style.color = "#080";
+    messageInModal.textContent = "Mensaje enviado con éxito."; //---- This is a fake success message
+
+    const formData = new FormData(contactForm);
+    
+    fetch("../php/contact.php", {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            messageInModal.textContent = "Mensaje enviado con éxito."; //--- This should be the real success message
+            contactForm.reset();
+        } else {
+            modalNotification("Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.");
+        }
+    })
+    .catch(error => {
+        console.error("Error:", error);
+    });
+});
