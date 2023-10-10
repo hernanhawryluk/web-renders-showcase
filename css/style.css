@@ -640,7 +640,7 @@ to {transform:scale(1)}
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .pricing-interactive p {
@@ -650,23 +650,25 @@ to {transform:scale(1)}
 
 .pricing-slider {
     margin-top: 1rem;
-    width: 18rem;
+    width: 32rem;
+    display: flex;
 }
 
 .type-slider {
     margin-top: 1rem;
-    width: 18rem;
+    width: 32rem;
+    display: flex;
 }
 
 .proyect-size {
-    padding-left: 1rem;
-    font-size: 1.4rem;
+    margin-left: 1.5rem;
+    font-size: 1.5rem;
     color: var(--text-color);
 }
 
 .proyect-type {
-    padding-left: 1rem;
-    font-size: 1.4rem;
+    padding-left: 1.5rem;
+    font-size: 1.5rem;
     color: var(--text-color);
 }
 
@@ -706,31 +708,33 @@ to {transform:scale(1)}
 
 .service-box p {
     color: var(--main-color);
-    padding-top: 2rem;
+    padding-top: 1rem;
     font-size: 1.4rem;
 }
 
 .service-box select {
     font-size: 1.4rem;
-    margin-top: 2rem;
+    margin-top: 1rem;
     border: 1px solid var(--shadow-color);
     border-radius: 1rem;
     box-shadow: 2px 2px 3px var(--shadow-color);
     padding: 3px 2px 3px;
 }
 
-.service-button-container {
-    display: flex;
-    justify-content: center;
+.service-box {
+    position: relative;
 }
 
 .service-box i {
+    position: absolute;
     font-size: 2rem;
-    margin-top: 2.4rem;
+    margin-top: 1.3rem;
+    transition: .5s ease;
+    right: -2.7rem;
 }
 
 .service-box i:hover {
-    color: "#f00";
+    color: #b00;
     text-shadow: 1px 1px 3px;
 }
 
@@ -770,40 +774,25 @@ to {transform:scale(1)}
     padding-top: 0.5rem;
 }
 
+.service-button-container {
+    display: flex;
+    min-width: 32rem;
+    justify-content: center;
+    align-items: center;
+}
+
 #add-service {
     margin-bottom: 3rem;
     font-size: 1.1rem;
     margin-top: 3rem;
+    align-self: center;
 }
 
 .service-box {
     animation: 1.5s ease-out 0s 1 slideInFromLeft;
 }
 
-.interactive-options {
-    display: none;
-    grid-template-columns: 10% 10% 80%;
-    margin: 2rem 3rem 2rem;
-    gap: .5rem;
-}
 
-.interactive-options i {
-    font-size: 2.5rem;
-    margin-top: .8rem;
-}
-
-.interactive-options input {
-    width: 2rem;
-    height: 2rem;
-    margin-top: 1.2rem;
-    color: var(--main-color);
-}
-
-.interactive-options label {
-    font-size: 2rem;
-    margin-top: 1rem;
-    color: var(--main-color);
-}
 
 /* ----------------------------------------- Contact Section ----------------------------------------- */
 
@@ -1052,29 +1041,28 @@ to {transform:scale(1)}
     }
 }
 
+@media (min-width: 320px) {
+    html {
+        font-size: 50%;
+    }
+}
+
 @media (min-width: 375px) {
-    .pricing-slider {
-        width: 24rem;
-    }
-    .type-slider {
-        width: 24rem;
-    }
-    .proyect-size {
-        font-size: 1.8rem;
-    }
-    .proyect-type {
-        font-size: 1.8rem;
+    html {
+        font-size: 58%;
     }
     .service-box p {
         font-size: 1.8rem;
     }
-    
     .service-box select {
         font-size: 1.6rem;
     }
 }
 
-@media (min-width: 424px) {
+@media (min-width: 425px) {
+    html {
+        font-size: 62.5%;
+    }
     .pricing .pricing-title {
         font-size: 3rem;
         margin-left: 5rem;
@@ -1085,6 +1073,9 @@ to {transform:scale(1)}
 }
 
 @media (min-width: 540px) {
+    .pricing .pricing-title {
+        margin-left: 0rem;
+    }
     .about-double {
         display: flex;
         flex-direction: row;
@@ -1092,6 +1083,12 @@ to {transform:scale(1)}
     }
     .about-main {
         min-width: 500px;
+    }
+    .pricing-slider {
+        width: 34rem;
+    }
+    .type-slider {
+        width: 34rem;
     }
 }
 
@@ -1122,7 +1119,6 @@ to {transform:scale(1)}
         font-weight: 300;
         line-height: 3.6rem;
     }
-
     .services .services-container {
         display: flex;
         flex-wrap: nowrap;
@@ -1199,8 +1195,14 @@ to {transform:scale(1)}
         justify-content: space-evenly;
         align-items: start;
     }
-    .pricing-container {
-        min-width: 45%;
+    .proyect-size {
+        width: 32rem;
+    }
+    .pricing-slider {
+        width: 33rem;
+    }
+    .type-slider {
+        width: 33rem;
     }
     .pricing-example {
         width: 48%;
