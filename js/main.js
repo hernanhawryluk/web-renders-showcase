@@ -274,8 +274,7 @@ let bothPriceMultiplier = 1.7;
 let imageServicePrice = 30; 
 let videoServicePrice = 50; // for 15 seconds of video
 let panoramicServicePrice = 70;
-let interactiveServicePrice = 150;
-let pricePerInteraction = 50;
+let interactiveServicePrice = 80;
 
 
 // ----------------------------------- Internal Variables
@@ -300,12 +299,10 @@ const projectQuantityInputs = document.getElementsByClassName('pricing-quantity'
 const serviceText = document.getElementsByClassName('service-text');
 const serviceAddBoxes = document.getElementsByClassName('service-box');
 const removeButton = document.getElementsByClassName('bx bx-x-circle');
-const interactiveOptionsSection = document.querySelector(".interactive-options");
 const addServiceButton = document.querySelector("#add-service");
 const totalBudgetArg = document.querySelector(".budget-arg");
 const totalBudgetUsd = document.querySelector(".budget-usd");
 const totalProjectTime = document.querySelector(".budget-time");
-
 
 // ----------------------------------- Hide additional services
 serviceAddBoxes[1].style.display = 'none';
@@ -317,7 +314,6 @@ serviceAddBoxes[3].style.display = 'none';
 addServiceButton.addEventListener('click', ()=> { 
     if (addedServicesCount == 0) {
         serviceAddBoxes[1].style.display = 'flex';
-        projectServiceOptions[0].querySelector(".option4").style.display = "none";
     }
     else if (addedServicesCount == 1) {
         serviceAddBoxes[2].style.display = 'flex';
@@ -341,7 +337,7 @@ removeButton[2].addEventListener('click', function () { removeService(); });
 function removeService() {
     if (addedServicesCount == 1) {
         serviceAddBoxes[1].style.display = 'none';
-        projectServiceOptions[0].querySelector(".option4").style.display = "block";
+        // projectServiceOptions[0].querySelector(".option4").style.display = "block";
     }
     else if (addedServicesCount == 2) {
         serviceAddBoxes[2].style.display = 'none';
@@ -416,7 +412,6 @@ function changeServiceText(serviceOption, selectorQuery, quantity) {
         case "1":
             selectorQuery.style.display = "block";
             selectorQuery.textContent = "Cantidad:";
-            interactiveOptionsSection.style.display = "none";
             quantity.style.display = "block";
             if(interactiveServiceEnabled == true) { addServiceButton.style.display = "block"; interactiveServiceEnabled = false; }
             for(let i = 1; i < 11; i++) { quantity.querySelector('.option' + i).textContent = i; }
@@ -424,7 +419,6 @@ function changeServiceText(serviceOption, selectorQuery, quantity) {
         case "2":
             selectorQuery.style.display = "block";
             selectorQuery.textContent = "Segundos:";
-            interactiveOptionsSection.style.display = "none";
             quantity.style.display = "block";
             if(interactiveServiceEnabled == true) { addServiceButton.style.display = "block"; interactiveServiceEnabled = false; }
             for(let i = 1; i < 11; i++) { quantity.querySelector('.option' + i).textContent = i * 15; }
@@ -432,17 +426,16 @@ function changeServiceText(serviceOption, selectorQuery, quantity) {
         case "3":
             selectorQuery.style.display = "block";
             selectorQuery.textContent = "Cantidad:";
-            interactiveOptionsSection.style.display = "none";
             quantity.style.display = "block";
             if(interactiveServiceEnabled == true) { addServiceButton.style.display = "block"; interactiveServiceEnabled = false; }
             for(let i = 1; i < 11; i++) { quantity.querySelector('.option' + i).textContent = i; }
             break;
         case "4":
-            selectorQuery.style.display = "none";
-            interactiveOptionsSection.style.display = "grid";
-            quantity.style.display = "none";
-            interactiveServiceEnabled = true;
-            addServiceButton.style.display = "none";
+            selectorQuery.style.display = "block";
+            selectorQuery.textContent = "Interactividad:";
+            quantity.style.display = "block";
+            if(interactiveServiceEnabled == true) { addServiceButton.style.display = "block"; interactiveServiceEnabled = false; }
+            for(let i = 1; i < 11; i++) { quantity.querySelector('.option' + i).textContent = i; }
             break;
     }
 }
@@ -581,13 +574,21 @@ function serviceQuantityMultiplicator(service, quantity) {
             return panoramicServicePrice * quantity;
             break;
         case '4':
-            if (interactiveServicesSum > 1) { totalProjectDays += interactiveServicesSum - 1; }
-            totalProjectDays = Math.floor(totalProjectDays) + 3;
-
-            return  (interactiveServicePrice * selectedProjectSize) + ((pricePerInteraction * selectedProjectSize) * interactiveServicesSum);
+            totalProjectDays += 3;
+            if (quantity > 2) {
+                totalProjectDays += 1;
+            }
+            if (quantity > 7) {
+                totalProjectDays += 1;
+            }
+            if (quantity > 8) {
+                totalProjectDays += 1;
+            }
+            return interactiveServicePrice * quantity;
             break;
     }
 }
+
 
 
 // ----------------------------------- Helper to add "." between 3 digits of a number.
@@ -596,9 +597,11 @@ function toCommas(value) {
 }
 
 
+
 // ------------------------------------------------------  Blue Dollar Value API
 let dollar = 0;
 let dollarApiAvailable = false;
+
 const checkDollarValue = async ()=> {
     try {
     let request = await fetch('https://api.bluelytics.com.ar/v2/latest');
@@ -635,9 +638,7 @@ const modalNotification = (error) => {
     messageInput.style.height = "15.2rem";
 }
 
-
 const contactForm = document.getElementById("contact-form");
-
 
 contactForm.addEventListener("submit", function (e) {
     e.preventDefault();
@@ -654,7 +655,7 @@ contactForm.addEventListener("submit", function (e) {
     const emailInput = document.getElementById("email");
     if (!validateEmail(emailInput.value)) {
         emailInput.style.border = "3px solid #b00";
-        modalNotification("El correo electrónico no es válido.");
+        modalNotification("Ingresa una dirección de correo electrónico válida.");
         return;
     } else {
         emailInput.style.border = "none";
@@ -687,7 +688,7 @@ contactForm.addEventListener("submit", function (e) {
 
     formModal.style.display = "block";
     messageInModal.style.color = "#080";
-    messageInModal.textContent = "Mensaje enviado con éxito."; //---- This is a fake success message
+    messageInModal.textContent = "Mensaje enviado con éxito."; //---- This is a fake success message because probably github pages will not be able to use php
 
     const formData = new FormData(contactForm);
     
@@ -698,7 +699,7 @@ contactForm.addEventListener("submit", function (e) {
     .then(response => response.json())
     .then(data => {
         if (data.success) {
-            messageInModal.textContent = "Mensaje enviado con éxito."; //--- This should be the real success message
+            messageInModal.textContent = "Mensaje enviado con éxito."; //--- This should be the real success message if the page is able to use php
             contactForm.reset();
         } else {
             modalNotification("Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.");
