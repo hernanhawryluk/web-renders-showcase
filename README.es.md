@@ -9,7 +9,7 @@
   <h3>Tecnologías Utilizadas</h3>
   <a href="#"><img alt="HTML" src="https://img.shields.io/badge/HTML-5.0-blue?logo=html"></a>
   <a href="#"><img alt="CSS" src="https://img.shields.io/badge/CSS-CSS3-blue?logo=css"></a>
-  <a href="#"><img alt="JavaScript" src="https://img.shields.io/badge/JavaScript-	ECMAScript%202020-blue?logo=javascript"></a>
+  <a href="#"><img alt="JavaScript" src="https://img.shields.io/badge/JavaScript--ECMAScript%202020-blue?logo=javascript"></a>
 </div>
 
 ## Visita la página web
