@@ -1,18 +1,18 @@
 # web-renders-showcase
 
 <div>
-<h4>Language options</h4>
-  <a href="https://github.com/hernanhawryluk/web-renders-showcase/blob/main/README.es.md"><img alt="Cambiar idioma al español" src="https://img.shields.io/badge/idioma-español-yellow.svg"></a>
-  <a href="#"><img alt="Visitor Badge" src="https://visitor-badge.laobi.icu/badge?page_id=hernanhawryluk.instagram-clone-app"></a>
+<h4>Opciones de lenguaje</h4>
+  <a href="https://github.com/hernanhawryluk/web-renders-showcase/blob/main/README.md"><img alt="Change language to English" src="https://img.shields.io/badge/language-english-yellow.svg"></a>
+  <a href="#"><img alt="Visitas" src="https://visitor-badge.laobi.icu/badge?page_id=hernanhawryluk.web-renders-showcase"></a>
 </div>
 <div>
-  <h3>Technologies used</h3>
+  <h3>Tecnologías Utilizadas</h3>
   <a href="#"><img alt="HTML" src="https://img.shields.io/badge/HTML-5.0-blue?logo=html"></a>
   <a href="#"><img alt="CSS" src="https://img.shields.io/badge/CSS-CSS3-blue?logo=css"></a>
   <a href="#"><img alt="JavaScript" src="https://img.shields.io/badge/JavaScript-	ECMAScript%202020-blue?logo=javascript"></a>
 </div>
 
-## Visit the page
+## Visita la página web
 
 - https://hernanhawryluk.github.io/web-renders-showcase/
 
@@ -40,7 +40,7 @@ Una plataforma web desarrollada desde cero para presentar y promocionar Renders 
 - CSS: El estilo personalizado en CSS garantiza una apariencia única y atractiva que se adapta al ancho de la pantalla.
 - JavaScript: La interactividad y las funciones avanzadas cobran vida gracias al codigo de JavaScript nativo, cuidadosamente adaptado para brindar una experiencia única a los usuarios.
 
-## Where to find me?
+## ¿Donde encontrarme?
 
 <div>
   <a href="https://github.com/hernanhawryluk"><img alt="GitHub" src="https://img.shields.io/badge/GitHub-grey?style=for-the-badge&logo=github"></a>
