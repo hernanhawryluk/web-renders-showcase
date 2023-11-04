@@ -7,9 +7,9 @@
 </div>
 <div>
   <h3>Technologies used</h3>
-  <a href="#"><img alt="HTML" src="https://img.shields.io/badge/HTML-5.0-blue?logo=html"></a>
-  <a href="#"><img alt="CSS" src="https://img.shields.io/badge/CSS-CSS3-blue?logo=css"></a>
-  <a href="#"><img alt="JavaScript" src="https://img.shields.io/badge/JavaScript-ECMAScript%202020-blue?logo=javascript"></a>
+  <a href="#"><img alt="HTML" src="https://img.shields.io/badge/HTML-5.0-blue?logo=html5"></a>
+  <a href="#"><img alt="CSS" src="https://img.shields.io/badge/CSS-CSS3-blue?logo=css3"></a>
+  <a href="#"><img alt="JavaScript" src="https://img.shields.io/badge/JavaScript-ECMA%202020-blue?logo=javascript"></a>
 </div>
 
 ## Visit the web page
