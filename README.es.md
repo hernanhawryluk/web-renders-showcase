@@ -10,7 +10,7 @@
   <a href="#"><img alt="HTML" src="https://img.shields.io/badge/HTML-5.0-blue?logo=html5"></a>
   <a href="#"><img alt="CSS" src="https://img.shields.io/badge/CSS-CSS3-blue?logo=css3"></a>
   <a href="#"><img alt="JavaScript" src="https://img.shields.io/badge/JavaScript-2020-blue?logo=javascript"></a>
-  <a href="#"><img alt="PHP" src="https://img.shields.io/badge/PHP-2020-blue?logo=php"></a>
+  <a href="#"><img alt="PHP" src="https://img.shields.io/badge/PHP-8.1-blue?logo=php"></a>
 </div>
 
 ## Descripción
