@@ -3,7 +3,7 @@
 <div>
 <h4>Language options</h4>
   <a href="https://github.com/hernanhawryluk/web-renders-showcase/blob/main/README.es.md"><img alt="Cambiar idioma al español" src="https://img.shields.io/badge/idioma-español-yellow.svg"></a>
-  <a href="#"><img alt="Visitor Badge" src="https://visitor-badge.laobi.icu/badge?page_id=hernanhawryluk.instagram-clone-app"></a>
+  <a href="#"><img alt="Visitor Badge" src="https://visitor-badge.laobi.icu/badge?page_id=hernanhawryluk.web-renders-showcase"></a>
 </div>
 <div>
   <h3>Technologies used</h3>
@@ -12,7 +12,7 @@
   <a href="#"><img alt="JavaScript" src="https://img.shields.io/badge/JavaScript-	ECMAScript%202020-blue?logo=javascript"></a>
 </div>
 
-## Visit the page
+## Visit the web page
 
 - https://hernanhawryluk.github.io/web-renders-showcase/
 
