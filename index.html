@@ -10,6 +10,7 @@
     <meta name="author" content="Hernán Hawryluk">
     <meta name="copyright" content="NBL Renders">
     <meta name="robots" content="index">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://unpkg.com https://www.youtube.com https://kuula.co https://api.bluelytics.com.ar 'unsafe-eval' 'unsafe-inline'">
 
     <link rel="icon" href="assets/icons/favicon.png" type="image/x-icon">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -30,7 +31,7 @@
                 alt="Logo de NBL Renders" 
                 class="logo-black"
             >
-            <a href="#">ℕ 𝔹 𝕃　ℝ 𝕖 𝕟 𝕕 𝕖 𝕣 𝕤</a>
+            <a href="#" aria-label="NBL Renders">ℕ 𝔹 𝕃　ℝ 𝕖 𝕟 𝕕 𝕖 𝕣 𝕤</a>
         </div>
     
         <i class='bx bx-menu' id="menu-icon"></i>
@@ -171,6 +172,7 @@
                             frameborder="0" 
                             allowfullscreen 
                             class="images"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
                         ></iframe>
                     </div>
                     <div class="services-content" id="service-content-R">
@@ -193,7 +195,7 @@
                             class="frame"
                         >
                         <iframe 
-                            allow="xr-spatial-tracking" 
+                            allow="xr-spatial-tracking 'self' https://kuula.co"
                             title="render360"
                             frameborder="0" 
                             allowfullscreen 
@@ -213,11 +215,14 @@
                             class="frame"
                         >
                         <iframe 
-                            src="https://www.youtube.com/embed/CSDMgXYpyPw?si=uvhIjlLmcTUxmINV?showinfo=0&rel=0"
+                        src="https://www.youtube.com/embed/sKTzhR3745I?si=io2MmioLNueyhJB-&amp;" 
                             title="interactiveRender" 
                             frameborder="0" 
                             allowfullscreen 
                             class="images"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
+
+
                         ></iframe>
                     </div>
                     <div class="services-content" id="service-content-R">
@@ -458,17 +463,17 @@
                 <div class="contact-info">
                     <h2>¡Ponte en contacto!</h2>
                     <address><strong>NBL Renders</strong><br>Lavalle 362<br>Monte grande<br>Buenos Aires<br>Argentina<br><br><strong><i class='bx bx-phone' ></i> Phone:</strong> 11-1234-5678</address>
-                    <a href="#" class="contact-info-whatsapp">
+                    <a href="#" aria-label="Conversa con nosotros por WhatsApp" class="contact-info-whatsapp">
                         <i class='bx bxl-whatsapp'></i> 
                         <span>Conversa con nosotros</span>
                     </a>
                     <h3>¡Buscanos y siguenos!</h3>
                     <div class="social-media">
-                        <a href="#"><i class='bx bxl-facebook'></i></a>
-                        <a href="#"><i class='bx bxl-instagram-alt'></i></a>
-                        <a href="#"><i class='bx bxl-youtube'></i></a>
-                        <a href="#"><i class='bx bxl-linkedin'></i></a>
-                        <a href="#"><i class='bx bxl-whatsapp'></i></a>
+                        <a href="#" aria-label="Facebook"><i class='bx bxl-facebook'></i></a>
+                        <a href="#" aria-label="Instagram"><i class='bx bxl-instagram-alt'></i></a>
+                        <a href="#" aria-label="YouTube"><i class='bx bxl-youtube'></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class='bx bxl-whatsapp'></i></a>
                     </div>
                 </div> 
                 <div class="contact-form">
@@ -498,7 +503,7 @@
             <p>Copyright &copy; 2022 by Hernán Hawryluk | All Rights Reserved.</p>
         </div>
         <div class="footer-iconTop">
-            <a href="#home"><i class='bx bx-up-arrow-alt'></i></a>
+            <a href="#home" aria-label="Home"><i class='bx bx-up-arrow-alt'></i></a>
         </div>
     </footer>
 
