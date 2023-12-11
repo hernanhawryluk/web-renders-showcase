@@ -35,11 +35,11 @@
     
         <i class='bx bx-menu' id="menu-icon"></i>
         <nav class="navbar">
-            <a href="#about">Conócenos</a>
-            <a href="#services">Servicios</a>
-            <a href="#portfolio">Portafolio</a>
-            <a href="#pricing">Precios</a>
-            <a href="#contact">Contacto</a>
+            <a href="#about" aria-label="Conócenos">Conócenos</a>
+            <a href="#services" aria-label="Servicios">Servicios</a>
+            <a href="#portfolio" aria-label="Portafolio">Portafolio</a>
+            <a href="#pricing" aria-label="Precios">Precios</a>
+            <a href="#contact" aria-label="Contacto">Contacto</a>
         </nav>
     </header>
 
@@ -167,7 +167,7 @@
                         >
                         <iframe 
                             src="https://www.youtube.com/embed/CSDMgXYpyPw?si=uvhIjlLmcTUxmINV?showinfo=0&rel=0" 
-                            title="Render en video" 
+                            title="renderVideo" 
                             frameborder="0" 
                             allowfullscreen 
                             class="images"
@@ -194,6 +194,7 @@
                         >
                         <iframe 
                             allow="xr-spatial-tracking" 
+                            title="render360"
                             frameborder="0" 
                             allowfullscreen 
                             src="https://kuula.co/share/collection/7Fzws?logo=1&info=1&fs=1&vr=0&sd=1&thumbs=1" 
@@ -213,7 +214,7 @@
                         >
                         <iframe 
                             src="https://www.youtube.com/embed/CSDMgXYpyPw?si=uvhIjlLmcTUxmINV?showinfo=0&rel=0"
-                            title="Render interactivo" 
+                            title="interactiveRender" 
                             frameborder="0" 
                             allowfullscreen 
                             class="images"
@@ -314,27 +315,27 @@
                     <div class="pricing-interactive">
                         <div class="container-slider">
                             <p>Tamaño:</p>
-                            <input type="range" class="pricing-slider" name="pricing-slider" min="0" max="2" value="0">
+                            <input type="range" class="pricing-slider" aria-label="Tamaño" name="pricing-slider" min="0" max="2" value="0">
                             <span class="proyect-size">• Chico</span>
                         </div>
                         
                         <div class="container-type">
                             <div class="pricing-select-type">
                                 <p>Tipo de Render:</p>
-                                <input type="range" class="type-slider" name="type-slider" min="0" max="2" value="0">
+                                <input type="range" class="type-slider" aria-label="Tipo" name="type-slider" min="0" max="2" value="0">
                                 <span class="proyect-type">• Interior</span>
                             </div>
                         </div>
                         <div class="service-box">
                             <p>Servicio:</p>
-                            <select class="pricing-select-service" name="pricing-select-service">
+                            <select class="pricing-select-service" aria-label="Servicio" name="pricing-select-service">
                                 <option value="1">Imágenes</option>
                                 <option value="2">Video</option>
                                 <option value="3">Panoramico</option>
                                 <option value="4">Interactivo</option>
                             </select>
                             <p class="service-text">Cantidad:</p>
-                            <select name="" class="pricing-quantity" name="pricing-quantity">
+                            <select name="" class="pricing-quantity" aria-label="Cantidad" name="pricing-quantity">
                                 <option value="1" class="option1">1</option>
                                 <option value="2" class="option2">2</option>
                                 <option value="3" class="option3">3</option>
@@ -350,14 +351,14 @@
                         <div class="container-add-service" name="container-add-service">
                             <div class="service-box">
                                 <p>Servicio:</p>
-                                <select class="pricing-select-service" name="pricing-select-service">
+                                <select class="pricing-select-service" aria-label="Servicio" name="pricing-select-service">
                                     <option value="1">Imágenes</option>
                                     <option value="2">Video</option>
                                     <option value="3">Panoramico</option>
                                     <option value="4">Interactivo</option>
                                 </select>
                                 <p class="service-text">Cantidad:</p>
-                                <select name="" class="pricing-quantity" name="pricing-quantity">
+                                <select name="" class="pricing-quantity" aria-label="Cantidad" name="pricing-quantity">
                                     <option value="1" class="option1">1</option>
                                     <option value="2" class="option2">2</option>
                                     <option value="3" class="option3">3</option>
@@ -373,14 +374,14 @@
                             </div>
                             <div class="service-box">
                                 <p>Servicio:</p>
-                                <select class="pricing-select-service" name="pricing-select-service">
+                                <select class="pricing-select-service" aria-label="Servicio" name="pricing-select-service">
                                     <option value="1">Imágenes</option>
                                     <option value="2">Video</option>
                                     <option value="3">Panoramico</option>
                                     <option value="4">Interactivo</option>
                                 </select>
                                 <p class="service-text">Cantidad:</p>
-                                <select name="" class="pricing-quantity" name="pricing-quantity">
+                                <select name="" class="pricing-quantity" aria-label="Cantidad" name="pricing-quantity">
                                     <option value="1" class="option1">1</option>
                                     <option value="2" class="option2">2</option>
                                     <option value="3" class="option3">3</option>
@@ -396,14 +397,14 @@
                             </div>
                             <div class="service-box">
                                 <p>Servicio:</p>
-                                <select class="pricing-select-service" name="pricing-select-service">
+                                <select class="pricing-select-service" aria-label="Servicio" name="pricing-select-service">
                                     <option value="1">Imágenes</option>
                                     <option value="2">Video</option>
                                     <option value="3">Panoramico</option>
                                     <option value="4">Interactivo</option>
                                 </select>
                                 <p class="service-text">Cantidad:</p>
-                                <select name="" class="pricing-quantity" name="pricing-quantity">
+                                <select name="" class="pricing-quantity" aria-label="Cantidad" name="pricing-quantity">
                                     <option value="1" class="option1">1</option>
                                     <option value="2" class="option2">2</option>
                                     <option value="3" class="option3">3</option>
