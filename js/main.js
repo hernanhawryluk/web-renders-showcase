@@ -356,7 +356,7 @@ let bothPriceMultiplier = 1.7;
 let imageServicePrice = 30;
 let videoServicePrice = 50; // for 15 seconds of video
 let panoramicServicePrice = 70;
-let interactiveServicePrice = 300;
+let interactiveServicePrice = 250;
 
 // ----------------------------------- Internal Variables
 let totalProjectPrice = 0;
