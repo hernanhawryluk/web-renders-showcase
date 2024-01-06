@@ -360,7 +360,7 @@ let interactiveServicePrice = 300;
 
 // ----------------------------------- Internal Variables
 let totalProjectPrice = 0;
-let totalProjectDays = 0;
+let totalProjectDays = 6;
 let selectedProjectSize = 1;
 let addedServicesCount = 0;
 let interactiveServiceEnabled = false;
