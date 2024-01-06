@@ -360,7 +360,7 @@ let interactiveServicePrice = 300;
 
 // ----------------------------------- Internal Variables
 let totalProjectPrice = 0;
-let totalProjectDays = 6;
+let totalProjectDays = 0;
 let selectedProjectSize = 1;
 let addedServicesCount = 0;
 let interactiveServiceEnabled = false;
@@ -596,15 +596,15 @@ function calculatePrice() {
   switch (selectedProjectSize) {
     case 1:
       totalProjectPrice = smallSizePrice;
-      totalProjectDays = 2;
+      totalProjectDays = 3;
       break;
     case 2:
       totalProjectPrice = mediumSizePrice;
-      totalProjectDays = 3;
+      totalProjectDays = 5;
       break;
     case 3:
       totalProjectPrice = largeSizePrice;
-      totalProjectDays = 4;
+      totalProjectDays = 7;
       break;
   }
 
