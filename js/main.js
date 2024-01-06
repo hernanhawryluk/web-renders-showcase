@@ -350,8 +350,8 @@ preloadImages();
 let smallSizePrice = 50;
 let mediumSizePrice = 70;
 let largeSizePrice = 130;
-let interiorPriceMultiplier = 1;
-let exteriorPriceMultiplier = 1;
+let interiorPriceMultiplier = 0.8;
+let exteriorPriceMultiplier = 0.9;
 let bothPriceMultiplier = 1;
 let imageServicePrice = 30;
 let videoServicePrice = 50; // for 15 seconds of video
