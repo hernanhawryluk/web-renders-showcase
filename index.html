@@ -10,7 +10,7 @@
     <meta name="author" content="Hernán Hawryluk">
     <meta name="copyright" content="NBL Renders">
     <meta name="robots" content="index">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://unpkg.com https://www.youtube.com https://kuula.co https://api.bluelytics.com.ar 'unsafe-eval' 'unsafe-inline'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://unpkg.com https://www.youtube.com https://kuula.co https://api.bluelytics.com.ar https://play.google.com 'unsafe-eval' 'unsafe-inline'">
 
     <link rel="icon" href="assets/icons/favicon.png" type="image/x-icon">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -19,29 +19,31 @@
 
 <body>
     <header class="header">
-        <div class="header-logo">
-            <img 
-                loading="eager" 
-                src="./assets/images/NBLLogo.png" 
-                alt="Logo de NBL Renders" 
-                class="logo-white"
-            >
-            <img 
-                src="./assets/images/NBLLogoBlack.png"
-                alt="Logo de NBL Renders" 
-                class="logo-black"
-            >
-            <a href="#" aria-label="NBL Renders">ℕ 𝔹 𝕃　ℝ 𝕖 𝕟 𝕕 𝕖 𝕣 𝕤</a>
+        <div class="header-content">
+            <div class="header-logo">
+                <img 
+                    loading="eager" 
+                    src="./assets/images/NBLLogo.png" 
+                    alt="Logo de NBL Renders" 
+                    class="logo-white"
+                >
+                <img 
+                    src="./assets/images/NBLLogoBlack.png"
+                    alt="Logo de NBL Renders" 
+                    class="logo-black"
+                >
+                <a href="#" aria-label="NBL Renders">ℕ 𝔹 𝕃　ℝ 𝕖 𝕟 𝕕 𝕖 𝕣 𝕤</a>
+            </div>
+        
+            <i class='bx bx-menu' id="menu-icon"></i>
+            <nav class="navbar">
+                <a href="#about" aria-label="Conócenos">Conócenos</a>
+                <a href="#services" aria-label="Servicios">Servicios</a>
+                <a href="#portfolio" aria-label="Portafolio">Portafolio</a>
+                <a href="#pricing" aria-label="Precios">Precios</a>
+                <a href="#contact" aria-label="Contacto">Contacto</a>
+            </nav>
         </div>
-    
-        <i class='bx bx-menu' id="menu-icon"></i>
-        <nav class="navbar">
-            <a href="#about" aria-label="Conócenos">Conócenos</a>
-            <a href="#services" aria-label="Servicios">Servicios</a>
-            <a href="#portfolio" aria-label="Portafolio">Portafolio</a>
-            <a href="#pricing" aria-label="Precios">Precios</a>
-            <a href="#contact" aria-label="Contacto">Contacto</a>
-        </nav>
     </header>
 
     <main>
@@ -138,96 +140,98 @@
         </section>
 
         <section class="services" id="services">
-            <h2>Servicios de Render</h2>
-            <div class="services-container">
-                <div class="services-content" id="service-content-L">
-                    <h3>Renders Fotorealistas</h3>
-                    <p>Transforma tus ideas en <strong>imágenes</strong> asombrosamente <strong>realistas y detalladas</strong>. Visualiza tu proyecto con precisión y convence a tus clientes con una representación virtual impactante en sus dispositivos. <br><br><em>!Haz que tus diseños cobren vida antes de construirlos!</em></p>
-                </div>
-                <div class="photos-images">
-                    <img 
-                        src="assets/images/ipad.png" 
-                        alt="iPad reproduciendo una foto" 
-                        class="frame"
-                    >
-                    <img 
-                        src="assets/images/services/images.png" 
-                        alt="Render fotorealista de un interior" 
-                        class="images"
-                    >
-                </div>
-            </div>
-            <div class="videos">
-                <div class="videos-background"></div>
-                <div class="services-container">
-                    <div class="videos-images">
-                        <img 
-                            src="assets/images/tv.png" 
-                            alt="Televisor reproduciendo un render en video"
-                            class="frame"
-                        >
-                        <iframe 
-                            src="https://www.youtube.com/embed/CSDMgXYpyPw?si=uvhIjlLmcTUxmINV?showinfo=0&rel=0" 
-                            title="renderVideo" 
-                            frameborder="0" 
-                            allowfullscreen 
-                            class="images"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
-                        ></iframe>
-                    </div>
-                    <div class="services-content" id="service-content-R">
-                        <h3>Renders en Video</h3>
-                        <p>Transforma tus diseños arquitectónicos en obras maestras audiovisuales con nuestros <strong>videos</strong> en <strong>calidad 4k</strong> para que no pierdas ni un solo detalle. <br><br><em>¡Impresiona a tus clientes con vistas dinámicas y realistas que los transportarán al corazón de tu proyecto!</em></p>
-                    </div>
-                </div>
-            </div>
-            <div class="i360">
-                <div class="i360-background"></div>
+            <div class="services-content">
+                <h2>Servicios de Render</h2>
                 <div class="services-container">
                     <div class="services-content" id="service-content-L">
-                        <h3>Renders Panoramicos</h3>
-                        <p>Explora tu proyecto desde cualquier perspectiva, sin importar el dispositivo que utilices, gracias a nuestros <strong>renders fotorealistas en 360 grados</strong>. <br><br><em>Vive una experiencia visual inmersiva y cautiva a tus clientes con vistas asombrosas que despertarán su imaginación.</em>.</p>
+                        <h3>Renders Fotorealistas</h3>
+                        <p>Transforma tus ideas en <strong>imágenes</strong> asombrosamente <strong>realistas y detalladas</strong>. Visualiza tu proyecto con precisión y convence a tus clientes con una representación virtual impactante en sus dispositivos. <br><br><em>!Haz que tus diseños cobren vida antes de construirlos!</em></p>
                     </div>
-                    <div class="i360-images">
+                    <div class="photos-images">
                         <img 
                             src="assets/images/ipad.png" 
-                            alt="iPad reproduciendo un render panoramico"
+                            alt="iPad reproduciendo una foto" 
                             class="frame"
                         >
-                        <iframe 
-                            allow="xr-spatial-tracking 'self' https://kuula.co"
-                            title="render360"
-                            frameborder="0" 
-                            allowfullscreen 
-                            src="https://kuula.co/share/collection/7Fzws?logo=1&info=1&fs=1&vr=0&sd=1&thumbs=1" 
+                        <img 
+                            src="assets/images/services/images.png" 
+                            alt="Render fotorealista de un interior" 
                             class="images"
-                        ></iframe>
+                        >
                     </div>
                 </div>
-            </div>
-            <div class="interactive">
-                <div class="interactive-background"></div>
-                <div class="services-container">
-                    <div class="interactive-images">
-                        <img 
-                            src="assets/images/macbook.png" 
-                            alt="MacBook reproduciendo un render interactivo"
-                            class="frame"
-                        >
-                        <iframe 
-                        src="https://www.youtube.com/embed/sKTzhR3745I?si=io2MmioLNueyhJB-&amp;" 
-                            title="interactiveRender" 
-                            frameborder="0" 
-                            allowfullscreen 
-                            class="images"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
-
-
-                        ></iframe>
+                <div class="videos">
+                    <div class="videos-background"></div>
+                    <div class="services-container">
+                        <div class="videos-images">
+                            <img 
+                                src="assets/images/tv.png" 
+                                alt="Televisor reproduciendo un render en video"
+                                class="frame"
+                            >
+                            <iframe 
+                                src="https://www.youtube.com/embed/CSDMgXYpyPw?si=uvhIjlLmcTUxmINV?showinfo=0&rel=0" 
+                                title="renderVideo" 
+                                frameborder="0" 
+                                allowfullscreen 
+                                class="images"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
+                            ></iframe>
+                        </div>
+                        <div class="services-content" id="service-content-R">
+                            <h3>Renders en Video</h3>
+                            <p>Transforma tus diseños arquitectónicos en obras maestras audiovisuales con nuestros <strong>videos</strong> en <strong>calidad 4k</strong> para que no pierdas ni un solo detalle. <br><br><em>¡Impresiona a tus clientes con vistas dinámicas y realistas que los transportarán al corazón de tu proyecto!</em></p>
+                        </div>
                     </div>
-                    <div class="services-content" id="service-content-R">
-                        <h3>Renders Interactivos</h3>
-                        <p>Entorno virtual construido en un motor de videojuegos que te permite <strong>explorar</strong> a libre voluntad, <strong>interactua</strong> con cada objeto y <strong>personaliza</strong> cada detalle del proyecto en tiempo real. <br><br><em>Impresiona a tus clientes con presentaciones interactivas que les permitirán visualizar su espacio ideal.</em></p>
+                </div>
+                <div class="i360">
+                    <div class="i360-background"></div>
+                    <div class="services-container">
+                        <div class="services-content" id="service-content-L">
+                            <h3>Renders Panoramicos</h3>
+                            <p>Explora tu proyecto desde cualquier perspectiva, sin importar el dispositivo que utilices, gracias a nuestros <strong>renders fotorealistas en 360 grados</strong>. <br><br><em>Vive una experiencia visual inmersiva y cautiva a tus clientes con vistas asombrosas que despertarán su imaginación.</em>.</p>
+                        </div>
+                        <div class="i360-images">
+                            <img 
+                                src="assets/images/ipad.png" 
+                                alt="iPad reproduciendo un render panoramico"
+                                class="frame"
+                            >
+                            <iframe 
+                                allow="xr-spatial-tracking 'self' https://kuula.co"
+                                title="render360"
+                                frameborder="0" 
+                                allowfullscreen 
+                                src="https://kuula.co/share/collection/7Fzws?logo=1&info=1&fs=1&vr=0&sd=1&thumbs=1" 
+                                class="images"
+                            ></iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="interactive">
+                    <div class="interactive-background"></div>
+                    <div class="services-container">
+                        <div class="interactive-images">
+                            <img 
+                                src="assets/images/macbook.png" 
+                                alt="MacBook reproduciendo un render interactivo"
+                                class="frame"
+                            >
+                            <iframe 
+                            src="https://www.youtube.com/embed/sKTzhR3745I?si=io2MmioLNueyhJB-&amp;" 
+                                title="interactiveRender" 
+                                frameborder="0" 
+                                allowfullscreen 
+                                class="images"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
+
+
+                            ></iframe>
+                        </div>
+                        <div class="services-content" id="service-content-R">
+                            <h3>Renders Interactivos</h3>
+                            <p>Entorno virtual construido en un motor de videojuegos que te permite <strong>explorar</strong> a libre voluntad, <strong>interactua</strong> con cada objeto y <strong>personaliza</strong> cada detalle del proyecto en tiempo real. <br><br><em>Impresiona a tus clientes con presentaciones interactivas que les permitirán visualizar su espacio ideal.</em></p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -301,11 +305,6 @@
                 </li>
             </ul>
             <div id="myModal" class="modal">
-                <div>
-                    <span class="close">&times;</span>
-                    <span class="prev">&#10094</span>
-                    <span class="next">&#10095</span>
-                </div>
                 <div class="modal-img-container">
                     <img class="modal-content" id="img01">
                 </div>
@@ -314,68 +313,23 @@
         </section>
 
         <section class="pricing" id="pricing">
-            <h2 class="pricing-title">Cotización en línea</h2>
-            <div class="pricing-container">
-                <div class="pricing-calculator">
-                    <div class="pricing-interactive">
-                        <div class="container-slider">
-                            <p>Tamaño:</p>
-                            <input type="range" class="pricing-slider" aria-label="Tamaño" name="pricing-slider" min="0" max="2" value="0">
-                            <span class="proyect-size">• Chico</span>
-                        </div>
-                        
-                        <div class="container-type">
-                            <div class="pricing-select-type">
-                                <p>Tipo de Render:</p>
-                                <input type="range" class="type-slider" aria-label="Tipo" name="type-slider" min="0" max="2" value="0">
-                                <span class="proyect-type">• Interior</span>
+            <div class="pricing-content">
+                <h2 class="pricing-title">Cotización en línea</h2>
+                <div class="pricing-container">
+                    <div class="pricing-calculator">
+                        <div class="pricing-interactive">
+                            <div class="container-slider">
+                                <p>Tamaño:</p>
+                                <input type="range" class="pricing-slider" aria-label="Tamaño" name="pricing-slider" min="0" max="2" value="0">
+                                <span class="proyect-size">• Chico</span>
                             </div>
-                        </div>
-                        <div class="service-box">
-                            <p>Servicio:</p>
-                            <select class="pricing-select-service" aria-label="Servicio" name="pricing-select-service">
-                                <option value="1">Imágenes</option>
-                                <option value="2">Video</option>
-                                <option value="3">Panoramico</option>
-                                <option value="4">Interactivo</option>
-                            </select>
-                            <p class="service-text">Cantidad:</p>
-                            <select name="" class="pricing-quantity" aria-label="Cantidad" name="pricing-quantity">
-                                <option value="1" class="option1">1</option>
-                                <option value="2" class="option2">2</option>
-                                <option value="3" class="option3">3</option>
-                                <option value="4" class="option4">4</option>
-                                <option value="5" class="option5">5</option>
-                                <option value="6" class="option6">6</option>
-                                <option value="7" class="option7">7</option>
-                                <option value="8" class="option8">8</option>
-                                <option value="9" class="option9">9</option>
-                                <option value="10" class="option10">10</option>
-                            </select>
-                        </div>
-                        <div class="container-add-service" name="container-add-service">
-                            <div class="service-box">
-                                <p>Servicio:</p>
-                                <select class="pricing-select-service" aria-label="Servicio" name="pricing-select-service">
-                                    <option value="1">Imágenes</option>
-                                    <option value="2">Video</option>
-                                    <option value="3">Panoramico</option>
-                                    <option value="4">Interactivo</option>
-                                </select>
-                                <p class="service-text">Cantidad:</p>
-                                <select name="" class="pricing-quantity" aria-label="Cantidad" name="pricing-quantity">
-                                    <option value="1" class="option1">1</option>
-                                    <option value="2" class="option2">2</option>
-                                    <option value="3" class="option3">3</option>
-                                    <option value="4" class="option4">4</option>
-                                    <option value="5" class="option5">5</option>
-                                    <option value="6" class="option6">6</option>
-                                    <option value="7" class="option7">7</option>
-                                    <option value="8" class="option8">8</option>
-                                    <option value="9" class="option9">9</option>
-                                    <option value="10" class="option10">10</option>
-                                </select>
-                                <i class='bx bx-x-circle'></i>
+                            
+                            <div class="container-type">
+                                <div class="pricing-select-type">
+                                    <p>Tipo de Render:</p>
+                                    <input type="range" class="type-slider" aria-label="Tipo" name="type-slider" min="0" max="2" value="0">
+                                    <span class="proyect-type">• Interior</span>
+                                </div>
                             </div>
                             <div class="service-box">
                                 <p>Servicio:</p>
@@ -398,62 +352,109 @@
                                     <option value="9" class="option9">9</option>
                                     <option value="10" class="option10">10</option>
                                 </select>
-                                <i class='bx bx-x-circle'></i>
                             </div>
-                            <div class="service-box">
-                                <p>Servicio:</p>
-                                <select class="pricing-select-service" aria-label="Servicio" name="pricing-select-service">
-                                    <option value="1">Imágenes</option>
-                                    <option value="2">Video</option>
-                                    <option value="3">Panoramico</option>
-                                    <option value="4">Interactivo</option>
-                                </select>
-                                <p class="service-text">Cantidad:</p>
-                                <select name="" class="pricing-quantity" aria-label="Cantidad" name="pricing-quantity">
-                                    <option value="1" class="option1">1</option>
-                                    <option value="2" class="option2">2</option>
-                                    <option value="3" class="option3">3</option>
-                                    <option value="4" class="option4">4</option>
-                                    <option value="5" class="option5">5</option>
-                                    <option value="6" class="option6">6</option>
-                                    <option value="7" class="option7">7</option>
-                                    <option value="8" class="option8">8</option>
-                                    <option value="9" class="option9">9</option>
-                                    <option value="10" class="option10">10</option>
-                                </select>
-                                <i class='bx bx-x-circle'></i>
+                            <div class="container-add-service" name="container-add-service">
+                                <div class="service-box">
+                                    <p>Servicio:</p>
+                                    <select class="pricing-select-service" aria-label="Servicio" name="pricing-select-service">
+                                        <option value="1">Imágenes</option>
+                                        <option value="2">Video</option>
+                                        <option value="3">Panoramico</option>
+                                        <option value="4">Interactivo</option>
+                                    </select>
+                                    <p class="service-text">Cantidad:</p>
+                                    <select name="" class="pricing-quantity" aria-label="Cantidad" name="pricing-quantity">
+                                        <option value="1" class="option1">1</option>
+                                        <option value="2" class="option2">2</option>
+                                        <option value="3" class="option3">3</option>
+                                        <option value="4" class="option4">4</option>
+                                        <option value="5" class="option5">5</option>
+                                        <option value="6" class="option6">6</option>
+                                        <option value="7" class="option7">7</option>
+                                        <option value="8" class="option8">8</option>
+                                        <option value="9" class="option9">9</option>
+                                        <option value="10" class="option10">10</option>
+                                    </select>
+                                    <i class='bx bx-x-circle'></i>
+                                </div>
+                                <div class="service-box">
+                                    <p>Servicio:</p>
+                                    <select class="pricing-select-service" aria-label="Servicio" name="pricing-select-service">
+                                        <option value="1">Imágenes</option>
+                                        <option value="2">Video</option>
+                                        <option value="3">Panoramico</option>
+                                        <option value="4">Interactivo</option>
+                                    </select>
+                                    <p class="service-text">Cantidad:</p>
+                                    <select name="" class="pricing-quantity" aria-label="Cantidad" name="pricing-quantity">
+                                        <option value="1" class="option1">1</option>
+                                        <option value="2" class="option2">2</option>
+                                        <option value="3" class="option3">3</option>
+                                        <option value="4" class="option4">4</option>
+                                        <option value="5" class="option5">5</option>
+                                        <option value="6" class="option6">6</option>
+                                        <option value="7" class="option7">7</option>
+                                        <option value="8" class="option8">8</option>
+                                        <option value="9" class="option9">9</option>
+                                        <option value="10" class="option10">10</option>
+                                    </select>
+                                    <i class='bx bx-x-circle'></i>
+                                </div>
+                                <div class="service-box">
+                                    <p>Servicio:</p>
+                                    <select class="pricing-select-service" aria-label="Servicio" name="pricing-select-service">
+                                        <option value="1">Imágenes</option>
+                                        <option value="2">Video</option>
+                                        <option value="3">Panoramico</option>
+                                        <option value="4">Interactivo</option>
+                                    </select>
+                                    <p class="service-text">Cantidad:</p>
+                                    <select name="" class="pricing-quantity" aria-label="Cantidad" name="pricing-quantity">
+                                        <option value="1" class="option1">1</option>
+                                        <option value="2" class="option2">2</option>
+                                        <option value="3" class="option3">3</option>
+                                        <option value="4" class="option4">4</option>
+                                        <option value="5" class="option5">5</option>
+                                        <option value="6" class="option6">6</option>
+                                        <option value="7" class="option7">7</option>
+                                        <option value="8" class="option8">8</option>
+                                        <option value="9" class="option9">9</option>
+                                        <option value="10" class="option10">10</option>
+                                    </select>
+                                    <i class='bx bx-x-circle'></i>
+                                </div>
+                                <div class="service-button-container">
+                                    <input type="button" class="btn" id="add-service" value="Agregar Servicio">
+                                </div>
                             </div>
-                            <div class="service-button-container">
-                                <input type="button" class="btn" id="add-service" value="Agregar Servicio">
-                            </div>
+                        </div>
+                        <div class="pricing-example">
+                            <img 
+                                src="assets/images/pricing/small-interior.png"
+                                alt="Render fotorealista a modo de demostración del trabajo a presupuestar"
+                            >
                         </div>
                     </div>
-                    <div class="pricing-example">
-                        <img 
-                            src="assets/images/pricing/small-interior.png"
-                            alt="Render fotorealista a modo de demostración del trabajo a presupuestar"
-                        >
+                </div>
+                <div class="container-money">
+                    <div class="container-budget">
+                        <p>Precio para Argentina</p>
+                        <span class="budget-arg">$36.000 (pesos)</span>
+                        <p>Precio para el mundo</p>
+                        <span class="budget-usd">$ 80 (dolares)</span>
+                        <p>Tiempo aproximado</p>
+                        <span class="budget-time">2 días hábiles</span>
                     </div>
-                </div>
-            </div>
-            <div class="container-money">
-                <div class="container-budget">
-                    <p>Precio para Argentina</p>
-                    <span class="budget-arg">$36.000 (pesos)</span>
-                    <p>Precio para el mundo</p>
-                    <span class="budget-usd">$ 80 (dolares)</span>
-                    <p>Tiempo aproximado</p>
-                    <span class="budget-time">2 días hábiles</span>
-                </div>
-                <div class="container-methods">
-                    <p>Metodos de pago</p>
-                    <span><i class='bx bxs-bank'></i> Deposito Bancario</span><br>
-                    <span><i class='bx bxl-bitcoin'></i> Criptomonedas</span><br>
-                    <span><i class='bx bxl-paypal'></i> Paypal</span>
-                    <p>Requerimientos</p>
-                    <span><i class='bx bx-folder'></i> Plano con vistas y cortes</span><br>
-                    <span><i class='bx bx-spreadsheet'></i> Descripción de materiales</span><br>
-                    <span><i class='bx bx-chair'></i> Descripción de los mobiliarios</span>
+                    <div class="container-methods">
+                        <p>Metodos de pago</p>
+                        <span><i class='bx bxs-bank'></i> Deposito Bancario</span><br>
+                        <span><i class='bx bxl-bitcoin'></i> Criptomonedas</span><br>
+                        <span><i class='bx bxl-paypal'></i> Paypal</span>
+                        <p>Requerimientos</p>
+                        <span><i class='bx bx-folder'></i> Plano con vistas y cortes</span><br>
+                        <span><i class='bx bx-spreadsheet'></i> Descripción de materiales</span><br>
+                        <span><i class='bx bx-chair'></i> Descripción de los mobiliarios</span>
+                    </div>
                 </div>
             </div>
         </section>
@@ -499,11 +500,13 @@
     </main>
     
     <footer class="footer">
-        <div class="footer-text">
-            <p>Copyright &copy; 2022 by Hernán Hawryluk | All Rights Reserved.</p>
-        </div>
-        <div class="footer-iconTop">
-            <a href="#home" aria-label="Home"><i class='bx bx-up-arrow-alt'></i></a>
+        <div class="footer-content">
+            <div class="footer-text">
+                <p>Copyright &copy; 2022 by Hernán Hawryluk | All Rights Reserved.</p>
+            </div>
+            <div class="footer-iconTop">
+                <a href="#home" aria-label="Home"><i class='bx bx-up-arrow-alt'></i></a>
+            </div>
         </div>
     </footer>
 

@@ -64,7 +64,6 @@ const hideNavbar = () => {
 window.addEventListener("scroll", () => {
   const scrollTop = window.scrollY;
   const navbarLinksSelector = document.querySelectorAll("header nav a");
-  // const scrollDirection = scrollTop < lastScrollPosition ? 'up' : 'down';
 
   if (scrollTop > 660 && !whiteNavbarTheme) {
     setWhiteNavbarHeader();
@@ -95,14 +94,6 @@ window.addEventListener("scroll", () => {
       }
     }
   });
-
-  // if (scrollDirection === 'up') {
-  //     showNavbar();
-  // } else {
-  //     hideNavbar();
-  // }
-  // lastScrollPosition = scrollTop;
-
   menuIcon.classList.remove("bx-x");
   navbar.classList.remove("active");
 });
@@ -279,8 +270,6 @@ function addImages(start, end) {
 let lastClickedImageIndex = 0;
 
 const modal = document.getElementById("myModal");
-const modalPrevBtn = document.querySelector("#myModal .prev");
-const modalNextBtn = document.querySelector("#myModal .next");
 
 const portfolioImages = document.getElementsByClassName("portfolio-picture");
 for (let i = 0; i < portfolioImages.length; i++) {
@@ -288,22 +277,6 @@ for (let i = 0; i < portfolioImages.length; i++) {
     modalAction(i);
   });
 }
-
-modalPrevBtn.addEventListener("click", () => {
-  if (lastClickedImageIndex >= 0) {
-    modalAction(lastClickedImageIndex - 1);
-  } else {
-    modalAction(currentImageID + 8);
-  }
-});
-
-modalNextBtn.addEventListener("click", () => {
-  if (lastClickedImageIndex <= currentImageID + 8) {
-    modalAction(lastClickedImageIndex + 1);
-  } else {
-    modalAction(0);
-  }
-});
 
 function modalAction(element) {
   hideNavbar();
@@ -316,9 +289,9 @@ function modalAction(element) {
   captionText.innerHTML = image.alt;
 }
 
-const modalCloseButton = document.getElementsByClassName("close")[0];
+const modalBackground = document.getElementById("myModal");
 
-modalCloseButton.addEventListener("click", () => {
+modalBackground.addEventListener("click", () => {
   showNavbar();
   modal.style.display = "none";
 });

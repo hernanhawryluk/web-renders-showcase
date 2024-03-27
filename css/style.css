@@ -23,6 +23,7 @@
 html {
   font-size: 62.5%;
   overflow-x: hidden;
+  width: 100%;
 }
 
 body {
@@ -44,14 +45,17 @@ section {
   right: 0;
   height: 4.5rem;
   background: var(--bg-color);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   z-index: 100;
   background-color: rgba(0, 0, 0, 0.05);
   border-bottom: 0.1rem solid rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(2px);
   transition: top 1s ease;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .header .header-logo {
@@ -261,7 +265,7 @@ section {
   bottom: 0;
   left: 0;
   width: "65%";
-  padding: 10vh 2rem;
+  padding: 13vh 2rem;
   display: inline-flex;
   flex-direction: column;
   position: absolute;
@@ -1061,13 +1065,18 @@ section {
 }
 
 .footer {
-  display: flex;
   width: 100%;
-  justify-content: space-between;
-  align-items: center;
   flex-wrap: wrap;
   padding: 2rem 1rem;
   background-color: var(--second-bg-color);
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .footer-text p {
@@ -1419,48 +1428,56 @@ section {
 }
 
 @media (min-width: 1440px) {
-  html {
-    font-size: 85%;
+  .header-content {
+    margin: 0 auto;
+    max-width: 1440px;
+  }
+  .about {
+    margin: 0 auto;
+    max-width: 1400px;
+  }
+  .services-content {
+    margin: 0 auto;
+    max-width: 1400px;
+  }
+  .portfolio {
+    margin: 0 auto;
+    max-width: 1400px;
+  }
+  .pricing-content {
+    margin: 0 auto;
+    max-width: 1400px;
+  }
+  .contact {
+    margin: 0 auto;
+    max-width: 1400px;
+  }
+  .footer-content {
+    margin: 0 auto;
+    max-width: 1440px;
   }
 }
 
 @media (min-width: 1600px) {
-  html {
-    font-size: 90%;
-  }
-  .pricing-example {
-    width: 42rem;
-    height: 25.5rem;
-  }
-  .pricing .container-money {
-    margin-left: 4rem;
-    margin-right: 8rem;
+  .mySlides .home-text {
+    padding: 16vh 20%;
   }
 }
 
 @media (min-width: 2048px) {
-  html {
-    font-size: 115%;
-  }
-  .pricing .container-money {
-    margin-left: 1rem;
-    margin-right: 6rem;
-  }
-  .contact {
-    padding-left: 2rem;
-    padding-right: 2rem;
+  .mySlides .home-text {
+    padding: 16vh 22%;
   }
 }
 
 @media (min-width: 2560px) {
-  html {
-    font-size: 140%;
+  .mySlides .home-text {
+    padding: 16vh 26%;
   }
-  .contact-container {
-    padding-left: 1rem;
-    padding-right: 3rem;
+  .home-text h1 {
+    font-size: 3rem;
   }
-  .contact-container .contact-info {
-    min-width: 40%;
+  .home-text p {
+    font-size: 2.4rem;
   }
 }
