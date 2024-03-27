@@ -1002,12 +1002,12 @@ section {
   width: 100%;
   padding: 1.5rem;
   font-size: 1.6rem;
-  color: var(--text-color);
+  color: var(--main-color);
   background: var(--second-bg-color);
   border-radius: 0.8rem;
   margin: 0.7rem 0;
   box-shadow: 0 0 2px var(--text-color);
-  transition: max-width 0.5s linear;
+  transition: 0.5s linear;
 }
 
 .contact-form form .input-box input {
