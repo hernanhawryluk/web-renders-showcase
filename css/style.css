@@ -97,13 +97,13 @@ section {
 
 .navbar {
   display: flex;
+  gap: 3.6rem;
+  padding-right: 1.8rem;
 }
 
 .navbar a {
   font-size: 1.4rem;
   color: var(--text-over-image);
-  padding-right: 1.8rem;
-  padding-left: 1.8rem;
   text-shadow: 1px 1px 2px var(--shadow-color);
   font-weight: 400;
   transition: 0.5s ease;
@@ -299,7 +299,7 @@ section {
   flex: 1;
   flex-direction: column;
   align-items: center;
-  padding: 5rem 3rem 5rem;
+  padding: 9rem 3rem 12rem;
 }
 
 .about-main h2 {
@@ -330,7 +330,7 @@ section {
   flex: 1;
   flex-direction: column;
   align-items: left;
-  padding: 1rem 3rem 1rem;
+  padding: 5rem 3rem 5rem;
 }
 
 .about-box h3 {
@@ -347,14 +347,14 @@ section {
 }
 
 #services {
-  padding-top: 5rem;
-  padding-bottom: 3rem;
+  padding-top: 7rem;
+  padding-bottom: 7rem;
   background-color: var(--second-bg-color);
 }
 
 .services h2 {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 7rem;
   font-size: 3rem;
   color: var(--main-color);
   text-shadow: 3px 3px 3px var(--shadow-color);
@@ -543,8 +543,8 @@ section {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding-top: 5rem;
-  padding-bottom: 5rem;
+  padding-top: 7rem;
+  padding-bottom: 7rem;
   background-color: var(bg-color);
 }
 
@@ -604,6 +604,10 @@ section {
   overflow: hidden;
   width: 100%;
   transition: 0.5s ease;
+}
+
+#add-pictures-btn {
+  margin-top: 2rem;
 }
 
 .portfolio-box img:hover {
@@ -679,39 +683,16 @@ section {
   }
 }
 
-.close {
-  position: absolute;
-  top: 1%;
-  left: 2%;
-  color: #f1f1f1;
-  font-size: 6rem;
-  font-weight: bold;
-  transition: 0.3s;
-  cursor: pointer;
-}
-
-.close:hover {
-  color: #bbb;
-  text-decoration: none;
-  transform: scale(1.2);
-}
-
-.close:active {
-  color: #bbb;
-  text-decoration: none;
-  cursor: pointer;
-  transform: scale(1.05);
-}
-
 /* ------------------------- Pricing ------------------------- */
 
 #pricing {
-  padding: 5rem 2rem 5rem;
+  padding: 7rem 2rem 9rem;
   background-color: var(--second-bg-color);
 }
 
 .pricing .pricing-title {
   font-size: 3rem;
+  padding-bottom: 2rem;
   color: var(--main-color);
   text-shadow: 2px 2px 3px var(--shadow-color);
   text-align: center;
@@ -880,11 +861,12 @@ section {
   animation: 1.5s ease-out 0s 1 slideInFromLeft;
 }
 
-/* ----------------------------------------- Contact Section ----------------------------------------- */
+/* -------------------------- Contact Section -------------------------- */
 
 .contact {
   background-color: var(bg-color);
   padding-top: 5rem;
+  margin-bottom: 5rem;
 }
 
 .contact .contact-container {
@@ -1125,13 +1107,35 @@ section {
   }
 
   .navbar.active {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 3rem 3rem;
+    gap: 3.8rem;
   }
 
   .navbar a {
     display: block;
     font-size: 2rem;
-    margin: 2rem 0;
+  }
+
+  .about {
+    margin-bottom: 9rem;
+  }
+
+  .about .about-main {
+    padding: 9rem 2rem 2rem;
+  }
+
+  .about .about-box {
+    padding: 1rem 2rem 0rem;
+  }
+
+  .services h2 {
+    margin-bottom: 4rem;
+    padding-left: 3rem;
+    text-align: left;
   }
 }
 
@@ -1450,6 +1454,7 @@ section {
   }
   .contact {
     margin: 0 auto;
+    padding-bottom: 5rem;
     max-width: 1400px;
   }
   .footer-content {
