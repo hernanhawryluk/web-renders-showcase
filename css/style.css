@@ -361,8 +361,8 @@ section {
 }
 
 .services .services-container {
-  padding-left: 3rem;
-  padding-right: 3rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -561,7 +561,7 @@ section {
   justify-content: center;
   align-items: baseline;
   flex-wrap: wrap;
-  padding: 3rem;
+  padding: 2rem;
   gap: 1rem;
 }
 
@@ -1134,7 +1134,7 @@ section {
 
   .services h2 {
     margin-bottom: 4rem;
-    padding-left: 3rem;
+    padding-left: 2rem;
     text-align: left;
   }
 }
