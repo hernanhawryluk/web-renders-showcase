@@ -197,36 +197,36 @@ if (window.innerWidth >= 1024) {
 let currentImageID = 0;
 
 const allImages = [
-  "09.png",
-  "10.png",
-  "11.jpeg",
-  "12.png",
-  "13.png",
-  "14.png",
-  "15.png",
-  "16.png",
-  "17.png",
-  "18.png",
-  "19.png",
-  "20.png",
-  "21.png",
-  "22.png",
-  "23.png",
-  "24.png",
-  "25.png",
-  "26.png",
-  "27.png",
-  "28.png",
-  "29.png",
-  "30.png",
-  "31.png",
-  "32.jpeg",
-  "33.png",
-  "34.jpeg",
-  "35.png",
-  "36.jpeg",
-  "37.png",
-  "38.png",
+  "09.webp",
+  "10.webp",
+  "11.webp",
+  "12.webp",
+  "13.webp",
+  "14.webp",
+  "15.webp",
+  "16.webp",
+  "17.webp",
+  "18.webp",
+  "19.webp",
+  "20.webp",
+  "21.webp",
+  "22.webp",
+  "23.webp",
+  "24.webp",
+  "25.webp",
+  "26.webp",
+  "27.webp",
+  "28.webp",
+  "29.webp",
+  "30.webp",
+  "31.webp",
+  "32.webp",
+  "33.webp",
+  "34.webp",
+  "35.webp",
+  "36.webp",
+  "37.webp",
+  "38.webp",
 ];
 
 const addPicturesButton = document.querySelector("#add-pictures-btn");
@@ -336,7 +336,7 @@ const preloadImages = () => {
 
   for (let i = 0; i < imagesToPreload.length; i++) {
     const img = new Image();
-    img.src = `assets/images/pricing/${imagesToPreload[i]}.png`;
+    img.src = `assets/images/pricing/${imagesToPreload[i]}.webp`;
   }
 };
 
@@ -483,7 +483,7 @@ projectTypeSlider.oninput = function () {
 
 // helper for visual representation of the project
 const imageDemo = () => {
-  projectImage.src = `assets/images/pricing/${imageDemoSize}-${imageDemoType}.png`;
+  projectImage.src = `assets/images/pricing/${imageDemoSize}-${imageDemoType}.webp`;
 };
 
 imageDemo();
