@@ -1,58 +1,75 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NBL Renders</title>
-    <meta name="keywords" content="renderización fotorealista, arquitectura 3D, renders arquitectónicos, servicios de renderización, visualización arquitectónica, modelado 3D, animaciones arquitectónicas, diseño arquitectónico, proyectos residenciales, proyectos comerciales, proyectos urbanos, imágenes 3D, recorridos virtuales, realismo arquitectónico">
-    <meta name="description" content="Servicios de renderización fotorealista de arquitectura para proyectos residenciales, comerciales y urbanos. Nuestro equipo de expertos utiliza tecnología de vanguardia para crear imágenes y animaciones 3D de alta calidad que permiten a nuestros clientes visualizar sus diseños arquitectónicos con gran realismo. Contáctanos para transformar tus ideas en imágenes impresionantes y cautivadoras.">
-    <meta name="author" content="Hernán Hawryluk">
-    <meta name="copyright" content="NBL Renders">
-    <meta name="robots" content="index">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://unpkg.com https://www.youtube.com https://kuula.co https://api.bluelytics.com.ar https://play.google.com 'unsafe-eval' 'unsafe-inline'">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>NBL Renders | Renderización Arquitectónica Fotorealista 3D</title>
 
-    <link rel="icon" href="assets/icons/favicon.png" type="image/x-icon">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="css/style.css">
+  <!-- meta SEO -->
+  <meta name="description" content="Especialistas en renderización fotorealista de arquitectura. Visualizá tus proyectos residenciales, comerciales o urbanos con imágenes y animaciones 3D de alta calidad.">
+  <meta name="keywords" content="renders 3D, render arquitectura, visualización arquitectónica, modelado 3D, animación arquitectónica, diseño arquitectónico, renders residenciales, renders comerciales, renders urbanos, recorridos virtuales, realismo arquitectónico, imágenes 3D">
+  <meta name="author" content="Hernán Hawryluk">
+  <meta name="copyright" content="© NBL Renders">
+  <meta name="robots" content="index, follow">
+
+  <!-- favicon -->
+  <link rel="icon" href="assets/icons/favicon.png" type="image/png">
+
+  <!-- security -->
+<meta http-equiv="Content-Security-Policy" content="
+  default-src 'self';
+  img-src 'self' data: https:;
+  script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com https://www.youtube.com https://kuula.co;
+  style-src 'self' 'unsafe-inline' https://unpkg.com;
+  font-src 'self' https://unpkg.com;
+  frame-src https://www.youtube.com https://kuula.co;
+  connect-src https://api.bluelytics.com.ar https://play.google.com;">
+
+  <!-- styles and libreries -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <header class="header">
+    <!-- header navigation bar -->
+    <header class="header" role="banner">
         <div class="header-content">
-            <div class="header-logo">
+            <a href="#" class="header-logo" aria-label="Ir al inicio de NBL Renders">
                 <img 
-                    loading="eager" 
                     src="./assets/images/NBLLogo.png" 
                     alt="Logo de NBL Renders" 
                     class="logo-white"
+                    loading="eager" 
                 >
                 <img 
                     src="./assets/images/NBLLogoBlack.png"
                     alt="Logo de NBL Renders" 
                     class="logo-black"
                 >
-                <a href="#" aria-label="NBL Renders">ℕ 𝔹 𝕃　ℝ 𝕖 𝕟 𝕕 𝕖 𝕣 𝕤</a>
-            </div>
+                <span aria-label="NBL Renders">ℕ 𝔹 𝕃　ℝ 𝕖 𝕟 𝕕 𝕖 𝕣 𝕤</span>
+            </a>
         
             <i class='bx bx-menu' id="menu-icon"></i>
-            <nav class="navbar">
-                <a href="#about" aria-label="Conócenos">Conócenos</a>
-                <a href="#services" aria-label="Servicios">Servicios</a>
-                <a href="#portfolio" aria-label="Portafolio">Portafolio</a>
-                <a href="#pricing" aria-label="Precios">Precios</a>
-                <a href="#contact" aria-label="Contacto">Contacto</a>
+            <nav class="navbar" role="navigation">
+                <a href="#about" aria-label="Sección conócenos">Conócenos</a>
+                <a href="#services" aria-label="Sección servicios">Servicios</a>
+                <a href="#portfolio" aria-label="Sección portafolio">Portafolio</a>
+                <a href="#pricing" aria-label="Sección precios">Precios</a>
+                <a href="#contact" aria-label="Sección contacto">Contacto</a>
             </nav>
         </div>
     </header>
 
     <main>
-        <section class="home" id="home">
-            <div class="slideshow-container">
+        <!-- slideshow -->
+        <section class="home" id="home" aria-label="Presentación de renders fotorealistas">
+            <div class="slideshow-container" role="region" aria-label="Galería de renders destacados">
                 <div class="mySlides">
                     <img 
                         loading="eager" 
-                        src="assets/images/slideshow/00.png" 
+                        src="assets/images/slideshow/00.webp" 
                         alt="Render fotorealista de una casa japonesa y su jardín"
                     >
                     <div class="home-text">
@@ -62,7 +79,7 @@
                 </div>
                 <div class="mySlides">
                     <img
-                        src="assets/images/slideshow/01.png" 
+                        src="assets/images/slideshow/01.webp" 
                         alt="Render fotorealista de un dormitorio"
                     >
                     <div class="home-text">
@@ -72,7 +89,7 @@
                 </div>
                 <div class="mySlides">
                     <img 
-                        src="assets/images/slideshow/02.png"
+                        src="assets/images/slideshow/02.webp"
                         alt="Render fotorealista de una casa moderna en medio de un bosque"
                     >
                     <div class="home-text">
@@ -82,7 +99,7 @@
                 </div>
                 <div class="mySlides">
                     <img
-                        src="assets/images/slideshow/03.png"
+                        src="assets/images/slideshow/03.webp"
                         alt="Render fotorealista de una cocina moderna"
                     >
                     <div class="home-text">
@@ -92,7 +109,7 @@
                 </div>
                 <div  class="mySlides">
                     <img
-                        src="assets/images/slideshow/04.png"
+                        src="assets/images/slideshow/04.webp"
                         alt="Render fotorealista de un comedor con plantas colgantes"
                     >
                     <div class="home-text">
@@ -101,10 +118,13 @@
                     </div>
                 </div>
 
+                <!-- control buttons of the slideshow -->
                 <a class="prev">&#10094</a>
                 <a class="next">&#10095</a>
             </div>
-            <div class="home-dots" style="text-align: center;">
+
+            <!-- dots of the slideshow -->
+            <div class="home-dots" role="tablist" aria-label="Navegación por diapositivas" style="text-align: center;">
                 <span class="dot"></span>
                 <span class="dot"></span>
                 <span class="dot"></span>
@@ -113,7 +133,8 @@
             </div>
         </section>
 
-        <section class="about" id="about">
+        <!-- about section -->
+        <section class="about" id="about" aria-label="Información sobre nuestros servicios">
             <div class="about-main" id="about-box-L">
                 <h2 class="about-title">Servicios de Render y Visualización 3D para Arquitectura</h2>
                 <div class="line"></div>
@@ -129,19 +150,21 @@
                     <p>Al ofrecer una vista previa realista de tu proyecto, podras generar confianza y reducir la incertidumbre de tus clientes. Nuestros renders fotorealistas pueden ser la clave para cautivar a tus clientes y ayudarte a alcanzar tus objetivos comerciales.</p>
                 </div>
                 <div class="about-box" id="about-box-R">
-                    <h3>Calidad</h3>
+                    <h3>Calidad garantizada</h3>
                     <p>La calidad y la satisfacción del cliente son nuestra máxima prioridad. Nos enorgullece entregar resultados execpcionales, en tiempo y dentro del presupuesto establecido. Nusetro compromiso con la excelencia y la pasión por la arquitectura se refleja en cada render fotorealista que creamos.</p>
-                    <h3>Empatía</h3>
-                    <p>Ya sea que necesites presentar un proyecto residencial, comercial o de diseño interior, trabajamos en estrecha colaboración contigo, comprendiento tus necesidades, para crear imágenes y videos que transmitan la esencia de tus diseños de manera convincente.</p>
-                    <h3>Eficiencia</h3>
+                    <h3>Trabajo colaborativo</h3>
+                    <p>Ya sea para proyectos residenciales, comerciales o interiores, trabajamos codo a codo contigo para entender tus necesidades y representar fielmente la esencia de tus diseños.</p>
+                    <h3>Agilidad y eficiencia</h3>
                     <p>Nuestro equipo especializado trabaja de manera ágil y eficiente para garantizar su satisfacción. Entendemos la importancia de cumplir con los plazos establecidos permitiéndote avanzar con tus proyectos sin demoras innecesarias.</strong></p>
                 </div>
             </div>
         </section>
 
-        <section class="services" id="services">
+        <!-- services section -->
+        <section class="services" id="services" aria-label="Nuestros servicios de renderización">
             <div class="services-content">
-                <h2>Servicios de Render</h2>
+                <h2>Servicios de Renderización Arquitectónica</h2>
+                <!-- photos -->
                 <div class="services-container">
                     <div class="services-content" id="service-content-L">
                         <h3>Renders Fotorealistas</h3>
@@ -160,6 +183,8 @@
                         >
                     </div>
                 </div>
+
+                <!-- videos -->
                 <div class="videos">
                     <div class="videos-background"></div>
                     <div class="services-container">
@@ -184,6 +209,8 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- i360 -->
                 <div class="i360">
                     <div class="i360-background"></div>
                     <div class="services-container">
@@ -208,6 +235,8 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- interactive -->
                 <div class="interactive">
                     <div class="interactive-background"></div>
                     <div class="services-container">
@@ -237,93 +266,110 @@
             </div>
         </section>
 
-        <section class="portfolio" id="portfolio">
+        <!-- portfolio section -->
+        <section class="portfolio" id="portfolio" aria-label="Galería de proyectos renderizados">
             <h2 class="portfolio-title">Galería de Nuestros Renders 3D</h2>
             <ul class="portfolio-container" id="PortfolioList">
                 <li class="portfolio-box" id="box-left">
                     <img 
                         src="assets/images/portfolio/00.png"
-                        alt="Render fotorealista de una cocina" 
+                        alt="Cocina moderna con diseño minimalista en render fotorealista" 
                         class="portfolio-picture"
+                        loading="lazy"
                     >
                 </li>
                 <li class="portfolio-box"  id="box-top">
                     <img 
                         src="assets/images/portfolio/01.png" 
-                        alt="Render fotorealista de una casa moderna de tres pisos"
+                        alt="Casa moderna de tres pisos con iluminación natural"
                         class="portfolio-picture"
+                        loading="lazy"
                     >
                 </li>
                 <li class="portfolio-box"  id="box-right">
                     <img 
                         src="assets/images/portfolio/02.png"
-                        alt="Render fotorealista de una cocina con plantas colgantes"
+                        alt="Cocina con decoración natural y plantas colgantes"
                         class="portfolio-picture"
+                        loading="lazy"
                     >
                 </li>
                 <li class="portfolio-box" id="box-left">
                     <img 
                         src="assets/images/portfolio/03.jpeg" 
-                        alt="Render fotorealista de un jardín japones"
+                        alt="Jardín japonés con diseño paisajístico en render 3D"
                         class="portfolio-picture"
+                        loading="lazy"
                     >
                 </li>
                 <li class="portfolio-box" id="box-bottom">
                     <img 
                         src="assets/images/portfolio/04.png" 
-                        alt="Render fotorealista de una cafeteria al lado del mar"
+                        alt="Cafetería junto al mar con vista panorámica"
                         class="portfolio-picture"
+                        loading="lazy"
                     >
                 </li>
                 <li class="portfolio-box" id="box-right">
                     <img 
                         src="assets/images/portfolio/05.png" 
-                        alt="Render fotorealista de una cocina moderna en tonos oscuros"
+                        alt="Cocina moderna con estética en tonos oscuros"
                         class="portfolio-picture"
+                        loading="lazy"
                     >
                 </li>
                 <li class="portfolio-box" id="box-left">
                     <img 
                         src="assets/images/portfolio/06.png" 
-                        alt="Render fotorealista de una casa japonesa y su jardín"
+                        alt="Casa tradicional japonesa rodeada de jardín zen"
                         class="portfolio-picture"
+                        loading="lazy"
                     >
                 </li>
                 <li class="portfolio-box" id="box-bottom">
                     <img 
                         src="assets/images/portfolio/07.png"
-                        alt="Render fotorealista de un comedor cocina unificado"
+                        alt="Comedor y cocina integrados en ambiente luminoso"
                         class="portfolio-picture"
+                        loading="lazy"
                     >
                 </li>
                 <li class="portfolio-box" id="box-right">
                     <img 
                         src="assets/images/portfolio/08.png" 
-                        alt="Render fotorealista de un baño lujoso"
+                        alt="Baño de lujo con materiales nobles y luz cálida"
                         class="portfolio-picture"
+                        loading="lazy"
                     >
                 </li>
             </ul>
-            <div id="myModal" class="modal">
+
+            <!-- Modal para ampliar imagen -->
+            <div id="myModal" class="modal" role="dialog" aria-label="Visualización de imagen en grande">
                 <div class="modal-img-container">
-                    <img class="modal-content" id="img01">
+                    <img class="modal-content" id="img01" alt="Vista ampliada del render seleccionado" />
                 </div>
             </div>
-            <input class="btn" type="button" value="Ver Más" id="add-pictures-btn">
+
+            <!-- button for loading more content -->
+            <input class="btn" type="button" value="Ver Más" id="add-pictures-btn" aria-label="Ver más imágenes del portafolio" />
         </section>
 
-        <section class="pricing" id="pricing">
+        <!-- pricing calculator section -->
+        <section class="pricing" id="pricing" aria-label="Cotizador de servicios de render 3D">
             <div class="pricing-content">
-                <h2 class="pricing-title">Cotización en línea</h2>
+                <h2 class="pricing-title">Cotización Interactivo</h2>
                 <div class="pricing-container">
                     <div class="pricing-calculator">
                         <div class="pricing-interactive">
+                            <!-- size slider -->
                             <div class="container-slider">
                                 <p>Tamaño:</p>
                                 <input type="range" class="pricing-slider" aria-label="Tamaño" name="pricing-slider" min="0" max="2" value="0">
                                 <span class="proyect-size">• Chico</span>
                             </div>
                             
+                            <!-- type slider -->
                             <div class="container-type">
                                 <div class="pricing-select-type">
                                     <p>Tipo de Render:</p>
@@ -331,6 +377,8 @@
                                     <span class="proyect-type">• Interior</span>
                                 </div>
                             </div>
+
+                            <!-- first service selector -->
                             <div class="service-box">
                                 <p>Servicio:</p>
                                 <select class="pricing-select-service" aria-label="Servicio" name="pricing-select-service">
@@ -353,6 +401,8 @@
                                     <option value="10" class="option10">10</option>
                                 </select>
                             </div>
+
+                            <!-- additional services -->
                             <div class="container-add-service" name="container-add-service">
                                 <div class="service-box">
                                     <p>Servicio:</p>
@@ -423,11 +473,15 @@
                                     </select>
                                     <i class='bx bx-x-circle'></i>
                                 </div>
+
+                                <!-- add service button -->
                                 <div class="service-button-container">
                                     <input type="button" class="btn" id="add-service" value="Agregar Servicio">
                                 </div>
                             </div>
                         </div>
+
+                        <!-- example render -->
                         <div class="pricing-example">
                             <img 
                                 src="assets/images/pricing/small-interior.png"
@@ -436,7 +490,9 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="container-money">
+                    <!-- pricing container -->
                     <div class="container-budget">
                         <p>Precio para Argentina</p>
                         <span class="budget-arg">$36.000 (pesos)</span>
@@ -445,6 +501,8 @@
                         <p>Tiempo aproximado</p>
                         <span class="budget-time">2 días hábiles</span>
                     </div>
+
+                    <!-- methods container -->
                     <div class="container-methods">
                         <p>Metodos de pago</p>
                         <span><i class='bx bxs-bank'></i> Deposito Bancario</span><br>
@@ -459,8 +517,10 @@
             </div>
         </section>
 
-        <section class="contact" id="contact">
+        <!-- contact section -->
+        <section class="contact" id="contact" aria-label="Sección de contacto">
             <div class="contact-container">
+                <!-- contact info -->
                 <div class="contact-info">
                     <h2>¡Ponte en contacto!</h2>
                     <address><strong>NBL Renders</strong><br>Lavalle 362<br>Monte grande<br>Buenos Aires<br>Argentina<br><br><strong><i class='bx bx-phone' ></i> Phone:</strong> 11-1234-5678</address>
@@ -468,7 +528,7 @@
                         <i class='bx bxl-whatsapp'></i> 
                         <span>Conversa con nosotros</span>
                     </a>
-                    <h3>¡Buscanos y siguenos!</h3>
+                    <h3>Seguinos en redes</h3>
                     <div class="social-media">
                         <a href="#" aria-label="Facebook"><i class='bx bxl-facebook'></i></a>
                         <a href="#" aria-label="Instagram"><i class='bx bxl-instagram-alt'></i></a>
@@ -477,21 +537,66 @@
                         <a href="#" aria-label="WhatsApp"><i class='bx bxl-whatsapp'></i></a>
                     </div>
                 </div> 
+
+                <!-- contact form -->
                 <div class="contact-form">
                     <h2>¡Envianos un mensaje!</h2>
-                    <form id="contact-form" method="post">
+                    <form id="contact-form" method="post" aria-label="Formulario de contacto">
                         <div class="input-box">
-                            <input type="text" id="name" name="name" placeholder="Nombre completo" autocapitalize="words" autocomplete="name">
-                            <input type="text" id="email" name="email" oninvalid="InvalidMsg(this)" oninput="InvalidMsg(this)" placeholder="Dirección de correo electrónico" autocomplete="email">
+                            <input 
+                                type="text" 
+                                id="name" 
+                                name="name" 
+                                placeholder="Nombre completo" 
+                                autocapitalize="words" 
+                                autocomplete="name"
+                                required
+                            >
+                            <input 
+                                type="text" 
+                                id="email" 
+                                name="email" 
+                                oninvalid="InvalidMsg(this)" 
+                                oninput="InvalidMsg(this)" 
+                                placeholder="Dirección de correo electrónico" 
+                                autocomplete="email"
+                                required
+                            >
                         </div>
                         <div class="input-box">
-                            <input type="tel" id="mobile" name="mobile" placeholder="Número de teléfono" autocomplete="tel">
-                            <input type="text" id="subject" name="subject" placeholder="Asunto" autocapitalize="sentences">
+                            <input 
+                                type="tel" 
+                                id="mobile" 
+                                name="mobile" 
+                                placeholder="Número de teléfono" 
+                                autocomplete="tel"
+                                required
+                            >
+                            <input 
+                                type="text"
+                                id="subject" 
+                                name="subject" 
+                                placeholder="Asunto" 
+                                autocapitalize="sentences"
+                                required
+                            >
                         </div>
-                        <textarea name="message" id="message" cols="30" rows="10" placeholder="Tu mensaje" autocapitalize="sentences"></textarea>
+                        <textarea 
+                            name="message" 
+                            id="message" 
+                            cols="30" 
+                            rows="10" 
+                            placeholder="Tu mensaje" 
+                            autocapitalize="sentences"
+                            required
+                        ></textarea>
+
+                        <!-- form feedback -->
                         <div id="form-modal">
                             <span id="form-status">El nombre debe tener entre 1 y 30 caracteres.</span>
                         </div>
+
+                        <!-- submit button -->
                         <input type="submit" value="Enviar Mensaje" class="btn" autocapitalize="sentences">
                     </form>
                 </div>
@@ -499,13 +604,14 @@
         </section>
     </main>
     
+    <!-- footer -->
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-text">
                 <p>Copyright &copy; 2022 by Hernán Hawryluk | All Rights Reserved.</p>
             </div>
             <div class="footer-iconTop">
-                <a href="#home" aria-label="Home"><i class='bx bx-up-arrow-alt'></i></a>
+                <a href="#home" aria-label="Volver al inicio"><i class='bx bx-up-arrow-alt'></i></a>
             </div>
         </div>
     </footer>

@@ -36,7 +36,7 @@ section {
   width: 100%;
 }
 
-/* ------------------------- Header ------------------------- */
+/* ------------------------- Header Section ------------------------- */
 
 .header {
   position: fixed;
@@ -73,25 +73,25 @@ section {
 }
 
 .header-logo img {
-  height: 4.3rem;
-  width: 4.8rem;
+  height: 4rem;
+  width: 4.5rem;
   object-fit: cover;
   margin-right: 1rem;
 }
 
-.header-logo a {
-  font-size: 2.1rem;
+.header-logo span {
+  font-size: 2rem;
   color: var(--text-over-image);
   font-weight: 600;
   text-shadow: 2px 2px 2px var(--shadow-color);
   transition: 0.5s ease;
 }
 
-.header-logo a:hover {
+.header-logo span:hover {
   transform: scale(1.05);
 }
 
-.header-logo a:active {
+.header-logo span:active {
   transform: scale(1);
 }
 
@@ -144,7 +144,7 @@ section {
   object-fit: cover;
 }
 
-/* Slideshow */
+/* ------------------------- Slideshow Section ------------------------- */
 
 .mySlides {
   display: flex;
@@ -290,6 +290,8 @@ section {
   animation: 1.5s ease-out 0s 1 slideInFromBottom;
 }
 
+/* ------------------------- About Section ------------------------- */
+
 .about {
   background-color: var(bg-color);
 }
@@ -345,6 +347,8 @@ section {
   font-size: 1.6rem;
   padding-bottom: 3rem;
 }
+
+/* ------------------------- Services Section ------------------------- */
 
 #services {
   padding-top: 7rem;
@@ -538,6 +542,8 @@ section {
   background-color: var(--bg-color);
 }
 
+/* ------------------------- Portfolio Section ------------------------- */
+
 .portfolio {
   display: flex;
   align-items: center;
@@ -665,6 +671,7 @@ section {
 .modal-content {
   max-width: 100%;
   max-height: 100%;
+  border-radius: 1rem;
   object-fit: contain;
 }
 
@@ -683,7 +690,7 @@ section {
   }
 }
 
-/* ------------------------- Pricing ------------------------- */
+/* ------------------------- Pricing Section ------------------------- */
 
 #pricing {
   padding: 7rem 2rem 9rem;
@@ -840,7 +847,7 @@ section {
 .container-methods span {
   color: var(--main-color);
   font-size: 1.8rem;
-  padding-top: 0.5rem;
+  padding-top: 1rem;
 }
 
 .service-button-container {
@@ -1046,6 +1053,8 @@ section {
   transition: width 0.5s linear;
 }
 
+/* ------------------------- Footer Section ------------------------- */
+
 .footer {
   width: 100%;
   flex-wrap: wrap;
@@ -1088,7 +1097,7 @@ section {
   color: var(--second-bg-color);
 }
 
-/* --------------------------------------------------------------------- media queries */
+/* ------------------------- Media Queries ------------------------- */
 
 @media (max-width: 850px) {
   #menu-icon {

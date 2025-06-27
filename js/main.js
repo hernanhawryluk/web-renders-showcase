@@ -1,32 +1,33 @@
-// ------------------------------------------------------ Toggle icon navbar
+// ------------------------------------------------------ toggle icon navbar on mobile
 
-let menuIcon = document.querySelector("#menu-icon");
-let navbar = document.querySelector(".navbar");
+const menuIcon = document.querySelector("#menu-icon");
+const navbar = document.querySelector(".navbar");
 
 menuIcon.addEventListener("click", () => {
   menuIcon.classList.toggle("bx-x");
   navbar.classList.toggle("active");
 });
 
-// ------------------------------------------------------ Scroll sections active link
+// ------------------------------------------------------ scroll sections active link
 
 const sectionsSelector = document.querySelectorAll("section");
 const navbarSelector = document.querySelector(".navbar");
 const navbarLinksSelector = document.querySelectorAll(".navbar a");
 const menuIconSelector = document.querySelector("#menu-icon");
 const headerSelector = document.querySelector("header");
-const logoSelector = document.querySelector(".header-logo a");
+const logoSelector = document.querySelector(".header-logo span");
 const whiteLogoSelector = document.querySelector(".logo-white");
 const blackLogoSelector = document.querySelector(".logo-black");
 
-let lastScrollPosition = window.scrollY;
 let whiteNavbarTheme = false;
+
+// function to change navbar theme to white
 
 const setWhiteNavbarHeader = () => {
   blackLogoSelector.style.display = "block";
   whiteLogoSelector.style.display = "none";
   headerSelector.style.backgroundColor = "#fff";
-  headerSelector.style.opacity = "95%";
+  headerSelector.style.opacity = "0.95";
   logoSelector.style.color = "#000";
   navbarSelector.style.backgroundColor = "#fff";
   menuIconSelector.style.color = "#1f1f1f";
@@ -36,39 +37,30 @@ const setWhiteNavbarHeader = () => {
   whiteNavbarTheme = true;
 };
 
+// function to change navbar theme to transparent
+
 const setTransparentNavbarHeader = () => {
   whiteLogoSelector.style.display = "block";
   blackLogoSelector.style.display = "none";
   headerSelector.style.backgroundColor = "rgba(0, 0, 0, 0.05)";
-  headerSelector.style.opacity = "100%";
+  headerSelector.style.opacity = "1";
   logoSelector.style.color = "#fff";
   menuIconSelector.style.color = "#fff";
   navbarSelector.style.backgroundColor = "transparent";
-
-  const navbarLinksSelector = document.querySelectorAll(".navbar a");
   navbarLinksSelector.forEach((link) => {
     link.style.color = "#fff";
   });
-
   whiteNavbarTheme = false;
 };
 
-const showNavbar = () => {
-  document.querySelector(".header").style.top = "0";
-};
-
-const hideNavbar = () => {
-  document.querySelector(".header").style.top = "-100px";
-};
+// scroll listener to change navbar theme
 
 window.addEventListener("scroll", () => {
   const scrollTop = window.scrollY;
-  const navbarLinksSelector = document.querySelectorAll("header nav a");
 
   if (scrollTop > 660 && !whiteNavbarTheme) {
     setWhiteNavbarHeader();
-  }
-  if (scrollTop <= 660 && whiteNavbarTheme) {
+  } else if (scrollTop <= 660 && whiteNavbarTheme) {
     setTransparentNavbarHeader();
   }
 
@@ -86,22 +78,25 @@ window.addEventListener("scroll", () => {
       });
 
       const activeLink = document.querySelector(
-        `header nav a[href*=${sectionId}]`
+        `header nav a[href*="${sectionId}"]`
       );
-
       if (activeLink) {
         activeLink.classList.add("active");
       }
     }
   });
+
+  // closes the menu on scroll
+
   menuIcon.classList.remove("bx-x");
   navbar.classList.remove("active");
 });
 
-// ------------------------------------------------------ Slideshow Gallery
+// ------------------------------------------------------ slideshow gallery
 
 let isTimerActive = true;
 let currentSlideIndex = 0;
+let sliderTimer = null;
 
 const slides = document.getElementsByClassName("mySlides");
 const slideshowPrevButton = document.querySelector(
@@ -113,57 +108,60 @@ const slideshowNextButton = document.querySelector(
 const dots = document.getElementsByClassName("dot");
 const slideshowDotsButton = document.getElementsByClassName("dot");
 
-slideshowPrevButton.addEventListener("click", function () {
-  changeSlide(-1);
+// button events listeners
+
+slideshowPrevButton.addEventListener("click", () => changeSlide(-1));
+slideshowNextButton.addEventListener("click", () => changeSlide(1));
+
+Array.from(slideshowDotsButton).forEach((dot, i) => {
+  dot.addEventListener("click", () => goToSlide(i));
 });
-slideshowNextButton.addEventListener("click", function () {
-  changeSlide(1);
-});
-for (let i = 0; i < 5; i++) {
-  slideshowDotsButton[i].addEventListener("click", function () {
-    goToSlide(i);
-  });
-}
+
+// functions for handling the slideshow
 
 function changeSlide(n) {
-  isTimerActive = false;
-  clearTimeout(sliderTimer);
-  showSlides((currentSlideIndex += n));
+  stopAutoSlide();
+  showSlides(currentSlideIndex + n);
 }
 
 function goToSlide(n) {
+  stopAutoSlide();
+  showSlides(n);
+}
+
+function stopAutoSlide() {
   isTimerActive = false;
   clearTimeout(sliderTimer);
-  showSlides((currentSlideIndex = n));
 }
 
 function startSlideTimer() {
-  showSlides((currentSlideIndex += 1));
+  showSlides(currentSlideIndex + 1);
 }
 
+// function to show the slides
+
 function showSlides(n) {
-  if (n > slides.length - 1) {
-    currentSlideIndex = 0;
-  }
-  if (n < 0) {
-    currentSlideIndex = slides.length - 1;
-  }
-  for (i = 0; i < slides.length; i++) {
+  const totalSlides = slides.length;
+
+  currentSlideIndex = (n + totalSlides) % totalSlides;
+
+  for (let i = 0; i < totalSlides; i++) {
     slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", " ");
+    dots[i].className = dots[i].className.replace(" active", "");
   }
   slides[currentSlideIndex].style.display = "block";
   dots[currentSlideIndex].className += " active";
-  if (isTimerActive == true) {
-    sliderTimer = setTimeout("startSlideTimer()", 6000);
+
+  if (isTimerActive) {
+    sliderTimer = setTimeout(startSlideTimer, 6000);
   }
 }
 
+// starts the slideshow
+
 showSlides(currentSlideIndex);
 
-// ------------------------------------------------------ Scroll Reveal
+// ------------------------------------------------------ scroll reveal items
 
 if (window.innerWidth >= 1024) {
   ScrollReveal({
@@ -177,23 +175,27 @@ if (window.innerWidth >= 1024) {
     ".header, #about-box-L h2, .services-title, .portfolio-title, #box-top, .pricing-title",
     { origin: "top" }
   );
+
   ScrollReveal().reveal(
     "#about-box-L h4, #service-content-L, .videos-images, .interactive-images, #box-left, .container-slider, .container-type, #service1, .contact-info",
     { origin: "left" }
   );
+
   ScrollReveal().reveal(
     "#about-box-R, .photos-images, .i360-images, #box-right, .pricing-example, .container-methods, .contact-form",
     { origin: "right" }
   );
+
   ScrollReveal().reveal(
     "#about-box-M, #service-content-R, #box-bottom, .btn, .container-budget",
     { origin: "bottom" }
   );
 }
 
-// ------------------------------------------------------ Add more images to the portfolio by clicking
+// ------------------------------------------------------ add more images to the portfolio by clicking
 
 let currentImageID = 0;
+
 const allImages = [
   "09.png",
   "10.png",
@@ -228,6 +230,7 @@ const allImages = [
 ];
 
 const addPicturesButton = document.querySelector("#add-pictures-btn");
+
 addPicturesButton.addEventListener("click", function () {
   addImages(0, 8);
 });
@@ -259,6 +262,8 @@ function addImages(start, end) {
     document.getElementsByClassName("portfolio-picture")
   );
 
+  // assign a new event listener to each image
+
   portfolioPictureSelection.forEach((picture, index) => {
     picture.addEventListener("click", () => {
       modalAction(index);
@@ -266,10 +271,14 @@ function addImages(start, end) {
   });
 }
 
-// ------------------------------------------------------ Enlarge photos by clicking
+// ------------------------------------------------------ enlarge photos by clicking
+
 let lastClickedImageIndex = 0;
 
 const modal = document.getElementById("myModal");
+const modalBackground = document.getElementById("myModal");
+
+// asign a new event listener to each image
 
 const portfolioImages = document.getElementsByClassName("portfolio-picture");
 for (let i = 0; i < portfolioImages.length; i++) {
@@ -277,6 +286,18 @@ for (let i = 0; i < portfolioImages.length; i++) {
     modalAction(i);
   });
 }
+
+// functions to show and hide the navbar
+
+const showNavbar = () => {
+  document.querySelector(".header").style.top = "0";
+};
+
+const hideNavbar = () => {
+  document.querySelector(".header").style.top = "-100px";
+};
+
+// open the modal
 
 function modalAction(element) {
   hideNavbar();
@@ -289,16 +310,17 @@ function modalAction(element) {
   captionText.innerHTML = image.alt;
 }
 
-const modalBackground = document.getElementById("myModal");
+// close the modal when clicking outside
 
 modalBackground.addEventListener("click", () => {
   showNavbar();
   modal.style.display = "none";
 });
 
-// ------------------------------------------------------ Price Calculator
+// ------------------------------------------------------ price calculator
 
-// ----------------------------------- Project demo images preloader
+// example images preloading
+
 const preloadImages = () => {
   const imagesToPreload = [
     "small-interior",
@@ -317,9 +339,11 @@ const preloadImages = () => {
     img.src = `assets/images/pricing/${imagesToPreload[i]}.png`;
   }
 };
+
 preloadImages();
 
-// ----------------------------------- Variables: Prices
+// prices variables
+
 let smallSizePrice = 50;
 let mediumSizePrice = 70;
 let largeSizePrice = 130;
@@ -331,7 +355,8 @@ let videoServicePrice = 50; // for 15 seconds of video
 let panoramicServicePrice = 70;
 let interactiveServicePrice = 300;
 
-// ----------------------------------- Internal Variables
+// services variables
+
 let totalProjectPrice = 0;
 let totalProjectDays = 0;
 let selectedProjectSize = 1;
@@ -341,7 +366,8 @@ let interactiveServicesSum = 1;
 let imageDemoSize = "small";
 let imageDemoType = "interior";
 
-// ----------------------------------- DOM Query Selectors
+// DOM elements
+
 const projectSlider = document.querySelector("input.pricing-slider");
 const projectSizeText = document.querySelector(
   ".pricing-interactive .proyect-size"
@@ -362,12 +388,14 @@ const totalBudgetArg = document.querySelector(".budget-arg");
 const totalBudgetUsd = document.querySelector(".budget-usd");
 const totalProjectTime = document.querySelector(".budget-time");
 
-// ----------------------------------- Hide additional services
+// initially hide additional services
+
 serviceAddBoxes[1].style.display = "none";
 serviceAddBoxes[2].style.display = "none";
 serviceAddBoxes[3].style.display = "none";
 
-// ----------------------------------- Button to add new services
+// button events listeners for adding services
+
 addServiceButton.addEventListener("click", () => {
   if (addedServicesCount == 0) {
     serviceAddBoxes[1].style.display = "flex";
@@ -383,7 +411,8 @@ addServiceButton.addEventListener("click", () => {
   calculatePrice();
 });
 
-// ----------------------------------- Buttons for remove prices
+// button events listeners for removing services
+
 removeButton[0].addEventListener("click", function () {
   removeService();
 });
@@ -409,7 +438,7 @@ function removeService() {
   calculatePrice();
 }
 
-// ----------------------------------- Slider to adjust project size
+// slider to adjust project size
 projectSlider.oninput = function () {
   if (this.value == 0) {
     selectedProjectSize = 1;
@@ -432,7 +461,7 @@ projectSlider.oninput = function () {
   calculatePrice();
 };
 
-// ----------------------------------- Slider to adjust project type
+// slider to adjust project type
 projectTypeSlider.oninput = function () {
   if (this.value == 0) {
     projectTypeText.textContent = "• Interior";
@@ -452,14 +481,14 @@ projectTypeSlider.oninput = function () {
   calculatePrice();
 };
 
-// ----------------------------------- Helper for visual representation of the project
+// helper for visual representation of the project
 const imageDemo = () => {
   projectImage.src = `assets/images/pricing/${imageDemoSize}-${imageDemoType}.png`;
 };
 
 imageDemo();
 
-// ----------------------------------- Adjusting text based on service type
+// adjusting text based on service type
 function changeServiceText(serviceOption, selectorQuery, quantity) {
   switch (serviceOption) {
     case "1":
@@ -513,7 +542,7 @@ function changeServiceText(serviceOption, selectorQuery, quantity) {
   }
 }
 
-// ----------------------------------- Update the price when any adjustment is made
+// update the price when any adjustment is made
 projectServiceOptions[0].oninput = function () {
   changeServiceText(this.value, serviceText[0], projectQuantityInputs[0]);
   calculatePrice();
@@ -564,7 +593,7 @@ function checkboxSum(event) {
   calculatePrice();
 }
 
-// ----------------------------------- Calculate the price
+// calculate the price
 function calculatePrice() {
   switch (selectedProjectSize) {
     case 1:
@@ -630,7 +659,7 @@ function calculatePrice() {
   totalProjectPrice = Math.round(totalProjectPrice / 10) * 10;
   totalBudgetUsd.textContent =
     "$ " + toCommas(totalProjectPrice) + " (dolares)";
-  totalProjectPrice /= 2; // cheaper price for Argentina
+  totalProjectPrice /= 2; // cheaper price for local clients
 
   if (dollarApiAvailable == true) {
     totalProjectPrice = (totalProjectPrice * dollar).toFixed();
@@ -643,7 +672,7 @@ function calculatePrice() {
   }
 }
 
-// ----------------------------------- Helper to multiply "service x quantity" when calculating the price
+// helper function to multiply "service x quantity" when calculating the price
 function serviceQuantityMultiplicator(service, quantity) {
   switch (service) {
     case "1":
@@ -684,12 +713,12 @@ function serviceQuantityMultiplicator(service, quantity) {
   }
 }
 
-// ----------------------------------- Helper to add "." between 3 digits of a number.
+// hHelper function to add "." between 3 digits of a number.
 function toCommas(value) {
   return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }
 
-// ------------------------------------------------------  Blue Dollar Value API
+// blue dollar value API
 let dollar = 0;
 let dollarApiAvailable = false;
 
@@ -700,8 +729,8 @@ const checkDollarValue = async () => {
     dollarApiAvailable = true;
     dollar = response.blue.value_sell;
     calculatePrice();
-  } catch (e) {
-    console.error(e);
+  } catch (error) {
+    console.error(error);
     dollarApiAvailable = false;
     calculatePrice();
   }
@@ -709,7 +738,7 @@ const checkDollarValue = async () => {
 
 checkDollarValue();
 
-// ------------------------------------------------------  Contact Form
+// ------------------------------------------------------  contact form
 
 const validateEmail = (emailToValidate) => {
   const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
@@ -719,6 +748,9 @@ const validateEmail = (emailToValidate) => {
 const formModal = document.getElementById("form-modal");
 const messageInModal = document.getElementById("form-status");
 const messageInput = document.getElementById("message");
+
+// helper function to show a message in the contact form
+
 const modalNotification = (error) => {
   messageInModal.style.color = "#b00";
   messageInModal.textContent = error;
@@ -728,8 +760,12 @@ const modalNotification = (error) => {
 
 const contactForm = document.getElementById("contact-form");
 
+// event listener for the contact form
+
 contactForm.addEventListener("submit", function (e) {
   e.preventDefault();
+
+  // validations
 
   const nameInput = document.getElementById("name");
   if (nameInput.value.length < 1 || nameInput.value.length > 30) {
@@ -778,9 +814,13 @@ contactForm.addEventListener("submit", function (e) {
     messageInput.style.border = "none";
   }
 
+  // this was changed to a fake success message because github pages will not be able to use php
+
   formModal.style.display = "block";
   messageInModal.style.color = "#080";
-  messageInModal.textContent = "Mensaje enviado con éxito."; //---- This is a fake success message because probably github pages will not be able to use php
+  messageInModal.textContent = "Mensaje enviado con éxito.";
+
+  // this was the original code back when the page was able to use php
 
   const formData = new FormData(contactForm);
 
@@ -791,7 +831,7 @@ contactForm.addEventListener("submit", function (e) {
     .then((response) => response.json())
     .then((data) => {
       if (data.success) {
-        messageInModal.textContent = "Mensaje enviado con éxito."; //--- This should be the real success message if the page is able to use php
+        messageInModal.textContent = "Mensaje enviado con éxito.";
         contactForm.reset();
       } else {
         modalNotification(
