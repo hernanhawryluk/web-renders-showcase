@@ -15,7 +15,7 @@
 
 ## Descripción
 
-Una plataforma web desarrollada desde cero para presentar y promocionar Renders de Arquitectura de alta calidad. Este proyecto se creó como parte de un emprendimiento propio y destaca por su diseño personalizado, ilustraciones únicas y una amplia gama de características implementadas con HTML, CSS y JavaScript. Tanto el diseño como el código y todo su contenido fueron desarrollados por mí mismo.
+Plataforma web diseñada desde cero para la presentación y promoción de renders arquitectónicos de alta calidad. Este proyecto fue desarrollado como parte de un emprendimiento propio y se distingue por su diseño completamente personalizado, ilustraciones originales y una sólida implementación técnica utilizando HTML, CSS y JavaScript. Todo el diseño visual, el desarrollo del código y el contenido fueron creados íntegramente por mí.
 
 ## Visita la página web
 

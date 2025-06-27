@@ -15,7 +15,7 @@
 
 ## Description
 
-A web platform developed from scratch to showcase and promote high-quality architectural renders. This project was created as part of my own venture and stands out for its custom design, unique illustrations, and a wide range of features implemented with HTML, CSS, and JavaScript. Both the design and the code, along with all its content, were developed by myself.
+A web platform designed from scratch to showcase and promote high-quality architectural renders. This project was developed as part of a personal venture and stands out for its fully customized design, original illustrations, and solid technical implementation using HTML, CSS, and JavaScript. All visual design, code development, and content were created entirely by me.
 
 ## Visit the web page
 
